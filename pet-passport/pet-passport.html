@@ -163,7 +163,11 @@
   <link
     href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&display=swap"
     rel="stylesheet" />
-
+    <!-- Font awesome cdn -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+      integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+      crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="/styles/navbar.css">
   <style>
     :root {
       --forest: #1a3a2a;
@@ -371,7 +375,7 @@
     }
 
     /* Nav */
-    nav {
+    /* nav {
       position: sticky;
       top: 0;
       z-index: 100;
@@ -419,7 +423,7 @@
     .nav-links a.active {
       color: var(--fern);
       border-bottom-color: var(--fern);
-    }
+    } */
 
     /* Breadcrumb */
     .breadcrumb {
@@ -1779,22 +1783,7 @@
 <body>
 
   <!-- ══ NAV ══ -->
-  <nav aria-label="Main navigation">
-    <div class="wrap nav-inner" style="display: flex; align-items: center; justify-content: space-between; width: 100%; box-sizing: border-box;">
-      <a href="/" class="nav-logo" aria-label="PawsPal Connect Home" style="display:flex; align-items:center; flex-shrink: 0;"><img src="/assets/logo-transparent.png" alt="PawsPal Logo" style="height:32px; margin-right:8px;">PawsPal<span>.</span>Connect</a>
-      <ul class="nav-links" role="list" style="display: flex; align-items: center; gap: 16px; list-style: none; margin-left: 24px; margin-right: auto; padding: 0;">
-        <li><a href="/">Home</a></li>
-        <li><a href="/pet-identity/pet-digital-identity.html">Pet Identity</a></li>
-        <li><a href="/pet-health-records">Health Records</a></li>
-        <li><a href="/ai-vet">AI Vet</a></li>
-        <li><a href="./pet-passport/pet-passport.html">Pet Passport</a></li>
-        <li><a href="/emergency-infrastructure">Emergency</a></li>
-        <li><a href="/blog/how-to-store-pet-health-records.html">Blog</a></li>
-      </ul>
-      <a href="/pet-identity/pet-digital-identity.html#create-pawid" class="btn btn-primary" style="display:inline-flex; align-items:center; justify-content:center; padding:10px 18px; background:#144b36; color:#ffffff !important; font-weight:600; border-radius:50px; text-decoration:none; font-size:0.95rem; margin-left:20px; flex-shrink: 0; transition:all 0.3s ease; white-space:nowrap;">Create PetID Free &rarr;</a>
-    </div>
-  </nav>
-
+<div id="navbar"></div>
   <!-- ══ BREADCRUMB ══ -->
   <div class="breadcrumb">
     <div class="wrap">
@@ -2775,7 +2764,7 @@
     });
   </script>
 
-
+<script src='/script/script.js'></script>
 </body>
 
 </html>
