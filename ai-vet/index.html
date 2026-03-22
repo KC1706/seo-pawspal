@@ -176,6 +176,16 @@
       gap: 12px;
       font-size: .82rem;
     }
+
+
+@media (max-width: 786px) {
+
+.btn-wrap{
+  flex-direction: column;
+  gap: 2px;
+  width: fit-content;
+}
+    }
 </style>
 </head>
 <body>
@@ -190,7 +200,7 @@
         <div class="hero-tag" style="background: rgba(255, 255, 255, .12); padding: 6px 16px; border-radius: 50px; font-size:.82rem; font-weight:600; color:var(--honey); margin-bottom:14px; display:inline-block;">BHARAT PET GPT MODULE</div>
         <h1>BharatPetGPT — 24/7 AI-Powered Intelligence for Your Pet's Health</h1>
         <p class="lead">Built directly into the core of the PawsPal Connect app, our contextual AI Vet instantly analyses your pet's precise EMR history, breed traits, and live symptoms to give you Vet-approved triage guidance in seconds.</p>
-        <div style="display:flex; gap:14px; margin-top:30px;">
+        <div style="display:flex; gap:14px; margin-top:30px;" class="btn-wrap">
           <a href="/pet-identity/pet-digital-identity.html#create-pawid" class="btn btn-amber">Register PAWID to Unlock AI</a>
           <a href="#features" class="btn btn-ghost-w">See AI Capabilities</a>
         </div>

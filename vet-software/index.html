@@ -176,6 +176,14 @@
       gap: 12px;
       font-size: .82rem;
     }
+        @media (max-width: 786px) {
+
+.btn-wrap{
+  flex-direction: column;
+  gap: 2px;
+  width: fit-content;
+}
+    }
 </style>
 </head>
 <body>
@@ -189,7 +197,7 @@
         <div class="hero-tag" style="background: rgba(255, 255, 255, .12); padding: 6px 16px; border-radius: 50px; font-size:.82rem; font-weight:600; color:var(--white); border-color:#cbd5e1; margin-bottom:14px; display:inline-block;">PAWSPAL B2B MODULE</div>
         <h1>VetOS by PawsPal — The Modern Operating System for Vet Clinics</h1>
         <p class="lead">Ditch fragmented, outdated clinic software. VetOS unites patient EMRs, instant lab assignments, smart appointment scheduling, and direct client 2-way chat on one blazing-fast dashboard.</p>
-        <div style="display:flex; gap:14px; margin-top:30px;">
+        <div style="display:flex; gap:14px; margin-top:30px;" class="btn-wrap">
           <a href="#" class="btn btn-amber">Request VetOS Demo →</a>
           <a href="#features" class="btn btn-ghost-w">Explore Modules</a>
         </div>

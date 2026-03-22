@@ -178,6 +178,13 @@
       gap: 12px;
       font-size: .82rem;
     }
+@media (max-width: 786px) {
+.btn-wrap{
+  flex-direction: column;
+  gap: 2px;
+  width: fit-content;
+}
+    }
 </style>
 </head>
 <body>
@@ -192,7 +199,7 @@
         <div class="hero-tag" style="background: rgba(255, 255, 255, .12); padding: 6px 16px; border-radius: 50px; font-size:.82rem; font-weight:600; color:var(--honey); margin-bottom:14px; display:inline-block;">PAWID HEALTH INFRASTRUCTURE</div>
         <h1>The Complete Electronic Medical Record (EMR) for Your Pet</h1>
         <p class="lead">Replace scattered paper files with a single, highly-secure digital health card. PAWID unifies vaccination timelines, lab reports, and prescriptions directly from the vet clinic straight to your phone.</p>
-        <div style="display:flex; gap:14px; margin-top:30px;">
+        <div style="display:flex; gap:14px; margin-top:30px;" class="btn-wrap">
           <a href="/pet-identity/pet-digital-identity.html#create-pawid" class="btn btn-amber">Set Up Health Record for Free</a>
           <a href="#features" class="btn btn-ghost-w">Explore EMR Features</a>
         </div>

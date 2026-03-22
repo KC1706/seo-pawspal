@@ -2446,7 +2446,7 @@
         <p class="mx-auto">From first download to globally verified PetID — the entire process takes under 5 minutes.
           Here is the complete Pet Digital Identity creation workflow.</p>
       </div>
-      <div class="flow-steps" role="list" aria-label="PetID creation workflow">
+      <div class="flow-steps" role="list" aria-label="PetID creation workflow" style="display: flex; justify-content: center; align-items: center; ">
         <div class="flow-step" role="listitem">
           <div class="flow-step-circle"><img src="/assets/seo_vet_software.png" style="width:100%; height:100%; object-fit:cover;" alt="App"></div>
           <div class="flow-step-label">Download App</div>
@@ -3204,6 +3204,69 @@
           border: 4px solid #f8fafc; border-top: 4px solid var(--primary);
           border-radius: 50%; width: 40px; height: 40px; animation: spin 1s linear infinite; margin: 0 auto 20px;
         }
+
+@media (max-width: 768px) {
+
+  /* making layout vertically */
+  .pawid-wizard-container {
+    flex-direction: column;
+    gap: 0;
+  }
+
+  /* sidebar into top progress bar */
+  .pw-sidebar {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 16px;
+    border-right: none;
+    border-bottom: 1px solid var(--border);
+  }
+
+  /* Making steps horizontal */
+  .pw-step-item {
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    margin-bottom: 0;
+  }
+
+  /* Removing vertical line */
+  .pw-step-item::after {
+    display: none !important;
+  }
+
+  .pw-step-text {
+    font-size: 0.7rem;
+    text-align: center;
+  }
+
+  /* Reduced circle size */
+  .pw-step-circle {
+    width: 24px;
+    height: 24px;
+    font-size: 0.7rem;
+  }
+
+  .pw-slide {
+    padding: 20px 16px;
+  }
+
+  .pw-row {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .pw-actions {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .pw-actions button {
+    width: 100%;
+  }
+
+}
       </style>
 
       
