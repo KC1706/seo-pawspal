@@ -420,27 +420,129 @@
     .hero-content > *:nth-child(5){animation-delay:.45s}
 
     @media(max-width:480px){.hero{padding:72px 0 60px}.btn{padding:10px 20px;font-size:.88rem}}
-  </style>
+  
+/* ── INTERNAL LINKS ──────────────────────────────── */
+    .links-section {
+      background: var(--forest);
+      padding: 48px 0;
+    }
+
+    .links-inner {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      justify-content: center;
+    }
+
+    .link-pill {
+      background: rgba(255, 255, 255, .09);
+      color: rgba(255, 255, 255, .85);
+      border: 1px solid rgba(255, 255, 255, .15);
+      padding: 10px 20px;
+      border-radius: 50px;
+      font-size: .88rem;
+      font-weight: 500;
+      transition: background .2s;
+    }
+
+    .link-pill:hover {
+      background: rgba(255, 255, 255, .18);
+      color: var(--white);
+    }
+
+    /* ── FOOTER ──────────────────────────────────────── */
+    footer {
+      background: var(--charcoal);
+      color: rgba(255, 255, 255, .6);
+      padding: 48px 0 28px;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 40px;
+      margin-bottom: 40px;
+    }
+
+    @media (max-width: 768px) {
+      .footer-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    .footer-brand {}
+
+    .footer-logo {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.4rem;
+      color: var(--white);
+      margin-bottom: 12px;
+    }
+
+    .footer-logo span {
+      color: var(--amber);
+    }
+
+    .footer-brand p {
+      font-size: .88rem;
+      line-height: 1.6;
+    }
+
+    .footer-col h4 {
+      color: var(--white);
+      font-size: .88rem;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      margin-bottom: 16px;
+      font-family: 'DM Sans', sans-serif;
+    }
+
+    .footer-col ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .footer-col ul li a {
+      font-size: .88rem;
+      color: rgba(255, 255, 255, .55);
+      transition: color .2s;
+    }
+
+    .footer-col ul li a:hover {
+      color: var(--honey);
+    }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(255, 255, 255, .08);
+      padding-top: 24px;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+      font-size: .82rem;
+    }
+</style>
 </head>
 <body>
 
 <!-- ══ NAV ══ -->
 <nav aria-label="Main navigation">
-  <div class="wrap nav-inner">
-    <a href="/" class="nav-logo">PawsPal<span>.</span>Connect</a>
-    <ul class="nav-links" role="list">
-      <li><a href="/">Home</a></li>
-      <li><a href="/platform/platform.html">Platform</a></li>
-      <li><a href="/petos.html" class="active">PetOS</a></li>
-      <li><a href="/pet-digital-identity.html">Pet Identity</a></li>
-      <li><a href="/ai-vet/ai-vet.html">AI Vet</a></li>
-      <li><a href="/pet-passport.html">Pet Passport</a></li>
-      <li><a href="/dashboard/dashboard.html">My Pet</a></li>
-      <li><a href="/vision/vision.html">Investors</a></li>
-    </ul>
-    <a href="/create-petid.html" class="btn btn-primary">Create PetID Free →</a>
-  </div>
-</nav>
+    <div class="wrap nav-inner" style="display: flex; align-items: center; justify-content: space-between; width: 100%; box-sizing: border-box;">
+      <a href="/" class="nav-logo" aria-label="PawsPal Connect Home" style="display:flex; align-items:center; flex-shrink: 0;"><img src="/assets/logo-transparent.png" alt="PawsPal Logo" style="height:32px; margin-right:8px;">PawsPal<span>.</span>Connect</a>
+      <ul class="nav-links" role="list" style="display: flex; align-items: center; gap: 16px; list-style: none; margin-left: 24px; margin-right: auto; padding: 0;">
+        <li><a href="/">Home</a></li>
+        <li><a href="/pet-identity/pet-digital-identity.html">Pet Identity</a></li>
+        <li><a href="/pet-health-records">Health Records</a></li>
+        <li><a href="/ai-vet">AI Vet</a></li>
+        <li><a href="./pet-passport/pet-passport.html">Pet Passport</a></li>
+        <li><a href="/emergency-infrastructure">Emergency</a></li>
+        <li><a href="/blog/how-to-store-pet-health-records.html">Blog</a></li>
+      </ul>
+      <a href="/pet-identity/pet-digital-identity.html#create-pawid" class="btn btn-primary" style="display:inline-flex; align-items:center; justify-content:center; padding:10px 18px; background:#144b36; color:#ffffff !important; font-weight:600; border-radius:50px; text-decoration:none; font-size:0.95rem; margin-left:20px; flex-shrink: 0; transition:all 0.3s ease; white-space:nowrap;">Create PetID Free &rarr;</a>
+    </div>
+  </nav>
 
 <!-- ══ BREADCRUMB ══ -->
 <div class="breadcrumb">
@@ -503,7 +605,7 @@
       <a href="/petos.html" class="ppill act"><span class="pi">🌐</span>PetOS</a>
       <a href="/pet-digital-identity.html" class="ppill"><span class="pi">🪪</span>Pet Identity</a>
       <a href="/dashboard/dashboard.html" class="ppill"><span class="pi">📊</span>My Pet</a>
-      <a href="/ai-vet/ai-vet.html" class="ppill"><span class="pi">🤖</span>AI Vet</a>
+      <a href="/ai-vet" class="ppill"><span class="pi">🤖</span>AI Vet</a>
       <a href="/pet-passport.html" class="ppill"><span class="pi">🛂</span>Pet Passport</a>
       <a href="/blockchain-registry.html" class="ppill"><span class="pi">🔐</span>Blockchain</a>
       <a href="/partners.html" class="ppill"><span class="pi">🤝</span>Partners</a>
@@ -758,7 +860,7 @@
             <li>Breed-specific insights</li>
             <li>Voice &amp; chat-based AI</li>
           </ul>
-          <a href="/ai-vet/ai-vet.html" class="mod-link">Explore AI Vet →</a>
+          <a href="/ai-vet" class="mod-link">Explore AI Vet →</a>
         </div>
       </article>
 
@@ -1276,7 +1378,7 @@
       <a href="/petos.html" class="sl">🌐 PetOS</a>
       <a href="/pet-digital-identity.html" class="sl">🪪 Pet Digital Identity</a>
       <a href="/dashboard/dashboard.html" class="sl">📊 My Pet Dashboard</a>
-      <a href="/ai-vet/ai-vet.html" class="sl">🤖 AI Vet — BharatPetGPT</a>
+      <a href="/ai-vet" class="sl">🤖 AI Vet — BharatPetGPT</a>
       <a href="/pet-passport.html" class="sl">🛂 Pet Passport India</a>
       <a href="/blockchain-registry.html" class="sl">🔐 Blockchain Registry</a>
       <a href="/smart-collar.html" class="sl">📡 Smart Collar IoT</a>
@@ -1284,9 +1386,9 @@
       <a href="/vision/vision.html" class="sl">🚀 Investor Vision</a>
       <a href="/create-petid.html" class="sl">✨ Create PetID</a>
       <a href="/city/bangalore" class="sl">📍 Bangalore</a>
-      <a href="/city/mumbai" class="sl">📍 Mumbai</a>
-      <a href="/city/delhi" class="sl">📍 Delhi</a>
-      <a href="/city/hyderabad" class="sl">📍 Hyderabad</a>
+      
+      
+      
       <a href="/blog/what-is-petos" class="sl">📖 What is PetOS?</a>
       <a href="/blog/petos-vs-pet-apps" class="sl">📖 PetOS vs Pet Apps</a>
       <a href="/blog/how-pet-digital-identity-works" class="sl">📖 How Pet Identity Works</a>
@@ -1298,56 +1400,109 @@
 </nav>
 
 <!-- ══ FOOTER ══ -->
-<footer role="contentinfo">
-  <div class="wrap">
-    <div class="fg">
-      <div>
-        <div class="fl-logo">PawsPal<span>.</span>Connect</div>
-        <p style="font-size:.86rem;line-height:1.6;">The creator of PetOS — the world's first Pet Operating System. Building global digital infrastructure for pet identity, health, AI veterinary intelligence, travel, and emergency services.</p>
-        <p style="margin-top:10px;font-size:.8rem;">© 2026 Paws Pal Connect Pvt. Ltd. · Bengaluru, India</p>
-      </div>
-      <div class="fc">
-        <h4>PetOS Platform</h4>
-        <ul>
-          <li><a href="/petos.html">PetOS Overview</a></li>
-          <li><a href="/pet-digital-identity.html">Pet Digital Identity</a></li>
-          <li><a href="/dashboard/dashboard.html">My Pet Dashboard</a></li>
-          <li><a href="/ai-vet/ai-vet.html">AI Vet (BharatPetGPT)</a></li>
-          <li><a href="/pet-passport.html">Pet Passport</a></li>
-          <li><a href="/blockchain-registry.html">Blockchain Registry</a></li>
-        </ul>
-      </div>
-      <div class="fc">
-        <h4>For Partners</h4>
-        <ul>
-          <li><a href="/partners.html">VetOS for Clinics</a></li>
-          <li><a href="/partners.html">API Documentation</a></li>
-          <li><a href="/partners.html">Insurance Partners</a></li>
-          <li><a href="/partners.html">Government APIs</a></li>
-          <li><a href="/vision/vision.html">Investor Deck</a></li>
-        </ul>
-      </div>
-      <div class="fc">
-        <h4>Learn</h4>
-        <ul>
-          <li><a href="/blog">Pet Care Blog</a></li>
-          <li><a href="/blog/what-is-petos">What is PetOS?</a></li>
-          <li><a href="/blog/how-pet-digital-identity-works">Pet Identity Guide</a></li>
-          <li><a href="/blog/ai-vet-vs-physical-vet">AI Vet vs Vet</a></li>
-          <li><a href="/sitemap.xml">Sitemap</a></li>
-        </ul>
+<nav class="links-section" aria-label="Site sections">
+    <div class="wrap">
+      <p
+        style="color:rgba(255,255,255,.5); font-size:.8rem; text-align:center; text-transform:uppercase; letter-spacing:.08em; margin-bottom:20px;">
+        Explore the PawsPal Ecosystem</p>
+      <div class="links-inner">
+        <a href="/pet-identity/pet-digital-identity.html" class="link-pill">Pet Digital Identity</a>
+        <a href="/pet-health-records" class="link-pill">Pet Health Records</a>
+        <a href="/ai-vet" class="link-pill">AI Vet Consultation</a>
+        <a href="./pet-passport/pet-passport.html" class="link-pill">Pet Passport India</a>
+        <a href="/emergency-infrastructure" class="link-pill">Pet Emergency Services</a>
+        <a href="/vet-software" class="link-pill">Veterinary Software (VetOS)</a>
+        <a href="/pet-marketplace" class="link-pill">Pet Marketplace</a>
+        <a href="/pet-adoption" class="link-pill">Pet Adoption Platform</a>
+        <a href="./city/bangalore.html" class="link-pill">Pet Services Bangalore</a>
+        <a href="/blog/how-to-store-pet-health-records.html" class="link-pill">Store Pet Records Guide</a>
+        <a href="./blog/best-pet-care-app-india.html" class="link-pill">Best Pet Apps India 2026</a>
+        <a href="./blog/pet-emergency-guide.html" class="link-pill">Pet Emergency Guide</a>
+        <a href="./blog/dog-health-tracking.html" class="link-pill">Dog Health Tracking</a>
       </div>
     </div>
-    <div class="fb">
-      <span>PetOS — Built for the world's 1 billion+ pets · Not an app. Infrastructure.</span>
-      <span>
-        <a href="/privacy" style="color:rgba(255,255,255,.35);">Privacy</a> ·
-        <a href="/terms" style="color:rgba(255,255,255,.35);">Terms</a> ·
-        <a href="/sitemap.xml" style="color:rgba(255,255,255,.35);">Sitemap</a>
-      </span>
+  </nav>
+
+  <!-- ✅ FOOTER -->
+  <footer role="contentinfo">
+    <div class="wrap">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="footer-logo">PawsPal<span>.</span>Connect</div>
+          <p>India's First Pet Operating System — giving every pet a permanent digital identity, intelligent health
+            management, and emergency care readiness.</p>
+          <p style="margin-top:12px; font-size:.82rem;">© 2026 PawsPal Connect Pvt. Ltd. · Bengaluru, India</p>
+        </div>
+        <div class="footer-col">
+          <h4>Platform</h4>
+          <ul>
+            <li><a href="/pawid/pawid.html">PAWID Overview</a></li>
+            <li><a href="/pet-identity/pet-digital-identity.html">Pet Digital Identity</a></li>
+            <li><a href="/pet-health-records/index.html">Health Records</a></li>
+            <li><a href="/ai-vet/index.html">AI Vet</a></li>
+            <li><a href="/pet-passport/pet-passport.html">Pet Passport</a></li>
+            <li><a href="/emergency-infrastructure/index.html">Emergency Services</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>For Vets</h4>
+          <ul>
+            <li><a href="/vet-software/index.html">VetOS Software</a></li>
+            <li><a href="/vet-software/index.html#join">Join as a Vet</a></li>
+            <li><a href="/vet-software/index.html#community">Vet Community</a></li>
+            <li><a href="/vet-software/index.html#resources">Clinical Resources</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Learn</h4>
+          <ul>
+            <li><a href="/blog/how-to-store-pet-health-records.html">Pet Care Blog</a></li>
+            <li><a href="/blog/pet-emergency-guide.html">Emergency Guide</a></li>
+            <li><a href="/blog/dog-health-tracking.html">Dog Health Tracking</a></li>
+            <li><a href="/pet-os/pet-os.html">What is PetOS?</a></li>
+            <li><a href="/platform/platform.html">About Us</a></li>
+            <li><a href="/platform/platform.html#contact">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>Built with ❤️ for India's 50 million pets</span>
+        <span>
+          <a href="/#privacy" style="color:rgba(255,255,255,.4);">Privacy</a> ·
+          <a href="/#terms" style="color:rgba(255,255,255,.4);">Terms</a> ·
+          <a href="/sitemap.xml" style="color:rgba(255,255,255,.4);">Sitemap</a>
+        </span>
+      </div>
     </div>
-  </div>
-</footer>
+  </footer>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+    let currentPath = window.location.pathname;
+    if (currentPath.endsWith('/')) currentPath = currentPath.slice(0, -1);
+    
+    document.querySelectorAll('.link-pill').forEach(pill => {
+        let href = pill.getAttribute('href');
+        if (!href) return;
+        
+        let pathName = href;
+        if (href.startsWith('.')) {
+            let leaf = href.split('/').pop().replace('.html', '');
+            if (currentPath.includes(leaf)) {
+                pill.style.display = 'none';
+            }
+        } else {
+            if (pathName.endsWith('/')) pathName = pathName.slice(0, -1);
+            if (currentPath === pathName || currentPath === pathName + '/index.html' || currentPath.includes(pathName)) {
+                if(pathName !== '/blog' && pathName !== '/') {
+                   pill.style.display = 'none';
+                }
+            }
+        }
+    });
+});
+</script>
+
 
 </body>
 </html>

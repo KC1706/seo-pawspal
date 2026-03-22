@@ -287,8 +287,14 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      flex-wrap: wrap;
+      flex-wrap: nowrap;
       gap: 12px;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+    }
+    .nav-inner::-webkit-scrollbar {
+      display: none;
     }
 
     .nav-logo {
@@ -497,6 +503,10 @@
     }
 
     .card-icon {
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       font-size: 2.2rem;
       margin-bottom: 16px;
     }
@@ -561,6 +571,10 @@
     }
 
     .feature-visual {
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       background: linear-gradient(145deg, var(--mist), var(--cream));
       border-radius: 20px;
       aspect-ratio: 4/3;
@@ -1167,18 +1181,21 @@
 
   <!-- ✅ NAVIGATION -->
   <nav aria-label="Main navigation">
-    <div class="wrap nav-inner">
-      <a href="/" class="nav-logo" aria-label="PawsPal Connect Home">PawsPal<span>.</span>Connect</a>
-      <ul class="nav-links" role="list">
-        <li><a href="./index.html">Home</a></li>
-        <li><a href="./pet-identity/pet-digital-identity.html">Pet Identity</a></li>
-        <li><a href="./pet-health-records/pet-health-records.html">Health Records</a></li>
-        <li><a href="./ai-vet/ai-vet.html">AI Vet</a></li>
+    <div class="wrap nav-inner" style="display: flex; align-items: center; justify-content: space-between; width: 100%; box-sizing: border-box;">
+      <a href="/" class="nav-logo" aria-label="PawsPal Connect Home" style="display:flex; align-items:center; flex-shrink: 0;">
+        <img src="/assets/logo-transparent.png" alt="PawsPal Logo" style="height:32px; margin-right:8px;">
+        PawsPal<span>.</span>Connect
+      </a>
+      <ul class="nav-links" role="list" style="display: flex; align-items: center; gap: 16px; list-style: none; margin-left: 24px; margin-right: auto; padding: 0;">
+        <li><a href="/">Home</a></li>
+        <li><a href="/pet-identity/pet-digital-identity.html">Pet Identity</a></li>
+        <li><a href="/pet-health-records">Health Records</a></li>
+        <li><a href="/ai-vet">AI Vet</a></li>
         <li><a href="./pet-passport/pet-passport.html">Pet Passport</a></li>
-        <li><a href="./emergency-infrastructure/pet-travel-checker.html">Emergency</a></li>
-        <li><a href="./blog/how-to-store-pet-health-records.html">Blog</a></li>
+        <li><a href="/emergency-infrastructure">Emergency</a></li>
+        <li><a href="/blog/how-to-store-pet-health-records.html">Blog</a></li>
       </ul>
-      <a href="#create-petid" class="btn btn-primary">Create PetID Free →</a>
+      <a href="/pet-identity/pet-digital-identity.html#create-pawid" class="btn btn-primary" style="display:inline-flex; align-items:center; justify-content:center; padding:10px 18px; background:#144b36; color:#ffffff !important; font-weight:600; border-radius:50px; text-decoration:none; font-size:0.95rem; margin-left:20px; flex-shrink: 0; transition:all 0.3s ease; white-space:nowrap;">Create PetID Free &rarr;</a>
     </div>
   </nav>
 
@@ -1201,7 +1218,7 @@
   <!-- ✅ HERO — Keyword-rich H1 -->
   <header class="hero" role="banner">
     <div class="wrap hero-content">
-      <div class="hero-tag">🐾 India's First Pet Operating System</div>
+      <div class="hero-tag"> India's First Pet Operating System</div>
       <h1>
         Pet Digital Identity, <em>Health Records</em><br />
         & AI Vet — All in One Platform
@@ -1212,7 +1229,7 @@
         and powering emergency care. India's leading PetOS.
       </p>
       <div class="hero-actions">
-        <a href="#create-petid" class="btn btn-amber">Create Free PetID →</a>
+        <a href="/pet-identity/pet-digital-identity.html#create-pawid" class="btn btn-amber">Create Free PetID →</a>
         <a href="#how-it-works" class="btn btn-outline" style="color:#fff;border-color:rgba(255,255,255,.4)">See How It
           Works</a>
       </div>
@@ -1240,11 +1257,11 @@
   <!-- ✅ TRUST BAR -->
   <div class="trust-bar" role="complementary" aria-label="Trust indicators">
     <div class="wrap trust-inner">
-      <div class="trust-item"><span class="trust-icon">🏆</span> India's #1 Pet Health Platform</div>
-      <div class="trust-item"><span class="trust-icon">🔒</span> ISO 27001 Secured Data</div>
-      <div class="trust-item"><span class="trust-icon">✅</span> Vet-Verified Records</div>
-      <div class="trust-item"><span class="trust-icon">🌍</span> Globally Recognised Pet Passport</div>
-      <div class="trust-item"><span class="trust-icon">⚡</span> 24/7 AI Emergency Support</div>
+      <div class="trust-item"><span class="trust-icon"></span> India's #1 Pet Health Platform</div>
+      <div class="trust-item"><span class="trust-icon"></span> ISO 27001 Secured Data</div>
+      <div class="trust-item"><span class="trust-icon"></span> Vet-Verified Records</div>
+      <div class="trust-item"><span class="trust-icon"></span> Globally Recognised Pet Passport</div>
+      <div class="trust-item"><span class="trust-icon"></span> 24/7 AI Emergency Support</div>
     </div>
   </div>
 
@@ -1274,11 +1291,12 @@
             <li>Connects 2,400+ verified veterinarians across India</li>
           </ul>
           <div style="margin-top:28px; display:flex; gap:14px; flex-wrap:wrap;">
-            <a href="#create-petid" class="btn btn-primary">Get Started Free</a>
+            <a href="/pet-identity/pet-digital-identity.html#create-pawid" class="btn btn-primary">Get Started Free</a>
             <a href="/petos" class="btn btn-outline">Learn About PetOS →</a>
           </div>
         </div>
-        <div class="feature-visual" role="img" aria-label="PAWID platform illustration">🐶</div>
+        <div class="feature-visual" role="img" aria-label="PAWID platform illustration"><img
+            src="/assets/seo_adoption.png" style="width:100%; height:100%; object-fit:cover;" alt="Platform"></div>
       </div>
     </div>
   </section>
@@ -1294,13 +1312,15 @@
       </div>
       <div class="grid-4">
         <div class="card">
-          <div class="card-icon">🪪</div>
+          <div class="card-icon"><img src="/assets/blog_app.png" style="width:100%; height:100%; object-fit:cover;"
+              alt="ID"></div>
           <h3>Pet Digital Identity</h3>
-          <a href="./pet-identity/pet-digital-identity.html"
+          <a href="/pet-identity/pet-digital-identity.html"
             style="display:inline-block; margin-top:14px; font-weight:600; font-size:.88rem;">Learn More →</a>
         </div>
         <div class="card">
-          <div class="card-icon">📋</div>
+          <div class="card-icon"><img src="/assets/seo_health_record.png"
+              style="width:100%; height:100%; object-fit:cover;" alt="Health"></div>
           <h3>Pet Health Records</h3>
           <p>Complete digital health history — vaccinations, lab reports, prescriptions, deworming schedules, and vet
             notes.</p>
@@ -1308,7 +1328,8 @@
             style="display:inline-block; margin-top:14px; font-weight:600; font-size:.88rem;">Learn More →</a>
         </div>
         <div class="card">
-          <div class="card-icon">🤖</div>
+          <div class="card-icon"><img src="/assets/seo_ai_vet.png" style="width:100%; height:100%; object-fit:cover;"
+              alt="AI"></div>
           <h3>AI Vet (BharatPetGPT)</h3>
           <p>24/7 intelligent veterinary support — symptom analysis, emergency guidance, and lab report interpretation.
           </p>
@@ -1316,7 +1337,8 @@
             →</a>
         </div>
         <div class="card">
-          <div class="card-icon">🛂</div>
+          <div class="card-icon"><img src="/assets/seo_pet_travel.png"
+              style="width:100%; height:100%; object-fit:cover;" alt="Passport"></div>
           <h3>Global Pet Passport</h3>
           <p>A vet-verified, QR-enabled document accepted internationally for pet travel and relocation.</p>
           <a href="/pet-passport"
@@ -1330,7 +1352,8 @@
   <section class="section feature-section" id="pet-digital-identity" aria-labelledby="identity-heading">
     <div class="wrap">
       <div class="grid-2">
-        <div class="feature-visual" role="img" aria-label="Pet digital identity card">🪪</div>
+        <div class="feature-visual" role="img" aria-label="Pet digital identity card"><img src="/assets/blog_app.png"
+            style="width:100%; height:100%; object-fit:cover;" alt="Pet ID"></div>
         <div>
           <span class="feature-label">Pet Digital Identity</span>
           <h2 id="identity-heading">What is Pet Digital Identity — and Why Your Pet Needs One</h2>
@@ -1353,8 +1376,9 @@
             <li>Lost pet recovery system built in</li>
           </ul>
           <div style="margin-top:28px; display:flex; gap:14px; flex-wrap:wrap;">
-            <a href="#create-petid" class="btn btn-primary">Create Free PetID →</a>
-            <a href="./pet-identity/pet-digital-identity.html" class="btn btn-outline">Learn More About Pet Identity
+            <a href="/pet-identity/pet-digital-identity.html#create-pawid" class="btn btn-primary">Create Free PetID
+              →</a>
+            <a href="/pet-identity/pet-digital-identity.html" class="btn btn-outline">Learn More About Pet Identity
               →</a>
           </div>
         </div>
@@ -1374,25 +1398,25 @@
       <div class="grid-4">
         <div class="step-card">
           <div class="step-number">1</div>
-          <div class="step-icon">📲</div>
+          <div class="step-icon"></div>
           <h3>Download PAWID App</h3>
           <p>Available on iOS and Android. Sign up with your mobile number in 60 seconds.</p>
         </div>
         <div class="step-card">
           <div class="step-number">2</div>
-          <div class="step-icon">🐾</div>
+          <div class="step-icon"></div>
           <h3>Create Pet Profile</h3>
           <p>Add your pet's name, breed, date of birth, photo, and microchip ID if available.</p>
         </div>
         <div class="step-card">
           <div class="step-number">3</div>
-          <div class="step-icon">💉</div>
+          <div class="step-icon"></div>
           <h3>Upload Health Records</h3>
           <p>Add vaccination history, lab reports, prescriptions, and vet consultation notes.</p>
         </div>
         <div class="step-card">
           <div class="step-number">4</div>
-          <div class="step-icon">✅</div>
+          <div class="step-icon"></div>
           <h3>Get Verified PetID</h3>
           <p>A certified vet verifies your records and your pet receives a globally recognised PAWID.</p>
         </div>
@@ -1409,36 +1433,36 @@
       </div>
       <div class="grid-3">
         <div class="benefit-card">
-          <div class="icon">🏥</div>
+          <div class="icon"></div>
           <h3>Faster Emergency Care</h3>
           <p>In a pet emergency, every second counts. Vets access your pet's full history instantly — no paperwork, no
             delays.</p>
         </div>
         <div class="benefit-card">
-          <div class="icon">✈️</div>
+          <div class="icon"></div>
           <h3>Stress-Free Pet Travel</h3>
           <p>Our globally recognised pet passport meets international travel requirements. Take your pet abroad with
             confidence.</p>
         </div>
         <div class="benefit-card">
-          <div class="icon">🔍</div>
+          <div class="icon"></div>
           <h3>Lost Pet Recovery</h3>
           <p>QR-enabled PAWID helps Good Samaritans contact you instantly if your pet is found — with verified ownership
             proof.</p>
         </div>
         <div class="benefit-card">
-          <div class="icon">💊</div>
+          <div class="icon"></div>
           <h3>Never Miss Vaccinations</h3>
           <p>Smart reminders for vaccines, deworming, and health checkups ensure your pet stays protected year-round.
           </p>
         </div>
         <div class="benefit-card">
-          <div class="icon">🩺</div>
+          <div class="icon"></div>
           <h3>Multi-Vet Continuity</h3>
           <p>Switching vets? Every doctor sees the full, verified history — no repeated tests, no information gaps.</p>
         </div>
         <div class="benefit-card">
-          <div class="icon">📊</div>
+          <div class="icon"></div>
           <h3>Long-Term Health Insights</h3>
           <p>AI-powered health analytics track weight, vitals, and behaviour trends — catching issues before they become
             serious.</p>
@@ -1465,19 +1489,19 @@
           </p>
           <div class="records-grid" style="margin-top:24px;">
             <div class="record-item">
-              <h4>💉 Vaccination Records</h4>
+              <h4> Vaccination Records</h4>
               <p>Complete history with due-date reminders for core and non-core vaccines.</p>
             </div>
             <div class="record-item">
-              <h4>🧪 Lab Reports</h4>
+              <h4> Lab Reports</h4>
               <p>Upload and store blood work, urine analysis, imaging, and pathology results.</p>
             </div>
             <div class="record-item">
-              <h4>💊 Prescriptions</h4>
+              <h4> Prescriptions</h4>
               <p>All medications with dosage, duration, and prescribing vet details — searchable instantly.</p>
             </div>
             <div class="record-item">
-              <h4>🩺 Vet Consultation Notes</h4>
+              <h4> Vet Consultation Notes</h4>
               <p>Structured notes from every consultation, linked to the attending vet's verified profile.</p>
             </div>
             <div class="record-item">
@@ -1485,12 +1509,14 @@
               <p>Track weight, height, and growth milestones against breed-specific benchmarks.</p>
             </div>
             <div class="record-item">
-              <h4>🦷 Dental & Grooming</h4>
+              <h4> Dental & Grooming</h4>
               <p>Dental cleanings, grooming history, and preventive care log in one place.</p>
             </div>
           </div>
         </div>
-        <div class="feature-visual" role="img" aria-label="Pet health records illustration">📋</div>
+        <div class="feature-visual" role="img" aria-label="Pet health records illustration"><img
+            src="/assets/seo_health_record.png" style="width:100%; height:100%; object-fit:cover;" alt="Health Records">
+        </div>
       </div>
     </div>
   </section>
@@ -1500,7 +1526,8 @@
     <div class="wrap">
       <div class="grid-2">
         <div class="feature-visual" style="background:linear-gradient(145deg,#e8f5f0,#d0ecde);" role="img"
-          aria-label="AI Vet BharatPetGPT">🤖</div>
+          aria-label="AI Vet BharatPetGPT"><img src="/assets/seo_ai_vet.png"
+            style="width:100%; height:100%; object-fit:cover;" alt="AI Vet"></div>
         <div>
           <div class="ai-tag">⚡ Powered by AI</div>
           <h2 id="aivet-heading">BharatPetGPT — India's First AI Vet for Pet Health</h2>
@@ -1515,7 +1542,7 @@
           </p>
           <div class="ai-features">
             <div class="ai-feature">
-              <div class="ai-feature-icon">🔍</div>
+              <div class="ai-feature-icon"></div>
               <div>
                 <h4>Instant Symptom Analysis</h4>
                 <p>Describe symptoms in plain language — get a structured differential diagnosis and recommended actions
@@ -1523,7 +1550,7 @@
               </div>
             </div>
             <div class="ai-feature">
-              <div class="ai-feature-icon">🚨</div>
+              <div class="ai-feature-icon"></div>
               <div>
                 <h4>Emergency Triage Guidance</h4>
                 <p>AI assesses severity, advises first-aid steps, and connects you to the nearest emergency vet clinic
@@ -1531,7 +1558,7 @@
               </div>
             </div>
             <div class="ai-feature">
-              <div class="ai-feature-icon">🧪</div>
+              <div class="ai-feature-icon"></div>
               <div>
                 <h4>Lab Report Interpretation</h4>
                 <p>Upload blood reports, urinalysis or imaging — AI explains results in plain language and flags
@@ -1539,7 +1566,7 @@
               </div>
             </div>
             <div class="ai-feature">
-              <div class="ai-feature-icon">🛡️</div>
+              <div class="ai-feature-icon">️</div>
               <div>
                 <h4>Preventive Care Recommendations</h4>
                 <p>Personalised seasonal care plans, diet suggestions, and breed-specific preventive protocols.</p>
@@ -1607,7 +1634,8 @@
             </div>
           </div>
         </div>
-        <div class="feature-visual" role="img" aria-label="Pet passport with QR code">🛂</div>
+        <div class="feature-visual" role="img" aria-label="Pet travel passport"><img src="/assets/seo_pet_travel.png"
+            style="width:100%; height:100%; object-fit:cover;" alt="Pet Passport"></div>
       </div>
     </div>
   </section>
@@ -1617,7 +1645,8 @@
     <div class="wrap">
       <div class="grid-2">
         <div class="feature-visual" style="background:linear-gradient(145deg,#fff0ea,#ffe0cc);" role="img"
-          aria-label="Pet emergency services">🚨</div>
+          aria-label="Pet emergency services"><img src="/assets/blog_emergency.png"
+            style="width:100%; height:100%; object-fit:cover;" alt="Emergency"></div>
         <div>
           <span class="feature-label">Emergency Care</span>
           <h2 id="emergency-heading">Pet Emergency Services — When Every Second Counts</h2>
@@ -1645,8 +1674,8 @@
       <h2 id="cta-heading">Create Your Pet's Digital Identity Today — It's Free</h2>
       <p>Join 50,000+ pet owners who've given their pets a secure digital identity. Setup takes less than 5 minutes.</p>
       <div class="cta-actions">
-        <a href="#" class="btn btn-white">📱 Download on iOS</a>
-        <a href="#" class="btn btn-white">📱 Download on Android</a>
+        <a href="#" class="btn btn-white"> Download on iOS</a>
+        <a href="#" class="btn btn-white"> Download on Android</a>
         <a href="/vet-software" class="btn btn-outline" style="color:#fff;border-color:rgba(255,255,255,.5);">I'm a
           Veterinarian →</a>
       </div>
@@ -1729,7 +1758,8 @@
       </div>
       <div class="grid-3">
         <article class="blog-card" itemscope itemtype="https://schema.org/Article">
-          <div class="blog-thumb green">🐕</div>
+          <div class="blog-thumb green" style="overflow:hidden; padding:0;"><img src="/assets/seo_adoption.png"
+              style="width:100%; height:100%; object-fit:cover;" alt="Blog 1"></div>
           <div class="blog-body">
             <div class="blog-tag">Health Records</div>
             <h3 itemprop="headline"><a href="/blog/how-to-store-pet-health-records" style="color:var(--forest);">How to
@@ -1740,7 +1770,8 @@
           </div>
         </article>
         <article class="blog-card" itemscope itemtype="https://schema.org/Article">
-          <div class="blog-thumb amber">🆘</div>
+          <div class="blog-thumb amber" style="overflow:hidden; padding:0;"><img src="/assets/blog_emergency.png"
+              style="width:100%; height:100%; object-fit:cover;" alt="Blog 2"></div>
           <div class="blog-body">
             <div class="blog-tag">Emergency Care</div>
             <h3 itemprop="headline"><a href="/blog/pet-emergency-guide" style="color:var(--forest);">Pet Emergency
@@ -1751,7 +1782,8 @@
           </div>
         </article>
         <article class="blog-card" itemscope itemtype="https://schema.org/Article">
-          <div class="blog-thumb purple">📱</div>
+          <div class="blog-thumb purple" style="overflow:hidden; padding:0;"><img src="/assets/blog_tracking.png"
+              style="width:100%; height:100%; object-fit:cover;" alt="Blog 3"></div>
           <div class="blog-body">
             <div class="blog-tag">App Reviews</div>
             <h3 itemprop="headline"><a href="/blog/best-pet-care-app-india" style="color:var(--forest);">Best Pet Care
@@ -1775,19 +1807,16 @@
         style="color:rgba(255,255,255,.5); font-size:.8rem; text-align:center; text-transform:uppercase; letter-spacing:.08em; margin-bottom:20px;">
         Explore the PawsPal Ecosystem</p>
       <div class="links-inner">
-        <a href="./pet-identity/pet-digital-identity.html" class="link-pill">Pet Digital Identity</a>
-        <a href="./pet-health-records/pet-health-records.html" class="link-pill">Pet Health Records</a>
-        <a href="./ai-vet/ai-vet.html" class="link-pill">AI Vet Consultation</a>
+        <a href="/pet-identity/pet-digital-identity.html" class="link-pill">Pet Digital Identity</a>
+        <a href="/pet-health-records" class="link-pill">Pet Health Records</a>
+        <a href="/ai-vet" class="link-pill">AI Vet Consultation</a>
         <a href="./pet-passport/pet-passport.html" class="link-pill">Pet Passport India</a>
-        <a href="./emergency-infrastructure/pet-travel-checker.html" class="link-pill">Pet Emergency Services</a>
-        <a href="./vet-software/vet-software.html" class="link-pill">Veterinary Software (VetOS)</a>
-        <a href="./pet-marketplace/pet-marketplace.html" class="link-pill">Pet Marketplace</a>
-        <a href="./pet-adoption/pet-adoption.html" class="link-pill">Pet Adoption Platform</a>
+        <a href="/emergency-infrastructure" class="link-pill">Pet Emergency Services</a>
+        <a href="/vet-software" class="link-pill">Veterinary Software (VetOS)</a>
+        <a href="/pet-marketplace" class="link-pill">Pet Marketplace</a>
+        <a href="/pet-adoption" class="link-pill">Pet Adoption Platform</a>
         <a href="./city/bangalore.html" class="link-pill">Pet Services Bangalore</a>
-        <a href="./city/mumbai.html" class="link-pill">Pet Services Mumbai</a>
-        <a href="./city/delhi.html" class="link-pill">Pet Services Delhi</a>
-        <a href="./city/hyderabad.html" class="link-pill">Pet Services Hyderabad</a>
-        <a href="./blog/how-to-store-pet-health-records.html" class="link-pill">Store Pet Records Guide</a>
+        <a href="/blog/how-to-store-pet-health-records.html" class="link-pill">Store Pet Records Guide</a>
         <a href="./blog/best-pet-care-app-india.html" class="link-pill">Best Pet Apps India 2026</a>
         <a href="./blog/pet-emergency-guide.html" class="link-pill">Pet Emergency Guide</a>
         <a href="./blog/dog-health-tracking.html" class="link-pill">Dog Health Tracking</a>
@@ -1808,40 +1837,40 @@
         <div class="footer-col">
           <h4>Platform</h4>
           <ul>
-            <li><a href="/pawid">PAWID Overview</a></li>
-            <li><a href="/pet-digital-identity">Pet Digital Identity</a></li>
-            <li><a href="/pet-health-records">Health Records</a></li>
-            <li><a href="/ai-vet">AI Vet</a></li>
-            <li><a href="/pet-passport">Pet Passport</a></li>
-            <li><a href="/pet-emergency">Emergency Services</a></li>
+            <li><a href="/pawid/pawid.html">PAWID Overview</a></li>
+            <li><a href="/pet-identity/pet-digital-identity.html">Pet Digital Identity</a></li>
+            <li><a href="/pet-health-records/index.html">Health Records</a></li>
+            <li><a href="/ai-vet/index.html">AI Vet</a></li>
+            <li><a href="/pet-passport/pet-passport.html">Pet Passport</a></li>
+            <li><a href="/emergency-infrastructure/index.html">Emergency Services</a></li>
           </ul>
         </div>
         <div class="footer-col">
           <h4>For Vets</h4>
           <ul>
-            <li><a href="/vet-software">VetOS Software</a></li>
-            <li><a href="/vet-onboarding">Join as a Vet</a></li>
-            <li><a href="/vet-community">Vet Community</a></li>
-            <li><a href="/vet-resources">Clinical Resources</a></li>
+            <li><a href="/vet-software/index.html">VetOS Software</a></li>
+            <li><a href="/vet-software/index.html#join">Join as a Vet</a></li>
+            <li><a href="/vet-software/index.html#community">Vet Community</a></li>
+            <li><a href="/vet-software/index.html#resources">Clinical Resources</a></li>
           </ul>
         </div>
         <div class="footer-col">
           <h4>Learn</h4>
           <ul>
-            <li><a href="/blog">Pet Care Blog</a></li>
-            <li><a href="/blog/pet-emergency-guide">Emergency Guide</a></li>
-            <li><a href="/blog/dog-health-tracking">Dog Health Tracking</a></li>
-            <li><a href="/petos">What is PetOS?</a></li>
-            <li><a href="/about">About Us</a></li>
-            <li><a href="/contact">Contact</a></li>
+            <li><a href="/blog/how-to-store-pet-health-records.html">Pet Care Blog</a></li>
+            <li><a href="/blog/pet-emergency-guide.html">Emergency Guide</a></li>
+            <li><a href="/blog/dog-health-tracking.html">Dog Health Tracking</a></li>
+            <li><a href="/pet-os/pet-os.html">What is PetOS?</a></li>
+            <li><a href="/platform/platform.html">About Us</a></li>
+            <li><a href="/platform/platform.html#contact">Contact</a></li>
           </ul>
         </div>
       </div>
       <div class="footer-bottom">
         <span>Built with ❤️ for India's 50 million pets</span>
         <span>
-          <a href="/privacy" style="color:rgba(255,255,255,.4);">Privacy</a> ·
-          <a href="/terms" style="color:rgba(255,255,255,.4);">Terms</a> ·
+          <a href="/#privacy" style="color:rgba(255,255,255,.4);">Privacy</a> ·
+          <a href="/#terms" style="color:rgba(255,255,255,.4);">Terms</a> ·
           <a href="/sitemap.xml" style="color:rgba(255,255,255,.4);">Sitemap</a>
         </span>
       </div>
