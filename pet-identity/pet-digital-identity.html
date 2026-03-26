@@ -3290,7 +3290,7 @@
         <!-- Slider Content -->
         <div class="pw-content">
           <div id="pw-error-msg" style="display:none; background:#fee2e2; color:#ef4444; padding:12px; border-radius:8px; margin-bottom:16px; font-weight:600; font-size:0.9rem;">Please fill all required fields.</div>
-          <div class="pw-slider-track" id="pw-slider-track">
+          <form class="pw-slider-track" id="pw-slider-track">
             
             <!-- Slide 1: Pet Info -->
             <div class="pw-slide" data-step="1">
@@ -3340,6 +3340,7 @@
               <div class="pw-group">
                 <label>Date of Birth *</label>
                 <input type="date" id="pw_petDOB" class="pw-input required">
+                <small id="dob_error" style="color: red; display: none;"></small>
               </div>
               <div class="pw-actions single">
                 <button type="button" class="btn btn-primary" onclick="pwSlideTo(1, true)">Next &rarr;</button>
@@ -3362,7 +3363,7 @@
               </div>
               <div class="pw-group">
                 <label>Phone Number *</label>
-                <input type="tel" id="pw_phone" class="pw-input required">
+                <input type="number" id="pw_phone" class="pw-input required">
               </div>
               <div class="pw-actions">
                 <button type="button" class="btn" style="background:#e2e8f0; color:#0f172a;" onclick="pwSlideTo(0, false)">&larr; Back</button>
@@ -3400,7 +3401,7 @@
               </div>
               <div class="pw-group">
                 <label>Microchip Number (Optional)</label>
-                <input type="text" class="pw-input">
+                <input type="number" class="pw-input">
               </div>
               <div class="pw-actions">
                 <button type="button" class="btn" style="background:#e2e8f0; color:#0f172a;" onclick="pwSlideTo(1, false)">&larr; Back</button>
@@ -3416,7 +3417,8 @@
               </div>
               <div class="pw-group">
                 <label>Email Address *</label>
-                <input type="email" id="pw_email" class="pw-input required">
+                <input type="email" id="pw_email" class="pw-input required" required>
+                <small id="email_error" style="color:red; display:none;"></small>
               </div>
               <div class="pw-group" style="position: relative;">
                 <label>Password *</label>
@@ -3445,7 +3447,7 @@
               <p style="color:#64748b;">Registering pet on the global network and generating cryptography elements.</p>
             </div>
 
-          </div>
+          </form>
         </div>
       </div>
 
@@ -3516,6 +3518,10 @@
         }
 
         function pwSubmitGenerator() {
+            if (!form.checkValidity()) {
+            form.reportValidity();
+            return;
+          }
           if (!validateSlide(3)) {
              document.getElementById('pw-error-msg').style.display = 'block';
              document.getElementById('pw-error-msg').innerText = "Please ensure passwords match and terms are checked.";
@@ -4081,8 +4087,14 @@
     <script>
       document.getElementById('pawidForm').addEventListener('submit', async function (e) {
         e.preventDefault();
+          const form = this;
         const btn = document.getElementById('submitBtn');
         const err = document.getElementById('formError');
+
+if (!form.checkValidity()) {
+  form.reportValidity(); // shows browser errors
+  return; // stop submission
+}
         btn.innerText = 'Synchronising with registry...';
         btn.style.opacity = '0.7';
         err.style.display = 'none';
@@ -4278,7 +4290,37 @@
 <script src='/script/script.js'></script>
 
 <script>
-document.addEventListener("DOMContentLoaded", () => {
+  // Date of birth error handling
+const today = new Date().toISOString().split("T")[0];
+const input = document.getElementById("pw_petDOB");
+const dobError = document.getElementById("dob_error");
+    input.max = today;
+    input.addEventListener("change", () => {
+      if (input.value > today) {
+        dobError.textContent = "Birth date cannot be in the future";
+        dobError.style.display = "block";
+        input.value = ""; //resetting value
+      } else {
+        dobError.style.display = "none";
+      }
+    });
+// Email error handling
+  const email = document.getElementById("pw_email");
+  const emailError = document.getElementById("email_error");
+
+  const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+
+  email.addEventListener("blur", () => {
+    const value = email.value.trim();
+
+   if (!emailPattern.test(value)) {
+      emailError.textContent = "Enter a valid email";
+      emailError.style.display = "block";
+    }
+    else emailError.style.display = "none";
+    
+  });
+    document.addEventListener("DOMContentLoaded", () => {
     let currentPath = window.location.pathname;
     if (currentPath.endsWith('/')) currentPath = currentPath.slice(0, -1);
     
@@ -4303,6 +4345,8 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 });
 </script>
+
+
 
 
 </body>
