@@ -3417,7 +3417,7 @@
               </div>
               <div class="pw-group">
                 <label>Email Address *</label>
-                <input type="email" id="pw_email" class="pw-input required" required>
+                <input type="email" id="pw_email" class="pw-input required" required  pattern="^[^\s@]+@[^\s@]+\.[^\s@]{2,}$">
                 <small id="email_error" style="color:red; display:none;"></small>
               </div>
               <div class="pw-group" style="position: relative;">
@@ -3518,6 +3518,7 @@
         }
 
         function pwSubmitGenerator() {
+            const form = document.getElementById('pw-slider-track'); 
             if (!form.checkValidity()) {
             form.reportValidity();
             return;
@@ -4085,16 +4086,16 @@
     </div>
 
     <script>
-      document.getElementById('pawidForm').addEventListener('submit', async function (e) {
+      document.getElementById('pw-slider-track').addEventListener('submit', async function (e) {
         e.preventDefault();
           const form = this;
         const btn = document.getElementById('submitBtn');
         const err = document.getElementById('formError');
 
-if (!form.checkValidity()) {
-  form.reportValidity(); // shows browser errors
-  return; // stop submission
-}
+// if (!form.checkValidity()) {
+//   form.reportValidity(); // shows browser errors
+//   return; // stop submission
+// }
         btn.innerText = 'Synchronising with registry...';
         btn.style.opacity = '0.7';
         err.style.display = 'none';
@@ -4308,17 +4309,13 @@ const dobError = document.getElementById("dob_error");
   const email = document.getElementById("pw_email");
   const emailError = document.getElementById("email_error");
 
-  const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
-
   email.addEventListener("blur", () => {
-    const value = email.value.trim();
-
-   if (!emailPattern.test(value)) {
-      emailError.textContent = "Enter a valid email";
+    if (!email.checkValidity()) {
+      emailError.textContent = "Enter a valid email (e.g. example@gmail.com)";
       emailError.style.display = "block";
+    } else {
+      emailError.style.display = "none";
     }
-    else emailError.style.display = "none";
-    
   });
     document.addEventListener("DOMContentLoaded", () => {
     let currentPath = window.location.pathname;
