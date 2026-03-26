@@ -3301,6 +3301,7 @@
               <div class="pw-group">
                 <label>Pet's Name *</label>
                 <input type="text" id="pw_petName" class="pw-input required">
+                <small id="pw_petNameError" style="color:red; font-size:12px;"></small>
               </div>
               <div class="pw-row">
                 <div class="pw-group">
@@ -3354,7 +3355,11 @@
               </div>
               <div class="pw-group">
                 <label>Full Name *</label>
+
                 <input type="text" id="pw_ownerName" class="pw-input required">
+                
+                <!-- ✅ DIFFERENT ID -->
+                <small id="pw_ownerNameError" style="color:red; font-size:12px;"></small>
               </div>
               <div class="pw-group">
                 <label>City & ZIP Code *</label>
@@ -3362,7 +3367,8 @@
               </div>
               <div class="pw-group">
                 <label>Phone Number *</label>
-                <input type="tel" id="pw_phone" class="pw-input required">
+                <input type="text" id="pw_phone" class="pw-input required" maxlength="10">
+                <small id="pw_phoneError" style="color:red; font-size:12px;"></small>
               </div>
               <div class="pw-actions">
                 <button type="button" class="btn" style="background:#e2e8f0; color:#0f172a;" onclick="pwSlideTo(0, false)">&larr; Back</button>
@@ -4301,6 +4307,74 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         }
     });
+});
+
+</script>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+
+  // ===== PET NAME =====
+  const petName = document.getElementById("pw_petName");
+  const petNameError = document.getElementById("pw_petNameError");
+
+  petName.addEventListener("input", function () {
+    let value = petName.value;
+
+    if (!/^[A-Za-z\s]*$/.test(value)) {
+      petNameError.textContent = "Only alphabets allowed (no numbers or symbols)";
+      value = value.replace(/[^A-Za-z\s]/g, "");
+    } else if (value.trim() === "") {
+      petNameError.textContent = "Pet name is required";
+    } else {
+      petNameError.textContent = "";
+    }
+
+    petName.value = value;
+  });
+
+  // ===== OWNER NAME =====
+  const ownerName = document.getElementById("pw_ownerName");
+  const ownerNameError = document.getElementById("pw_ownerNameError");
+
+  ownerName.addEventListener("input", function () {
+    let value = ownerName.value;
+
+    if (!/^[A-Za-z\s]*$/.test(value)) {
+      ownerNameError.textContent = "Only alphabets allowed";
+      value = value.replace(/[^A-Za-z\s]/g, "");
+    } else if (value.trim() === "") {
+      ownerNameError.textContent = "Name is required";
+    } else {
+      ownerNameError.textContent = "";
+    }
+
+    ownerName.value = value;
+  });
+
+  // ===== PHONE =====
+  const phone = document.getElementById("pw_phone");
+  const phoneError = document.getElementById("pw_phoneError");
+
+  phone.addEventListener("input", function () {
+    let value = phone.value;
+
+    value = value.replace(/\D/g, "");
+
+    if (value.length > 10) {
+      value = value.slice(0, 10);
+    }
+
+    phone.value = value;
+
+    if (value.length === 0) {
+      phoneError.textContent = "Phone number is required";
+    } else if (value.length < 10) {
+      phoneError.textContent = "Phone number must be exactly 10 digits";
+    } else {
+      phoneError.textContent = "";
+    }
+  });
+
 });
 </script>
 
