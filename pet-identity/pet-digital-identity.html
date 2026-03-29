@@ -3291,7 +3291,7 @@
         <!-- Slider Content -->
         <div class="pw-content">
           <div id="pw-error-msg" style="display:none; background:#fee2e2; color:#ef4444; padding:12px; border-radius:8px; margin-bottom:16px; font-weight:600; font-size:0.9rem;">Please fill all required fields.</div>
-          <div class="pw-slider-track" id="pw-slider-track">
+          <form class="pw-slider-track" id="pw-slider-track">
             
             <!-- Slide 1: Pet Info -->
             <div class="pw-slide" data-step="1">
@@ -3342,6 +3342,7 @@
               <div class="pw-group">
                 <label>Date of Birth *</label>
                 <input type="date" id="pw_petDOB" class="pw-input required">
+                <small id="dob_error" style="color: red; display: none;"></small>
               </div>
               <div class="pw-actions single">
                 <button type="button" class="btn btn-primary" onclick="pwSlideTo(2, true)">Next &rarr;</button>
@@ -3368,8 +3369,12 @@
               </div>
               <div class="pw-group">
                 <label>Phone Number *</label>
+<<<<<<< HEAD
                 <input type="text" id="pw_phone" class="pw-input required" maxlength="10">
                 <small id="pw_phoneError" style="color:red; font-size:12px;"></small>
+=======
+                <input type="number" id="pw_phone" class="pw-input required">
+>>>>>>> 09b895cf4263681c08a644a98f689291fc1ea06a
               </div>
               <div class="pw-actions">
                 <button type="button" class="btn" style="background:#e2e8f0; color:#0f172a;" onclick="pwSlideTo(1, false)">&larr; Back</button>
@@ -3407,7 +3412,7 @@
               </div>
               <div class="pw-group">
                 <label>Microchip Number (Optional)</label>
-                <input type="text" class="pw-input">
+                <input type="number" class="pw-input">
               </div>
               <div class="pw-actions">
                 <button type="button" class="btn" style="background:#e2e8f0; color:#0f172a;" onclick="pwSlideTo(2, false)">&larr; Back</button>
@@ -3467,7 +3472,8 @@
               </div>
               <div class="pw-group">
                 <label>Email Address *</label>
-                <input type="email" id="pw_email" class="pw-input required">
+                <input type="email" id="pw_email" class="pw-input required" required  pattern="^[^\s@]+@[^\s@]+\.[^\s@]{2,}$">
+                <small id="email_error" style="color:red; display:none;"></small>
               </div>
               <div class="pw-group" style="position: relative;">
                 <label>Password *</label>
@@ -3496,7 +3502,7 @@
               <p style="color:#64748b;">Registering pet on the global network and generating cryptography elements.</p>
             </div>
 
-          </div>
+          </form>
         </div>
       </div>
 
@@ -3567,6 +3573,11 @@
         }
 
         function pwSubmitGenerator() {
+            const form = document.getElementById('pw-slider-track'); 
+            if (!form.checkValidity()) {
+            form.reportValidity();
+            return;
+          }
           if (!validateSlide(3)) {
              document.getElementById('pw-error-msg').style.display = 'block';
              document.getElementById('pw-error-msg').innerText = "Please ensure passwords match and terms are checked.";
@@ -4130,10 +4141,16 @@
     </div>
 
     <script>
-      document.getElementById('pawidForm').addEventListener('submit', async function (e) {
+      document.getElementById('pw-slider-track').addEventListener('submit', async function (e) {
         e.preventDefault();
+          const form = this;
         const btn = document.getElementById('submitBtn');
         const err = document.getElementById('formError');
+
+// if (!form.checkValidity()) {
+//   form.reportValidity(); // shows browser errors
+//   return; // stop submission
+// }
         btn.innerText = 'Synchronising with registry...';
         btn.style.opacity = '0.7';
         err.style.display = 'none';
@@ -4251,7 +4268,7 @@
   <!-- ══════════════════════════════════════════
      FOOTER
 ══════════════════════════════════════════ -->
-  <nav class="links-section" aria-label="Site sections">
+  <section class="links-section" aria-label="Site sections">
     <div class="wrap">
       <p
         style="color:rgba(255,255,255,.5); font-size:.8rem; text-align:center; text-transform:uppercase; letter-spacing:.08em; margin-bottom:20px;">
@@ -4260,19 +4277,19 @@
         <a href="/pet-identity/pet-digital-identity.html" class="link-pill">Pet Digital Identity</a>
         <a href="/pet-health-records" class="link-pill">Pet Health Records</a>
         <a href="/ai-vet" class="link-pill">AI Vet Consultation</a>
-        <a href="./pet-passport/pet-passport.html" class="link-pill">Pet Passport India</a>
+        <a href="/pet-passport/pet-passport.html" class="link-pill">Pet Passport India</a>
         <a href="/emergency-infrastructure" class="link-pill">Pet Emergency Services</a>
         <a href="/vet-software" class="link-pill">Veterinary Software (VetOS)</a>
         <a href="/pet-marketplace" class="link-pill">Pet Marketplace</a>
         <a href="/pet-adoption" class="link-pill">Pet Adoption Platform</a>
-        <a href="./city/bangalore.html" class="link-pill">Pet Services Bangalore</a>
+        <a href="/city/bangalore.html" class="link-pill">Pet Services Bangalore</a>
         <a href="/blog/how-to-store-pet-health-records.html" class="link-pill">Store Pet Records Guide</a>
-        <a href="./blog/best-pet-care-app-india.html" class="link-pill">Best Pet Apps India 2026</a>
-        <a href="./blog/pet-emergency-guide.html" class="link-pill">Pet Emergency Guide</a>
-        <a href="./blog/dog-health-tracking.html" class="link-pill">Dog Health Tracking</a>
+        <a href="/blog/best-pet-care-app-india.html" class="link-pill">Best Pet Apps India 2026</a>
+        <a href="/blog/pet-emergency-guide.html" class="link-pill">Pet Emergency Guide</a>
+        <a href="/blog/dog-health-tracking.html" class="link-pill">Dog Health Tracking</a>
       </div>
     </div>
-  </nav>
+  </section>
 
   <!--  FOOTER -->
   <footer role="contentinfo">
@@ -4329,7 +4346,33 @@
 <script src='/script/script.js'></script>
 
 <script>
-document.addEventListener("DOMContentLoaded", () => {
+  // Date of birth error handling
+const today = new Date().toISOString().split("T")[0];
+const input = document.getElementById("pw_petDOB");
+const dobError = document.getElementById("dob_error");
+    input.max = today;
+    input.addEventListener("change", () => {
+      if (input.value > today) {
+        dobError.textContent = "Birth date cannot be in the future";
+        dobError.style.display = "block";
+        input.value = ""; //resetting value
+      } else {
+        dobError.style.display = "none";
+      }
+    });
+// Email error handling
+  const email = document.getElementById("pw_email");
+  const emailError = document.getElementById("email_error");
+
+  email.addEventListener("blur", () => {
+    if (!email.checkValidity()) {
+      emailError.textContent = "Enter a valid email (e.g. example@gmail.com)";
+      emailError.style.display = "block";
+    } else {
+      emailError.style.display = "none";
+    }
+  });
+    document.addEventListener("DOMContentLoaded", () => {
     let currentPath = window.location.pathname;
     if (currentPath.endsWith('/')) currentPath = currentPath.slice(0, -1);
     
@@ -4428,6 +4471,7 @@ function pwSlideTo(step) {
   const track = document.getElementById("pw-slider-track");
   const total = 5;
 
+<<<<<<< HEAD
   // Move slider
   track.style.transform = `translateX(-${(step - 1) * (100 / total)}%)`;
 
@@ -4454,6 +4498,10 @@ function pwSlideTo(step) {
   }
 }
 </script>
+=======
+
+
+>>>>>>> 09b895cf4263681c08a644a98f689291fc1ea06a
 </body>
 
 </html>
