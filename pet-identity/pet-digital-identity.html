@@ -3268,8 +3268,6 @@
 
 }
       </style>
-
-      
       <div class="pawid-wizard-container" id="pawid-wizard-container">
         <!-- Sidebar -->
         <div class="pw-sidebar" id="pw-sidebar">
@@ -3283,7 +3281,10 @@
             <div class="pw-step-circle">3</div><div class="pw-step-text">Lifestyle</div>
           </div>
           <div class="pw-step-item" id="pw-nav-4">
-            <div class="pw-step-circle">4</div><div class="pw-step-text">Account</div>
+            <div class="pw-step-circle">4</div><div class="pw-step-text">Medical</div>
+          </div>
+          <div class="pw-step-item" id="pw-nav-5">
+            <div class="pw-step-circle">5</div><div class="pw-step-text">Account</div>
           </div>
         </div>
 
@@ -3343,7 +3344,7 @@
                 <input type="date" id="pw_petDOB" class="pw-input required">
               </div>
               <div class="pw-actions single">
-                <button type="button" class="btn btn-primary" onclick="pwSlideTo(1, true)">Next &rarr;</button>
+                <button type="button" class="btn btn-primary" onclick="pwSlideTo(2, true)">Next &rarr;</button>
               </div>
             </div>
 
@@ -3371,8 +3372,8 @@
                 <small id="pw_phoneError" style="color:red; font-size:12px;"></small>
               </div>
               <div class="pw-actions">
-                <button type="button" class="btn" style="background:#e2e8f0; color:#0f172a;" onclick="pwSlideTo(0, false)">&larr; Back</button>
-                <button type="button" class="btn btn-primary" onclick="pwSlideTo(2, true)">Next &rarr;</button>
+                <button type="button" class="btn" style="background:#e2e8f0; color:#0f172a;" onclick="pwSlideTo(1, false)">&larr; Back</button>
+                <button type="button" class="btn btn-primary" onclick="pwSlideTo(3, true)">Next &rarr;</button>
               </div>
             </div>
 
@@ -3409,9 +3410,53 @@
                 <input type="text" class="pw-input">
               </div>
               <div class="pw-actions">
-                <button type="button" class="btn" style="background:#e2e8f0; color:#0f172a;" onclick="pwSlideTo(1, false)">&larr; Back</button>
-                <button type="button" class="btn btn-primary" onclick="pwSlideTo(3, true)">Next &rarr;</button>
+                <button type="button" class="btn" style="background:#e2e8f0; color:#0f172a;" onclick="pwSlideTo(2, false)">&larr; Back</button>
+                <button type="button" class="btn btn-primary" onclick="pwSlideTo(4, true)">Next &rarr;</button>
               </div>
+            </div>
+
+            <div class="pw-slide">
+
+              <h3>Medical & Lineage</h3>
+              <p>Add parent info and health records</p>
+
+              <!-- Lineage -->
+              <div class="pw-group">
+                <label>Mother Pet ID</label>
+                <input type="text" class="pw-input">
+              </div>
+
+              <div class="pw-group">
+                <label>Father Pet ID</label>
+                <input type="text" class="pw-input">
+              </div>
+
+              <!-- Vaccination -->
+              <div class="pw-group">
+                <label>Vaccination Details</label>
+                <textarea class="pw-input"></textarea>
+              </div>
+
+              <div class="pw-group">
+                <label>Upload Vaccination Record</label>
+                <input type="file" accept=".pdf,.jpg,.png">
+              </div>
+
+              <!-- EMR -->
+              <div class="pw-group">
+                <label>EMR Notes</label>
+                <textarea class="pw-input"></textarea>
+              </div>
+
+              <div class="pw-group">
+                <label>Upload EMR File</label>
+                <input type="file" accept=".pdf,.jpg,.png">
+              </div>
+
+              <!-- Navigation -->
+              <button onclick="pwSlideTo(3)">← Back</button>
+              <button onclick="pwSlideTo(5)">Next →</button>
+
             </div>
 
             <!-- Slide 4: Account -->
@@ -3500,11 +3545,11 @@
           document.getElementById('pw-error-msg').style.display = 'none';
           currentSlideIndex = index;
           const track = document.getElementById('pw-slider-track');
-          track.style.transform = `translateX(-${index * 20}%)`;
+          track.style.transform = `translateX(-${(index-1) * 20}%)`;
           
-          if(index < 4) {
+          if(index < 5) {
             // Update Navigation sidebar
-            for(let i=1; i<=4; i++) {
+            for(let i=1; i<=5; i++) {
               let navItem = document.getElementById('pw-nav-'+i);
               navItem.className = 'pw-step-item';
               let circle = navItem.querySelector('.pw-step-circle');
@@ -4378,7 +4423,37 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 </script>
 
+<script>
+function pwSlideTo(step) {
+  const track = document.getElementById("pw-slider-track");
+  const total = 5;
 
+  // Move slider
+  track.style.transform = `translateX(-${(step - 1) * (100 / total)}%)`;
+
+  // Update sidebar
+  for (let i = 1; i <= total; i++) {
+    let nav = document.getElementById("pw-nav-" + i);
+    if (!nav) continue;
+
+    nav.className = "pw-step-item";
+
+    let circle = nav.querySelector(".pw-step-circle");
+
+    if (i < step) {
+      nav.classList.add("completed");
+      circle.innerHTML = "✓";
+    } 
+    else if (i === step) {
+      nav.classList.add("active");
+      circle.innerHTML = i;
+    } 
+    else {
+      circle.innerHTML = i;
+    }
+  }
+}
+</script>
 </body>
 
 </html>
