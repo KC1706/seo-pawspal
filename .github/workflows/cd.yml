@@ -28,4 +28,5 @@ jobs:
      #upload local files to s3
       - name: Upload APK to S3 folder
         run: |
+          aws s3 rm "s3://${S3_BUCKET}/updated_files/ --recursive
           aws s3 cp . "s3://${S3_BUCKET}/updated_files/ --recursive
