@@ -188,6 +188,11 @@
       --shadow-lg: 0 20px 60px rgba(26, 58, 42, .18);
       --travel-blue: #1a3a5a;
       --travel-mid: #2d5a80;
+      --travel:   #1a3a5a;
+      --travel-m: #2d5a80;
+      --red:      #dc2626;
+      --orange:   #d97706;
+      --green:    #16a34a;
     }
 
     *,
@@ -613,7 +618,7 @@
     /* Page nav */
     .pnav {
       background: var(--moss);
-      padding: 32px 0;
+      padding: 0;
     }
 
     .pgrid {
@@ -1801,6 +1806,227 @@
       gap: 12px;
       font-size: .82rem;
     }
+
+
+
+    /* Checker tool */
+    .checker-hero {
+      background: linear-gradient(135deg, var(--travel) 0%, var(--forest) 55%, var(--moss) 100%);
+      padding: 72px 0 60px; position: relative; overflow: hidden;
+    }
+    .checker-hero::before {
+      content:''; position:absolute; inset:0;
+      background: radial-gradient(circle at 80% 20%, rgba(245,200,122,.15),transparent 48%),
+                  radial-gradient(circle at 8% 85%, rgba(122,184,150,.13),transparent 44%);
+    }
+    .checker-hero-inner { position:relative; z-index:1; text-align:center; }
+    .hero-badge { display:inline-flex; align-items:center; gap:8px; background:rgba(255,255,255,.1); border:1px solid rgba(255,255,255,.18); padding:6px 18px; border-radius:50px; font-size:.78rem; font-weight:600; letter-spacing:.07em; text-transform:uppercase; color:var(--honey); margin-bottom:20px; }
+    .checker-hero h1 { font-size:clamp(1.8rem,4vw,2.8rem); color:var(--white); margin-bottom:14px; }
+    .checker-hero h1 em { color:var(--honey); font-style:normal; }
+    .checker-hero p { color:rgba(255,255,255,.78); max-width:56ch; margin:0 auto 40px; font-size:1.05rem; font-weight:300; }  
+
+    /* CHECKER TOOL */
+    .checker-tool {
+      background: var(--white);
+      border-radius: 20px;
+      padding: 36px 40px;
+      box-shadow: 0 24px 80px rgba(26,58,42,.2);
+      max-width: 900px;
+      margin: 0 auto;
+      position: relative; z-index:2;
+    }
+    .checker-tool-header { text-align:center; margin-bottom:28px; }
+    .checker-tool-header h2 { color:var(--forest); font-size:1.5rem; margin-bottom:6px; }
+    .checker-tool-header p { color:var(--slate); font-size:.93rem; margin:0 auto; }
+
+    .checker-form { display:grid; grid-template-columns:1fr auto 1fr auto; gap:14px; align-items:end; margin-bottom:8px; }
+
+@media(max-width:700px){
+  .checker-form {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+.checker-form .swap-btn  {
+  font-size: 1.6rem;
+  justify-self: center !important 
+  }
+}
+
+    .form-group { display:flex; flex-direction:column; gap:6px; }
+    .form-group label { font-size:.8rem; font-weight:600; text-transform:uppercase; letter-spacing:.07em; color:var(--slate); }
+    .form-group label .flag-preview { margin-left:8px; font-size:1.1rem; }
+
+    .select-wrap { position:relative; }
+    .select-wrap::after { content:'▾'; position:absolute; right:14px; top:50%; transform:translateY(-50%); color:var(--sage); pointer-events:none; font-size:.9rem; }
+    select {
+      width:100%; padding:13px 40px 13px 14px; border-radius:10px;
+      border:2px solid rgba(26,58,42,.12); background:var(--cream);
+      font-family:'DM Sans',sans-serif; font-size:.95rem; color:var(--ink);
+      appearance:none; cursor:pointer; transition:border-color .2s;
+    }
+    select:focus { outline:none; border-color:var(--fern); }
+
+    .pet-type-row { display:flex; gap:10px; margin-bottom:20px; flex-wrap:wrap; }
+    .pet-btn { padding:9px 20px; border-radius:50px; border:2px solid rgba(26,58,42,.12); background:transparent; font-family:'DM Sans',sans-serif; font-size:.88rem; font-weight:500; cursor:pointer; transition:all .2s; color:var(--ink); }
+    .pet-btn.active { background:var(--forest); color:var(--white); border-color:var(--forest); }
+    .pet-btn:hover:not(.active) { border-color:var(--fern); color:var(--fern); }
+
+    .rotate {
+  transform: rotate(180deg);
+  transition: transform 0.3s ease;
+}
+    .swap-btn { width:44px; height:44px; border-radius:50%; border:2px solid var(--mist); background:var(--cream); cursor:pointer; display:flex; align-items:center; justify-content:center; font-size:1.1rem; transition:all .2s; color:var(--forest); flex-shrink:0;  margin-bottom:2px;  line-height: 1;}
+    .swap-btn:hover { background:var(--forest); color:var(--white); border-color:var(--forest); }
+.swap-icon {
+  display: inline-block;
+  transform: translateY(-2px);
+}
+    .check-btn {
+      width:100%; padding:15px; border-radius:12px; border:none;
+      background:linear-gradient(135deg,var(--forest),var(--moss));
+      color:var(--white); font-family:'DM Serif Display',serif; font-size:1.15rem;
+      cursor:pointer; transition:all .25s; display:flex; align-items:center; justify-content:center; gap:10px;
+      margin-top:8px;
+    }
+    .check-btn:hover { transform:translateY(-2px); box-shadow:0 8px 28px rgba(26,58,42,.3); }
+    .check-btn:disabled { opacity:.5; cursor:not-allowed; transform:none; }
+
+    /* RESULTS PANEL */
+    .results-panel { display:none; margin-top:32px; }
+    .results-panel.show { display:block; animation:slideDown .4s ease; }
+    @keyframes slideDown { from{opacity:0;transform:translateY(-16px)} to{opacity:1;transform:translateY(0)} }
+
+    .results-header {
+      background:linear-gradient(135deg,var(--travel),var(--forest));
+      border-radius:14px; padding:24px 28px; margin-bottom:24px;
+      display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:16px;
+    }
+    .rh-left h3 { color:var(--white); font-size:1.2rem; margin-bottom:4px; }
+    .rh-route { display:flex; align-items:center; gap:10px; font-size:1rem; color:rgba(255,255,255,.75); flex-wrap:wrap; }
+    .rh-country { display:flex; align-items:center; gap:7px; }
+    .rh-country .flag { font-size:1.5rem; }
+    .rh-country .cname { font-size:.9rem; color:var(--white); font-weight:500; }
+    .rh-arrow { color:var(--honey); font-size:1.2rem; }
+    .rh-right { display:flex; align-items:center; gap:12px; flex-wrap:wrap; }
+    .diff-pill { padding:7px 16px; border-radius:50px; font-size:.8rem; font-weight:700; text-transform:uppercase; letter-spacing:.06em; }
+    .diff-extreme { background:#fee2e2; color:#dc2626; }
+    .diff-strict   { background:#fef3c7; color:#b45309; }
+    .diff-moderate { background:#e0f2fe; color:#0369a1; }
+    .diff-standard { background:#dcfce7; color:#166534; }
+    .prep-badge { background:rgba(245,200,122,.2); border:1px solid rgba(245,200,122,.3); color:var(--honey); padding:7px 16px; border-radius:50px; font-size:.82rem; font-weight:600; }
+
+    /* Document cards */
+    .docs-title { font-family:'DM Sans',sans-serif; font-weight:700; font-size:.78rem; text-transform:uppercase; letter-spacing:.09em; color:var(--sage); margin-bottom:14px; }
+    .doc-cards { display:flex; flex-direction:column; gap:10px; margin-bottom:24px; }
+    .doc-card {
+      display:flex; align-items:flex-start; gap:16px; padding:18px 20px;
+      border-radius:12px; border:1px solid rgba(26,58,42,.08);
+      background:var(--cream); transition:background .2s;
+    }
+    .doc-card:hover { background:var(--white); }
+    .doc-card.critical { border-left:4px solid var(--red); background:#fff5f5; }
+    .doc-card.important { border-left:4px solid var(--orange); }
+    .doc-card.standard { border-left:4px solid var(--fern); }
+    .doc-card.optional { border-left:4px solid var(--sage); opacity:.85; }
+    .doc-icon { font-size:1.8rem; flex-shrink:0; margin-top:2px; }
+    .doc-body { flex:1; }
+    .doc-name-row { display:flex; align-items:center; gap:10px; flex-wrap:wrap; margin-bottom:3px; }
+    .doc-name { font-family:'DM Sans',sans-serif; font-weight:600; font-size:.97rem; color:var(--forest); }
+    .doc-req { font-size:.7rem; font-weight:700; text-transform:uppercase; letter-spacing:.07em; padding:3px 9px; border-radius:50px; }
+    .req-critical { background:#fee2e2; color:#dc2626; }
+    .req-important { background:#fef3c7; color:#b45309; }
+    .req-standard { background:#dcfce7; color:#166534; }
+    .req-optional { background:#f0f9ff; color:#0369a1; }
+    .doc-detail { font-size:.88rem; color:var(--slate); }
+    .doc-timing { display:inline-flex; align-items:center; gap:5px; margin-top:5px; font-size:.78rem; font-weight:600; color:var(--amber); background:#fef3c7; padding:3px 10px; border-radius:50px; }
+
+    /* Warnings */
+    .warnings-box { background:#fff5f5; border:1px solid rgba(220,38,38,.15); border-radius:12px; padding:20px 22px; margin-bottom:20px; }
+    .warnings-title { font-family:'DM Sans',sans-serif; font-weight:700; font-size:.8rem; text-transform:uppercase; letter-spacing:.08em; color:var(--red); margin-bottom:10px; display:flex; align-items:center; gap:7px; }
+    .warn-list { list-style:none; display:flex; flex-direction:column; gap:7px; }
+    .warn-list li { font-size:.88rem; color:#7f1d1d; display:flex; align-items:flex-start; gap:8px; }
+    .warn-list li::before { content:'⚠'; flex-shrink:0; font-size:.85rem; }
+
+    /* Tips */
+    .tips-box { background:#f0fdf4; border:1px solid rgba(22,163,74,.15); border-radius:12px; padding:20px 22px; margin-bottom:20px; }
+    .tips-title { font-family:'DM Sans',sans-serif; font-weight:700; font-size:.8rem; text-transform:uppercase; letter-spacing:.08em; color:var(--green); margin-bottom:10px; }
+    .tip-list { list-style:none; display:flex; flex-direction:column; gap:7px; }
+    .tip-list li { font-size:.88rem; color:#14532d; display:flex; align-items:flex-start; gap:8px; }
+    .tip-list li::before { content:'✓'; color:var(--green); font-weight:700; flex-shrink:0; }
+
+    /* Timeline bar */
+    .timeline-bar { background:var(--cream); border-radius:12px; padding:18px 22px; margin-bottom:20px; border:1px solid rgba(26,58,42,.08); }
+    .tl-title { font-size:.8rem; font-weight:700; text-transform:uppercase; letter-spacing:.08em; color:var(--slate); margin-bottom:12px; }
+    .tl-items { display:flex; align-items: center; gap:0; overflow-x:auto; padding-bottom:4px; }
+.tl-item {
+  flex: 1;
+  min-width: 90px;
+  position: relative;
+
+  display: grid;                 
+  grid-template-rows: 28px auto; 
+  justify-items: center;         
+}
+    
+.tl-dot {
+  width:28px;
+  height:28px;
+  border-radius:50%;
+  background:var(--forest);
+  color:var(--white);
+
+  display: grid;
+  place-items: center;
+
+  position: relative;
+  font-size:.7rem;
+  font-weight:700;
+  flex-shrink:0;
+  z-index: 1;
+
+  grid-row: 1;  
+}
+.tl-line {
+  position: absolute;
+  top: 13px;
+  left: 50%;
+  width: 100%;
+  height: 2px;
+  background: var(--mist);
+  z-index: 0;
+}
+    .tl-label { font-size:.72rem; font-weight:600; color:var(--forest); text-align:center; margin-top:6px; grid-row: 2;
+     min-height: 32px; 
+    }
+    .tl-sub { font-size:.68rem; color:var(--slate); text-align:center; }
+
+    /* PAWID CTA inside results */
+    .pawid-cta { background:linear-gradient(135deg,var(--amber),var(--gold)); border-radius:14px; padding:22px 28px; display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:14px; }
+    .pawid-cta h4 { color:var(--white); font-size:1.1rem; margin-bottom:4px; }
+    .pawid-cta p { color:rgba(255,255,255,.85); font-size:.88rem; max-width:none; }
+    .btn-white { background:var(--white); color:var(--gold); font-weight:700; padding:11px 24px; border-radius:50px; font-family:'DM Sans',sans-serif; font-size:.9rem; text-decoration:none; transition:all .2s; display:inline-flex; align-items:center; gap:7px; }
+    .btn-white:hover { background:var(--cream); color:var(--gold); transform:translateY(-2px); }
+
+    /* Footer note */
+    .checker-note { text-align:center; margin-top:20px; font-size:.8rem; color:var(--slate); }
+    .checker-note a { color:var(--fern); }
+
+    /* Summary stats */
+    .stats-row { display:grid; grid-template-columns:repeat(4,1fr); gap:12px; margin-bottom:20px; }
+    @media(max-width:600px){ .stats-row { grid-template-columns:repeat(2,1fr); } }
+    .stat-box { background:var(--white); border-radius:10px; padding:14px 16px; text-align:center; border:1px solid rgba(26,58,42,.07); }
+    .stat-box .sn { font-family:'DM Serif Display',serif; font-size:1.6rem; color:var(--forest); }
+    .stat-box .sl { font-size:.75rem; color:var(--slate); text-transform:uppercase; letter-spacing:.06em; margin-top:2px; }
+   /* Page sections below checker */
+    .section { padding:72px 0; }
+    .section-sm { padding:48px 0; }
+    /* Loading state */
+    .loading { display:none; text-align:center; padding:24px; color:var(--slate); font-size:.95rem; }
+    .loading.show { display:block; }
+    @keyframes spin { to{transform:rotate(360deg)} }
+    .spinner { display:inline-block; width:20px; height:20px; border:3px solid var(--mist); border-top-color:var(--forest); border-radius:50%; animation:spin .7s linear infinite; vertical-align:middle; margin-right:8px; }
+  
   </style>
 </head>
 
@@ -1880,8 +2106,9 @@
 
   <!-- ══ PAGE NAV ══ -->
   <section class="pnav" aria-label="Platform pages">
-    <div class="wrap">
-      <div class="pgrid">
+    <!-- <div class="wrap"> -->
+
+      <!-- <div class="pgrid">
         <a href="/" class="ppill"><span class="pi">🏠</span>Home</a>
         <a href="/petos.html" class="ppill"><span class="pi">🌐</span>PetOS</a>
         <a href="/pet-digital-identity.html" class="ppill"><span class="pi">🪪</span>Pet Identity</a>
@@ -1892,10 +2119,129 @@
         <a href="/partners.html" class="ppill"><span class="pi">🤝</span>Partners</a>
         <a href="/vision/vision.html" class="ppill"><span class="pi">🚀</span>Vision</a>
         <a href="/create-petid.html" class="ppill"><span class="pi">✨</span>Create PetID</a>
+      </div> -->
+  <section class="checker-hero">
+    <div class="wrap checker-hero-inner">
+      <div class="hero-badge">✈️ 190+ Countries — Live Pet Travel Rules</div>
+      <h1>Pet Travel <em>Document Checker</em></h1>
+      <p>Select your origin and destination country. Get the exact list of documents, vaccinations, and permits your pet
+        needs — instantly. Updated for 2026.</p>
+  
+      <!-- CHECKER TOOL -->
+      <div class="checker-tool">
+        <div class="checker-tool-header">
+          <h2>🐾 Check Documents Required</h2>
+          <p>Select source country, destination country, and pet type — we'll show you everything required.</p>
+        </div>
+  
+        <!-- Pet type selector -->
+        <div style="margin-bottom:16px;">
+          <div
+            style="font-size:.8rem;font-weight:600;text-transform:uppercase;letter-spacing:.07em;color:var(--slate);margin-bottom:8px;">
+            Pet Type</div>
+          <div class="pet-type-row">
+            <button class="pet-btn active" data-pet="dog" onclick="setPetType(this,'dog')">🐕 Dog</button>
+            <button class="pet-btn" data-pet="cat" onclick="setPetType(this,'cat')">🐱 Cat</button>
+            <button class="pet-btn" data-pet="bird" onclick="setPetType(this,'bird')">🐦 Bird</button>
+            <button class="pet-btn" data-pet="rabbit" onclick="setPetType(this,'rabbit')">🐰 Rabbit</button>
+            <button class="pet-btn" data-pet="other" onclick="setPetType(this,'other')">🐾 Other</button>
+          </div>
+        </div>
+  
+        <div class="checker-form">
+          <div class="form-group">
+            <label>From (Origin Country) <span id="src-flag" class="flag-preview"></span></label>
+            <div class="select-wrap">
+              <select id="src-country" onchange="updateFlag('src-flag', this.value)">
+                <option value="">Select origin country…</option>
+              </select>
+            </div>
+          </div>
+  
+          <button class="swap-btn" onclick="swapCountries()" title="Swap countries"
+            aria-label="Swap origin and destination">
+          <span class="swap-icon">⇄</span>
+          </button>
+  
+          <div class="form-group">
+            <label>To (Destination Country) <span id="dst-flag" class="flag-preview"></span></label>
+            <div class="select-wrap">
+              <select id="dst-country" onchange="updateFlag('dst-flag', this.value)">
+                <option value="">Select destination country…</option>
+              </select>
+            </div>
+          </div>
+  
+          <button class="check-btn" onclick="checkDocs()" id="check-btn" disabled aria-label="Check required documents">
+            🔍 Check Documents Required
+          </button>
+        </div>
+  
+        <div class="loading" id="loading">
+          <span class="spinner"></span> Checking 2026 travel requirements…
+        </div>
+  
+        <!-- RESULTS -->
+        <div class="results-panel" id="results"></div>
       </div>
     </div>
   </section>
+    <!-- </div> -->
 
+<!-- BELOW THE FOLD — quick links + context -->
+    <section class="section-sm" style="background:var(--white);">
+      <div class="wrap">
+        <div style="text-align:center;margin-bottom:32px;">
+          <h2 style="color:var(--forest);">Most Searched Routes from India</h2>
+          <p class="mx">Quick-check the most common international pet travel destinations from India.</p>
+        </div>
+        <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:14px;" id="quick-routes">
+          <button onclick="quickCheck('IN','GB')"
+            style="padding:14px;border-radius:10px;border:1px solid rgba(26,58,42,.1);background:var(--cream);cursor:pointer;font-family:'DM Sans',sans-serif;font-size:.88rem;color:var(--forest);font-weight:500;transition:all .2s;"
+            onmouseover="this.style.background='var(--mist)'" onmouseout="this.style.background='var(--cream)'">🇮🇳→🇬🇧
+            India to UK</button>
+          <button onclick="quickCheck('IN','US')"
+            style="padding:14px;border-radius:10px;border:1px solid rgba(26,58,42,.1);background:var(--cream);cursor:pointer;font-family:'DM Sans',sans-serif;font-size:.88rem;color:var(--forest);font-weight:500;transition:all .2s;"
+            onmouseover="this.style.background='var(--mist)'" onmouseout="this.style.background='var(--cream)'">🇮🇳→🇺🇸
+            India to USA</button>
+          <button onclick="quickCheck('IN','AU')"
+            style="padding:14px;border-radius:10px;border:1px solid rgba(26,58,42,.1);background:var(--cream);cursor:pointer;font-family:'DM Sans',sans-serif;font-size:.88rem;color:var(--forest);font-weight:500;transition:all .2s;"
+            onmouseover="this.style.background='var(--mist)'" onmouseout="this.style.background='var(--cream)'">🇮🇳→🇦🇺
+            India to Australia</button>
+          <button onclick="quickCheck('IN','DE')"
+            style="padding:14px;border-radius:10px;border:1px solid rgba(26,58,42,.1);background:var(--cream);cursor:pointer;font-family:'DM Sans',sans-serif;font-size:.88rem;color:var(--forest);font-weight:500;transition:all .2s;"
+            onmouseover="this.style.background='var(--mist)'" onmouseout="this.style.background='var(--cream)'">🇮🇳→🇩🇪
+            India to Germany</button>
+          <button onclick="quickCheck('IN','CA')"
+            style="padding:14px;border-radius:10px;border:1px solid rgba(26,58,42,.1);background:var(--cream);cursor:pointer;font-family:'DM Sans',sans-serif;font-size:.88rem;color:var(--forest);font-weight:500;transition:all .2s;"
+            onmouseover="this.style.background='var(--mist)'" onmouseout="this.style.background='var(--cream)'">🇮🇳→🇨🇦
+            India to Canada</button>
+          <button onclick="quickCheck('IN','AE')"
+            style="padding:14px;border-radius:10px;border:1px solid rgba(26,58,42,.1);background:var(--cream);cursor:pointer;font-family:'DM Sans',sans-serif;font-size:.88rem;color:var(--forest);font-weight:500;transition:all .2s;"
+            onmouseover="this.style.background='var(--mist)'" onmouseout="this.style.background='var(--cream)'">🇮🇳→🇦🇪
+            India to UAE</button>
+          <button onclick="quickCheck('IN','SG')"
+            style="padding:14px;border-radius:10px;border:1px solid rgba(26,58,42,.1);background:var(--cream);cursor:pointer;font-family:'DM Sans',sans-serif;font-size:.88rem;color:var(--forest);font-weight:500;transition:all .2s;"
+            onmouseover="this.style.background='var(--mist)'" onmouseout="this.style.background='var(--cream)'">🇮🇳→🇸🇬
+            India to Singapore</button>
+          <button onclick="quickCheck('IN','NZ')"
+            style="padding:14px;border-radius:10px;border:1px solid rgba(26,58,42,.1);background:var(--cream);cursor:pointer;font-family:'DM Sans',sans-serif;font-size:.88rem;color:var(--forest);font-weight:500;transition:all .2s;"
+            onmouseover="this.style.background='var(--mist)'" onmouseout="this.style.background='var(--cream)'">🇮🇳→🇳🇿
+            India to New Zealand</button>
+        </div>
+      </div>
+    </section>
+  </section>
+<script>
+  function quickCheck(srcCode, dstCode) {
+    document.getElementById('src-country').value = srcCode;
+    document.getElementById('dst-country').value = dstCode;
+    updateFlag('src-flag', srcCode);
+    updateFlag('dst-flag', dstCode);
+    checkDocs();
+    document.querySelector('.checker-tool-header').scrollIntoView({ behavior: 'smooth' });
+  }
+</script>
   <!-- ══ WHAT IS PET PASSPORT ══ -->
   <section class="section" style="background:var(--white);" id="what-is-pet-passport" aria-labelledby="wip-h2">
     <div class="wrap">
@@ -2789,6 +3135,810 @@
   </script>
 
 <script src='/script/script.js'></script>
+<script>
+  // ═══════════════════════════════════════════════════════════
+  //  COMPLETE 190-COUNTRY DATASET
+  // ═══════════════════════════════════════════════════════════
+
+  const COUNTRIES = [
+    // A
+    { c: 'AF', n: 'Afghanistan', f: '🇦🇫', src: 'HIGH_RISK', dst: 'STANDARD' },
+    { c: 'AL', n: 'Albania', f: '🇦🇱', src: 'STANDARD', dst: 'STANDARD' },
+    { c: 'DZ', n: 'Algeria', f: '🇩🇿', src: 'HIGH_RISK', dst: 'STANDARD' },
+    { c: 'AD', n: 'Andorra', f: '🇦🇩', src: 'EU_LOW', dst: 'EU' },
+    { c: 'AO', n: 'Angola', f: '🇦🇴', src: 'HIGH_RISK', dst: 'STANDARD' },
+    { c: 'AG', n: 'Antigua and Barbuda', f: '🇦🇬', src: 'STANDARD', dst: 'ISLAND_MOD' },
+    { c: 'AR', n: 'Argentina', f: '🇦🇷', src: 'STANDARD', dst: 'STANDARD' },
+    { c: 'AM', n: 'Armenia', f: '🇦🇲', src: 'STANDARD', dst: 'STANDARD' },
+    { c: 'AU', n: 'Australia', f: '🇦🇺', src: 'RABIES_FREE', dst: 'AU_NZ' },
+    { c: 'AT', n: 'Austria', f: '🇦🇹', src: 'EU_LOW', dst: 'EU' },
+    { c: 'AZ', n: 'Azerbaijan', f: '🇦🇿', src: 'STANDARD', dst: 'STANDARD' },
+    // B
+    { c: 'BS', n: 'Bahamas', f: '🇧🇸', src: 'STANDARD', dst: 'ISLAND_MOD' },
+    { c: 'BH', n: 'Bahrain', f: '🇧🇭', src: 'STANDARD', dst: 'GULF' },
+    { c: 'BD', n: 'Bangladesh', f: '🇧🇩', src: 'HIGH_RISK', dst: 'STANDARD' },
+    { c: 'BB', n: 'Barbados', f: '🇧🇧', src: 'STANDARD', dst: 'ISLAND_MOD' },
+    { c: 'BY', n: 'Belarus', f: '🇧🇾', src: 'STANDARD', dst: 'STANDARD' },
+    { c: 'BE', n: 'Belgium', f: '🇧🇪', src: 'EU_LOW', dst: 'EU' },
+    { c: 'BZ', n: 'Belize', f: '🇧🇿', src: 'STANDARD', dst: 'STANDARD' },
+    { c: 'BJ', n: 'Benin', f: '🇧🇯', src: 'HIGH_RISK', dst: 'STANDARD' },
+    { c: 'BT', n: 'Bhutan', f: '🇧🇹', src: 'STANDARD', dst: 'STANDARD' },
+    { c: 'BO', n: 'Bolivia', f: '🇧🇴', src: 'STANDARD', dst: 'STANDARD' },
+    { c: 'BA', n: 'Bosnia and Herzegovina', f: '🇧🇦', src: 'STANDARD', dst: 'STANDARD' },
+    { c: 'BW', n: 'Botswana', f: '🇧🇼', src: 'STANDARD', dst: 'STANDARD' },
+    { c: 'BR', n: 'Brazil', f: '🇧🇷', src: 'STANDARD', dst: 'STANDARD' },
+    { c: 'BN', n: 'Brunei', f: '🇧🇳', src: 'RABIES_FREE', dst: 'ISLAND_MOD' },
+    { c: 'BG', n: 'Bulgaria', f: '🇧🇬', src: 'EU_LOW', dst: 'EU' },
+    { c: 'BF', n: 'Burkina Faso', f: '🇧🇫', src: 'HIGH_RISK', dst: 'STANDARD' },
+    { c: 'BI', n: 'Burundi', f: '🇧🇮', src: 'HIGH_RISK', dst: 'STANDARD' },
+    // C
+    { c: 'CV', n: 'Cabo Verde', f: '🇨🇻', src: 'STANDARD', dst: 'ISLAND_MOD' },
+    { c: 'KH', n: 'Cambodia', f: '🇰🇭', src: 'HIGH_RISK', dst: 'SEA' },
+    { c: 'CM', n: 'Cameroon', f: '🇨🇲', src: 'HIGH_RISK', dst: 'STANDARD' },
+    { c: 'CA', n: 'Canada', f: '🇨🇦', src: 'RABIES_LOW', dst: 'CANADA' },
+    { c: 'CF', n: 'Central African Republic', f: '🇨🇫', src: 'HIGH_RISK', dst: 'STANDARD' },
+    { c: 'TD', n: 'Chad', f: '🇹🇩', src: 'HIGH_RISK', dst: 'STANDARD' },
+    { c: 'CL', n: 'Chile', f: '🇨🇱', src: 'STANDARD', dst: 'STANDARD' },
+    { c: 'CN', n: 'China', f: '🇨🇳', src: 'HIGH_RISK', dst: 'CHINA' },
+    { c: 'CO', n: 'Colombia', f: '🇨🇴', src: 'STANDARD', dst: 'STANDARD' },
+    { c: 'KM', n: 'Comoros', f: '🇰🇲', src: 'HIGH_RISK', dst: 'ISLAND_MOD' },
+    { c: 'CG', n: 'Congo', f: '🇨🇬', src: 'HIGH_RISK', dst: 'STANDARD' },
+    { c: 'CD', n: 'Congo (DR)', f: '🇨🇩', src: 'HIGH_RISK', dst: 'STANDARD' },
+    { c: 'CR', n: 'Costa Rica', f: '🇨🇷', src: 'STANDARD', dst: 'STANDARD' },
+    { c: 'CI', n: 'Côte d\'Ivoire', f: '🇨🇮', src: 'HIGH_RISK', dst: 'STANDARD' },
+    { c: 'HR', n: 'Croatia', f: '🇭🇷', src: 'EU_LOW', dst: 'EU' },
+    { c: 'CU', n: 'Cuba', f: '🇨🇺', src: 'STANDARD', dst: 'STANDARD' },
+    { c: 'CY', n: 'Cyprus', f: '🇨🇾', src: 'EU_LOW', dst: 'EU_TAPEWORM' },
+    { c: 'CZ', n: 'Czech Republic', f: '🇨🇿', src: 'EU_LOW', dst: 'EU' },
+    // D
+    { c: 'DK', n: 'Denmark', f: '🇩🇰', src: 'EU_LOW', dst: 'EU' },
+    { c: 'DJ', n: 'Djibouti', f: '🇩🇯', src: 'HIGH_RISK', dst: 'STANDARD' },
+    { c: 'DM', n: 'Dominica', f: '🇩🇲', src: 'STANDARD', dst: 'ISLAND_MOD' },
+    { c: 'DO', n: 'Dominican Republic', f: '🇩🇴', src: 'STANDARD', dst: 'STANDARD' },
+    // E
+    { c: 'EC', n: 'Ecuador', f: '🇪🇨', src: 'STANDARD', dst: 'STANDARD' },
+    { c: 'EG', n: 'Egypt', f: '🇪🇬', src: 'HIGH_RISK', dst: 'STANDARD' },
+    { c: 'SV', n: 'El Salvador', f: '🇸🇻', src: 'STANDARD', dst: 'STANDARD' },
+    { c: 'GQ', n: 'Equatorial Guinea', f: '🇬🇶', src: 'HIGH_RISK', dst: 'STANDARD' },
+    { c: 'ER', n: 'Eritrea', f: '🇪🇷', src: 'HIGH_RISK', dst: 'STANDARD' },
+    { c: 'EE', n: 'Estonia', f: '🇪🇪', src: 'EU_LOW', dst: 'EU_TAPEWORM' },
+    { c: 'SZ', n: 'Eswatini', f: '🇸🇿', src: 'STANDARD', dst: 'STANDARD' },
+    { c: 'ET', n: 'Ethiopia', f: '🇪🇹', src: 'HIGH_RISK', dst: 'STANDARD' },
+    // F
+    { c: 'FJ', n: 'Fiji', f: '🇫🇯', src: 'RABIES_FREE', dst: 'ISLAND_STRICT' },
+    { c: 'FI', n: 'Finland', f: '🇫🇮', src: 'EU_LOW', dst: 'EU_TAPEWORM' },
+    { c: 'FR', n: 'France', f: '🇫🇷', src: 'EU_LOW', dst: 'EU' },
+    // G
+    { c: 'GA', n: 'Gabon', f: '🇬🇦', src: 'HIGH_RISK', dst: 'STANDARD' },
+    { c: 'GM', n: 'Gambia', f: '🇬🇲', src: 'HIGH_RISK', dst: 'STANDARD' },
+    { c: 'GE', n: 'Georgia', f: '🇬🇪', src: 'STANDARD', dst: 'STANDARD' },
+    { c: 'DE', n: 'Germany', f: '🇩🇪', src: 'EU_LOW', dst: 'EU' },
+    { c: 'GH', n: 'Ghana', f: '🇬🇭', src: 'HIGH_RISK', dst: 'STANDARD' },
+    { c: 'GR', n: 'Greece', f: '🇬🇷', src: 'EU_LOW', dst: 'EU' },
+    { c: 'GD', n: 'Grenada', f: '🇬🇩', src: 'STANDARD', dst: 'ISLAND_MOD' },
+    { c: 'GT', n: 'Guatemala', f: '🇬🇹', src: 'STANDARD', dst: 'STANDARD' },
+    { c: 'GN', n: 'Guinea', f: '🇬🇳', src: 'HIGH_RISK', dst: 'STANDARD' },
+    { c: 'GW', n: 'Guinea-Bissau', f: '🇬🇼', src: 'HIGH_RISK', dst: 'STANDARD' },
+    { c: 'GY', n: 'Guyana', f: '🇬🇾', src: 'STANDARD', dst: 'STANDARD' },
+    // H
+    { c: 'HT', n: 'Haiti', f: '🇭🇹', src: 'HIGH_RISK', dst: 'STANDARD' },
+    { c: 'HN', n: 'Honduras', f: '🇭🇳', src: 'STANDARD', dst: 'STANDARD' },
+    { c: 'HK', n: 'Hong Kong', f: '🇭🇰', src: 'RABIES_LOW', dst: 'CHINA_HK' },
+    { c: 'HU', n: 'Hungary', f: '🇭🇺', src: 'EU_LOW', dst: 'EU' },
+    // I
+    { c: 'IS', n: 'Iceland', f: '🇮🇸', src: 'RABIES_FREE', dst: 'ISLAND_STRICT' },
+    { c: 'IN', n: 'India', f: '🇮🇳', src: 'HIGH_RISK', dst: 'INDIA' },
+    { c: 'ID', n: 'Indonesia', f: '🇮🇩', src: 'HIGH_RISK', dst: 'SEA' },
+    { c: 'IR', n: 'Iran', f: '🇮🇷', src: 'HIGH_RISK', dst: 'STANDARD' },
+    { c: 'IQ', n: 'Iraq', f: '🇮🇶', src: 'HIGH_RISK', dst: 'STANDARD' },
+    { c: 'IE', n: 'Ireland', f: '🇮🇪', src: 'RABIES_FREE', dst: 'UK_IE' },
+    { c: 'IL', n: 'Israel', f: '🇮🇱', src: 'STANDARD', dst: 'STANDARD' },
+    { c: 'IT', n: 'Italy', f: '🇮🇹', src: 'EU_LOW', dst: 'EU' },
+    // J
+    { c: 'JM', n: 'Jamaica', f: '🇯🇲', src: 'STANDARD', dst: 'ISLAND_MOD' },
+    { c: 'JP', n: 'Japan', f: '🇯🇵', src: 'RABIES_FREE', dst: 'JAPAN' },
+    { c: 'JO', n: 'Jordan', f: '🇯🇴', src: 'STANDARD', dst: 'STANDARD' },
+    // K
+    { c: 'KZ', n: 'Kazakhstan', f: '🇰🇿', src: 'STANDARD', dst: 'STANDARD' },
+    { c: 'KE', n: 'Kenya', f: '🇰🇪', src: 'HIGH_RISK', dst: 'STANDARD' },
+    { c: 'KI', n: 'Kiribati', f: '🇰🇮', src: 'RABIES_FREE', dst: 'ISLAND_STRICT' },
+    { c: 'KP', n: 'North Korea', f: '🇰🇵', src: 'HIGH_RISK', dst: 'STANDARD' },
+    { c: 'KR', n: 'South Korea', f: '🇰🇷', src: 'STANDARD', dst: 'KOREA' },
+    { c: 'KW', n: 'Kuwait', f: '🇰🇼', src: 'STANDARD', dst: 'GULF' },
+    { c: 'KG', n: 'Kyrgyzstan', f: '🇰🇬', src: 'STANDARD', dst: 'STANDARD' },
+    // L
+    { c: 'LA', n: 'Laos', f: '🇱🇦', src: 'HIGH_RISK', dst: 'SEA' },
+    { c: 'LV', n: 'Latvia', f: '🇱🇻', src: 'EU_LOW', dst: 'EU_TAPEWORM' },
+    { c: 'LB', n: 'Lebanon', f: '🇱🇧', src: 'STANDARD', dst: 'STANDARD' },
+    { c: 'LS', n: 'Lesotho', f: '🇱🇸', src: 'STANDARD', dst: 'STANDARD' },
+    { c: 'LR', n: 'Liberia', f: '🇱🇷', src: 'HIGH_RISK', dst: 'STANDARD' },
+    { c: 'LY', n: 'Libya', f: '🇱🇾', src: 'HIGH_RISK', dst: 'STANDARD' },
+    { c: 'LI', n: 'Liechtenstein', f: '🇱🇮', src: 'EU_LOW', dst: 'EU' },
+    { c: 'LT', n: 'Lithuania', f: '🇱🇹', src: 'EU_LOW', dst: 'EU' },
+    { c: 'LU', n: 'Luxembourg', f: '🇱🇺', src: 'EU_LOW', dst: 'EU' },
+    // M
+    { c: 'MG', n: 'Madagascar', f: '🇲🇬', src: 'HIGH_RISK', dst: 'ISLAND_MOD' },
+    { c: 'MW', n: 'Malawi', f: '🇲🇼', src: 'HIGH_RISK', dst: 'STANDARD' },
+    { c: 'MY', n: 'Malaysia', f: '🇲🇾', src: 'HIGH_RISK', dst: 'SEA' },
+    { c: 'MV', n: 'Maldives', f: '🇲🇻', src: 'RABIES_FREE', dst: 'ISLAND_STRICT' },
+    { c: 'ML', n: 'Mali', f: '🇲🇱', src: 'HIGH_RISK', dst: 'STANDARD' },
+    { c: 'MT', n: 'Malta', f: '🇲🇹', src: 'EU_LOW', dst: 'EU_TAPEWORM' },
+    { c: 'MH', n: 'Marshall Islands', f: '🇲🇭', src: 'RABIES_FREE', dst: 'ISLAND_STRICT' },
+    { c: 'MR', n: 'Mauritania', f: '🇲🇷', src: 'HIGH_RISK', dst: 'STANDARD' },
+    { c: 'MU', n: 'Mauritius', f: '🇲🇺', src: 'RABIES_FREE', dst: 'ISLAND_STRICT' },
+    { c: 'MX', n: 'Mexico', f: '🇲🇽', src: 'STANDARD', dst: 'STANDARD' },
+    { c: 'FM', n: 'Micronesia', f: '🇫🇲', src: 'RABIES_FREE', dst: 'ISLAND_STRICT' },
+    { c: 'MD', n: 'Moldova', f: '🇲🇩', src: 'STANDARD', dst: 'STANDARD' },
+    { c: 'MC', n: 'Monaco', f: '🇲🇨', src: 'EU_LOW', dst: 'EU' },
+    { c: 'MN', n: 'Mongolia', f: '🇲🇳', src: 'STANDARD', dst: 'STANDARD' },
+    { c: 'ME', n: 'Montenegro', f: '🇲🇪', src: 'STANDARD', dst: 'STANDARD' },
+    { c: 'MA', n: 'Morocco', f: '🇲🇦', src: 'STANDARD', dst: 'STANDARD' },
+    { c: 'MZ', n: 'Mozambique', f: '🇲🇿', src: 'HIGH_RISK', dst: 'STANDARD' },
+    { c: 'MM', n: 'Myanmar', f: '🇲🇲', src: 'HIGH_RISK', dst: 'SEA' },
+    // N
+    { c: 'NA', n: 'Namibia', f: '🇳🇦', src: 'STANDARD', dst: 'STANDARD' },
+    { c: 'NR', n: 'Nauru', f: '🇳🇷', src: 'RABIES_FREE', dst: 'ISLAND_STRICT' },
+    { c: 'NP', n: 'Nepal', f: '🇳🇵', src: 'HIGH_RISK', dst: 'STANDARD' },
+    { c: 'NL', n: 'Netherlands', f: '🇳🇱', src: 'EU_LOW', dst: 'EU' },
+    { c: 'NZ', n: 'New Zealand', f: '🇳🇿', src: 'RABIES_FREE', dst: 'AU_NZ' },
+    { c: 'NI', n: 'Nicaragua', f: '🇳🇮', src: 'STANDARD', dst: 'STANDARD' },
+    { c: 'NE', n: 'Niger', f: '🇳🇪', src: 'HIGH_RISK', dst: 'STANDARD' },
+    { c: 'NG', n: 'Nigeria', f: '🇳🇬', src: 'HIGH_RISK', dst: 'STANDARD' },
+    { c: 'MK', n: 'North Macedonia', f: '🇲🇰', src: 'STANDARD', dst: 'STANDARD' },
+    { c: 'NO', n: 'Norway', f: '🇳🇴', src: 'RABIES_FREE', dst: 'EU_TAPEWORM' },
+    // O
+    { c: 'OM', n: 'Oman', f: '🇴🇲', src: 'STANDARD', dst: 'GULF' },
+    // P
+    { c: 'PK', n: 'Pakistan', f: '🇵🇰', src: 'HIGH_RISK', dst: 'STANDARD' },
+    { c: 'PW', n: 'Palau', f: '🇵🇼', src: 'RABIES_FREE', dst: 'ISLAND_STRICT' },
+    { c: 'PA', n: 'Panama', f: '🇵🇦', src: 'STANDARD', dst: 'STANDARD' },
+    { c: 'PG', n: 'Papua New Guinea', f: '🇵🇬', src: 'STANDARD', dst: 'STANDARD' },
+    { c: 'PY', n: 'Paraguay', f: '🇵🇾', src: 'STANDARD', dst: 'STANDARD' },
+    { c: 'PE', n: 'Peru', f: '🇵🇪', src: 'STANDARD', dst: 'STANDARD' },
+    { c: 'PH', n: 'Philippines', f: '🇵🇭', src: 'HIGH_RISK', dst: 'SEA' },
+    { c: 'PL', n: 'Poland', f: '🇵🇱', src: 'EU_LOW', dst: 'EU' },
+    { c: 'PT', n: 'Portugal', f: '🇵🇹', src: 'EU_LOW', dst: 'EU' },
+    // Q
+    { c: 'QA', n: 'Qatar', f: '🇶🇦', src: 'STANDARD', dst: 'GULF' },
+    // R
+    { c: 'RO', n: 'Romania', f: '🇷🇴', src: 'EU_LOW', dst: 'EU' },
+    { c: 'RU', n: 'Russia', f: '🇷🇺', src: 'HIGH_RISK', dst: 'RUSSIA' },
+    { c: 'RW', n: 'Rwanda', f: '🇷🇼', src: 'HIGH_RISK', dst: 'STANDARD' },
+    // S
+    { c: 'KN', n: 'Saint Kitts and Nevis', f: '🇰🇳', src: 'STANDARD', dst: 'ISLAND_MOD' },
+    { c: 'LC', n: 'Saint Lucia', f: '🇱🇨', src: 'STANDARD', dst: 'ISLAND_MOD' },
+    { c: 'VC', n: 'Saint Vincent and the Grenadines', f: '🇻🇨', src: 'STANDARD', dst: 'ISLAND_MOD' },
+    { c: 'WS', n: 'Samoa', f: '🇼🇸', src: 'RABIES_FREE', dst: 'ISLAND_STRICT' },
+    { c: 'SM', n: 'San Marino', f: '🇸🇲', src: 'EU_LOW', dst: 'EU' },
+    { c: 'ST', n: 'São Tomé and Príncipe', f: '🇸🇹', src: 'HIGH_RISK', dst: 'ISLAND_MOD' },
+    { c: 'SA', n: 'Saudi Arabia', f: '🇸🇦', src: 'HIGH_RISK', dst: 'GULF' },
+    { c: 'SN', n: 'Senegal', f: '🇸🇳', src: 'HIGH_RISK', dst: 'STANDARD' },
+    { c: 'RS', n: 'Serbia', f: '🇷🇸', src: 'STANDARD', dst: 'STANDARD' },
+    { c: 'SC', n: 'Seychelles', f: '🇸🇨', src: 'RABIES_FREE', dst: 'ISLAND_STRICT' },
+    { c: 'SL', n: 'Sierra Leone', f: '🇸🇱', src: 'HIGH_RISK', dst: 'STANDARD' },
+    { c: 'SG', n: 'Singapore', f: '🇸🇬', src: 'RABIES_FREE', dst: 'SINGAPORE' },
+    { c: 'SK', n: 'Slovakia', f: '🇸🇰', src: 'EU_LOW', dst: 'EU' },
+    { c: 'SI', n: 'Slovenia', f: '🇸🇮', src: 'EU_LOW', dst: 'EU' },
+    { c: 'SB', n: 'Solomon Islands', f: '🇸🇧', src: 'RABIES_FREE', dst: 'ISLAND_STRICT' },
+    { c: 'SO', n: 'Somalia', f: '🇸🇴', src: 'HIGH_RISK', dst: 'STANDARD' },
+    { c: 'ZA', n: 'South Africa', f: '🇿🇦', src: 'STANDARD', dst: 'STANDARD' },
+    { c: 'SS', n: 'South Sudan', f: '🇸🇸', src: 'HIGH_RISK', dst: 'STANDARD' },
+    { c: 'ES', n: 'Spain', f: '🇪🇸', src: 'EU_LOW', dst: 'EU' },
+    { c: 'LK', n: 'Sri Lanka', f: '🇱🇰', src: 'HIGH_RISK', dst: 'STANDARD' },
+    { c: 'SD', n: 'Sudan', f: '🇸🇩', src: 'HIGH_RISK', dst: 'STANDARD' },
+    { c: 'SR', n: 'Suriname', f: '🇸🇷', src: 'STANDARD', dst: 'STANDARD' },
+    { c: 'SE', n: 'Sweden', f: '🇸🇪', src: 'RABIES_FREE', dst: 'EU_TAPEWORM' },
+    { c: 'CH', n: 'Switzerland', f: '🇨🇭', src: 'EU_LOW', dst: 'EU' },
+    { c: 'SY', n: 'Syria', f: '🇸🇾', src: 'HIGH_RISK', dst: 'STANDARD' },
+    // T
+    { c: 'TW', n: 'Taiwan', f: '🇹🇼', src: 'RABIES_FREE', dst: 'TAIWAN' },
+    { c: 'TJ', n: 'Tajikistan', f: '🇹🇯', src: 'HIGH_RISK', dst: 'STANDARD' },
+    { c: 'TZ', n: 'Tanzania', f: '🇹🇿', src: 'HIGH_RISK', dst: 'STANDARD' },
+    { c: 'TH', n: 'Thailand', f: '🇹🇭', src: 'HIGH_RISK', dst: 'SEA' },
+    { c: 'TL', n: 'Timor-Leste', f: '🇹🇱', src: 'HIGH_RISK', dst: 'STANDARD' },
+    { c: 'TG', n: 'Togo', f: '🇹🇬', src: 'HIGH_RISK', dst: 'STANDARD' },
+    { c: 'TO', n: 'Tonga', f: '🇹🇴', src: 'RABIES_FREE', dst: 'ISLAND_STRICT' },
+    { c: 'TT', n: 'Trinidad and Tobago', f: '🇹🇹', src: 'STANDARD', dst: 'ISLAND_MOD' },
+    { c: 'TN', n: 'Tunisia', f: '🇹🇳', src: 'STANDARD', dst: 'STANDARD' },
+    { c: 'TR', n: 'Turkey', f: '🇹🇷', src: 'STANDARD', dst: 'STANDARD' },
+    { c: 'TM', n: 'Turkmenistan', f: '🇹🇲', src: 'HIGH_RISK', dst: 'STANDARD' },
+    { c: 'TV', n: 'Tuvalu', f: '🇹🇻', src: 'RABIES_FREE', dst: 'ISLAND_STRICT' },
+    // U
+    { c: 'UG', n: 'Uganda', f: '🇺🇬', src: 'HIGH_RISK', dst: 'STANDARD' },
+    { c: 'UA', n: 'Ukraine', f: '🇺🇦', src: 'STANDARD', dst: 'STANDARD' },
+    { c: 'AE', n: 'United Arab Emirates', f: '🇦🇪', src: 'STANDARD', dst: 'GULF' },
+    { c: 'GB', n: 'United Kingdom', f: '🇬🇧', src: 'RABIES_FREE', dst: 'UK_IE' },
+    { c: 'US', n: 'United States', f: '🇺🇸', src: 'RABIES_LOW', dst: 'USA' },
+    { c: 'UY', n: 'Uruguay', f: '🇺🇾', src: 'STANDARD', dst: 'STANDARD' },
+    { c: 'UZ', n: 'Uzbekistan', f: '🇺🇿', src: 'HIGH_RISK', dst: 'STANDARD' },
+    // V
+    { c: 'VU', n: 'Vanuatu', f: '🇻🇺', src: 'RABIES_FREE', dst: 'ISLAND_STRICT' },
+    { c: 'VA', n: 'Vatican City', f: '🇻🇦', src: 'EU_LOW', dst: 'EU' },
+    { c: 'VE', n: 'Venezuela', f: '🇻🇪', src: 'STANDARD', dst: 'STANDARD' },
+    { c: 'VN', n: 'Vietnam', f: '🇻🇳', src: 'HIGH_RISK', dst: 'SEA' },
+    // Y
+    { c: 'YE', n: 'Yemen', f: '🇾🇪', src: 'HIGH_RISK', dst: 'STANDARD' },
+    // Z
+    { c: 'ZM', n: 'Zambia', f: '🇿🇲', src: 'HIGH_RISK', dst: 'STANDARD' },
+    { c: 'ZW', n: 'Zimbabwe', f: '🇿🇼', src: 'HIGH_RISK', dst: 'STANDARD' },
+  ];
+
+  // ═══════════════════════════════════════════════════════════
+  //  DESTINATION REQUIREMENT TIERS
+  // ═══════════════════════════════════════════════════════════
+
+  const DEST_REQS = {
+
+    AU_NZ: {
+      label: 'Australia / New Zealand', diff: 'extreme', diffLabel: 'Extreme — Strictest Globally',
+      prepTime: '6–8 months minimum', prepStart: 'Start 8 months before',
+      docs: [
+        { icon: '🔬', name: 'ISO Microchip (11784/85)', detail: 'Must be implanted BEFORE the rabies vaccination — if vaccinated first, entire process must restart.', req: 'critical', timing: 'Before any vaccines' },
+        { icon: '💉', name: 'Rabies Vaccination (Full Course)', detail: 'Core and booster doses required. Microchip must be in place before this is administered.', req: 'critical', timing: 'After microchip' },
+        { icon: '🧪', name: 'Rabies Antibody Titre Test (FAVN/RFFIT)', detail: 'Blood test at an approved laboratory — must show adequate antibody level (≥0.5 IU/mL). Test is valid 30 days after vaccination.', req: 'critical', timing: '7+ months before travel' },
+        { icon: '⏳', name: '180-Day Waiting Period', detail: 'Australia: 180-day wait after satisfactory titre test result. New Zealand: 180-day preparation period. Cannot be shortened.', req: 'critical', timing: '6 months wait — starts after titre' },
+        { icon: '📋', name: 'Import Permit', detail: 'Australia: Applied to Dept. of Agriculture. New Zealand: Applied to MPI. Processing takes 4–8 weeks.', req: 'critical', timing: 'Apply 4+ months ahead' },
+        { icon: '📄', name: 'Official Veterinary Health Certificate', detail: 'Issued by an accredited vet and endorsed by the competent authority within 10 days of departure.', req: 'critical', timing: 'Within 10 days of departure' },
+        { icon: '✈️', name: 'Approved Airline & Approved Route', detail: 'Only specific airlines approved. Pets travel as manifest cargo — not in-cabin or checked baggage.', req: 'critical', timing: 'Book in advance' },
+        { icon: '💊', name: 'Treatments (AUS: internal/external parasites)', detail: 'Specific treatments required prior to departure depending on origin country. Vet records date and product.', req: 'important', timing: 'Per vet instructions' },
+        { icon: '🏥', name: 'Quarantine on Arrival', detail: 'Australia: Minimum 10 days at Post-Entry Quarantine facility in Melbourne (government-operated). NZ: Minimum 10 days. Costs borne by owner — must be pre-booked.', req: 'critical', timing: 'Pre-book facility' },
+      ],
+      warnings: [
+        'Only dogs and cats for general pet import — other species require special CITES permits',
+        'Snub-nosed (brachycephalic) breeds face additional restrictions or may be refused by some airlines',
+        'Quarantine facility must be booked and paid in advance — limited spots available',
+        'Any documentation error = immediate re-export of pet at owner\'s cost (~AUD $2,000–$5,000)',
+        'Hawaii (USA) has similarly strict rules — treat as AU_NZ for planning purposes',
+      ],
+      tips: ['Use a specialist pet relocation company — mistakes are very costly', 'Start the titre test process as soon as you decide to move', 'Costs typically AUD $3,000–$8,000 total for Australia'],
+      timeline: ['Microchip now', 'Rabies vaccine (after chip)', 'Titre test (30 days later)', 'Wait 180 days', 'Apply for permit', 'Health cert (10 days before)', 'Travel'],
+    },
+
+    JAPAN: {
+      label: 'Japan', diff: 'extreme', diffLabel: 'Extreme — 180-Day Preparation',
+      prepTime: '6–7 months minimum', prepStart: 'Start 7 months before',
+      docs: [
+        { icon: '🔬', name: 'ISO Microchip (11784/85)', detail: 'ISO-compliant microchip — implanted before rabies vaccination.', req: 'critical', timing: 'Before all vaccines' },
+        { icon: '💉', name: 'Rabies Vaccination × 2', detail: 'Two doses of approved rabies vaccine required with specific intervals between doses.', req: 'critical', timing: '6+ months before travel' },
+        { icon: '🧪', name: 'Rabies Neutralising Antibody Test (FAVN)', detail: 'Blood test at a Japanese-approved laboratory. Must show ≥0.5 IU/mL. Test valid 180 days after sampling.', req: 'critical', timing: 'After 2nd rabies vaccine' },
+        { icon: '⏳', name: '180-Day Waiting Period (from blood test)', detail: 'A 180-day mandatory waiting period begins from the date of the qualifying blood test — not the travel booking.', req: 'critical', timing: 'Cannot be shortened' },
+        { icon: '📧', name: 'Advance Notification to MAFF Japan', detail: 'Must notify the Ministry of Agriculture Forestry and Fisheries (MAFF) 40 days before arrival.', req: 'critical', timing: '40 days before arrival' },
+        { icon: '📄', name: 'Official Export Certificate', detail: 'Endorsed by competent authority of exporting country. Specific Japan format required.', req: 'critical', timing: 'Within days of departure' },
+        { icon: '✈️', name: 'Arrive at Approved Airport', detail: 'Tokyo Narita, Osaka Kansai, Chitose, Naha — pets must arrive at MAFF-approved airports only.', req: 'critical', timing: 'At booking' },
+      ],
+      warnings: ['Entire process takes minimum 180 days from qualifying blood test', 'If microchip was implanted after rabies vaccine — process restarts from zero', '12 hours minimum inspection quarantine on arrival (can extend to 12 days if documents incomplete)'],
+      tips: ['MAFF Japan publishes a step-by-step checklist — follow exactly', 'If relocating, start the moment you receive your transfer notice'],
+      timeline: ['Microchip', 'Vaccine ×2', 'FAVN blood test', 'Wait 180 days', 'Notify MAFF (40 days before)', 'Export cert', 'Arrive approved airport'],
+    },
+
+    ISLAND_STRICT: {
+      label: 'Strict Island Nation (Rabies-Free Status)', diff: 'strict', diffLabel: 'Strict — Rabies-Free Protection',
+      prepTime: '3–6 months', prepStart: 'Start 4 months before',
+      docs: [
+        { icon: '🔬', name: 'ISO Microchip (11784/85)', detail: 'Mandatory. Must precede all vaccinations.', req: 'critical', timing: 'Before vaccines' },
+        { icon: '💉', name: 'Rabies Vaccination', detail: 'Valid and current. Some islands require titre test (blood test).', req: 'critical', timing: '21+ days before travel' },
+        { icon: '🧪', name: 'Rabies Titre Test (destination dependent)', detail: 'Iceland, Maldives, Seychelles, Fiji, Mauritius: titre test required showing ≥0.5 IU/mL.', req: 'important', timing: '30 days after vaccine' },
+        { icon: '📋', name: 'Import Permit', detail: 'All strict island nations require a pre-approved import permit before pet can board.', req: 'critical', timing: 'Apply 2–3 months ahead' },
+        { icon: '📄', name: 'Official Veterinary Health Certificate', detail: 'Signed and endorsed by a registered vet within 10 days of travel.', req: 'critical', timing: 'Within 10 days of travel' },
+        { icon: '🏥', name: 'Quarantine on Arrival', detail: 'Most rabies-free island nations require 2–30 days quarantine at approved facility — costs borne by owner.', req: 'important', timing: 'Pre-book on arrival' },
+        { icon: '💊', name: 'Parasite Treatments', detail: 'Internal and external parasite treatment required — specific products and timing per destination.', req: 'important', timing: 'Per destination rules' },
+      ],
+      warnings: ['Do not attempt to bring pets without import permit — immediate seizure and euthanasia possible', 'Requirements vary significantly per island — confirm with official authority'],
+      tips: ['Contact destination country\'s veterinary authority directly for current rules', 'Hire a local pet relocation agent who knows island-specific rules'],
+      timeline: ['Microchip', 'Vaccine', 'Titre test (if needed)', 'Apply permit', 'Health cert', 'Travel + quarantine'],
+    },
+
+    UK_IE: {
+      label: 'United Kingdom / Ireland', diff: 'strict', diffLabel: 'Strict — Post-Brexit Requirements',
+      prepTime: '6–8 weeks', prepStart: 'Start 8 weeks before',
+      docs: [
+        { icon: '🔬', name: 'ISO Microchip (11784/85)', detail: 'Mandatory — must be implanted before rabies vaccination. UK-registered microchip database recommended.', req: 'critical', timing: 'Before rabies vaccine' },
+        { icon: '💉', name: 'Rabies Vaccination', detail: 'Valid and current. Must wait 21 days after first dose before travel.', req: 'critical', timing: '21+ days before travel' },
+        { icon: '📄', name: 'Animal Health Certificate (AHC)', detail: 'UK-specific AHC (EU Pet Passport no longer accepted after Brexit). Must be issued by an Official Veterinarian (OV) within 10 days of travel. Valid for 10 days entry, 4 months onward/return.', req: 'critical', timing: 'Within 10 days of travel' },
+        { icon: '🐛', name: 'Tapeworm Treatment (Echinococcus)', detail: 'Mandatory for UK and Ireland entry. Treatment must be administered by a vet between 24 and 120 hours (1–5 days) before arrival. Vet records exact date and time.', req: 'critical', timing: '1–5 days before arrival' },
+        { icon: '✈️', name: 'Approved Route & Port of Entry', detail: 'Must arrive through approved UK ports — Heathrow, Gatwick, St Pancras (Eurostar), Dover. Ireland: Dublin or Rosslare ferry approved.', req: 'critical', timing: 'At booking' },
+        { icon: '🧪', name: 'Rabies Titre Test (from high-risk countries only)', detail: 'Not generally required from most countries, but pets from unlisted/high-risk countries may need titre test.', req: 'important', timing: '30 days after vaccine if applicable' },
+      ],
+      warnings: ['EU Pet Passport NO LONGER valid for entry to UK or Ireland (post-Brexit)', 'Tapeworm treatment timing is critical — 24h minimum, 120h maximum before arrival', 'Only approved routes — pets cannot enter UK via most budget airline routes'],
+      tips: ['Find an Official Veterinarian (OV) in advance — not all vets are approved to issue AHCs', 'Book tapeworm treatment appointment on exact travel calendar'],
+      timeline: ['Microchip', 'Rabies vaccine (21 days before)', 'Book OV appointment', 'AHC (within 10 days)', 'Tapeworm treatment (1–5 days before)', 'Arrive approved port'],
+    },
+
+    EU: {
+      label: 'European Union / Schengen Area', diff: 'moderate', diffLabel: 'Moderate — Standardised Requirements',
+      prepTime: '4–6 weeks', prepStart: 'Start 6 weeks before',
+      docs: [
+        { icon: '🔬', name: 'ISO Microchip (11784/85)', detail: 'Must be implanted before or on the same day as first rabies vaccination — otherwise rabies vaccine is not legally valid for EU entry.', req: 'critical', timing: 'Before/with rabies vaccine' },
+        { icon: '💉', name: 'Rabies Vaccination', detail: 'Valid and current. If first ever dose: must wait 21 days before entry. Boosters given before expiry are valid immediately.', req: 'critical', timing: '21+ days before travel (first dose)' },
+        { icon: '📄', name: 'Animal Health Certificate (AHC)', detail: 'Official health certificate in EU format — issued by an accredited vet and endorsed by the competent authority of the exporting country. Valid 10 days for entry, 4 months onward.', req: 'critical', timing: 'Within 10 days of travel' },
+        { icon: '💉', name: 'DHPP Vaccination', detail: 'Distemper, Hepatitis, Parvovirus, Parainfluenza — annual booster recommended. Required current by most EU countries.', req: 'important', timing: 'Current' },
+        { icon: '💉', name: 'Leptospirosis Vaccination', detail: 'Required by several EU countries and strongly recommended for all. Annual vaccination.', req: 'important', timing: 'Current' },
+        { icon: '🐛', name: 'Tapeworm Treatment (specific countries only)', detail: 'Required for travel to/via Finland, Norway, Malta, and entry into Ireland/UK. Treatment 24–120 hours before arrival.', req: 'important', timing: '1–5 days before — only for these countries' },
+      ],
+      warnings: ['Microchip must precede the rabies vaccination — this is the most common error causing rejection', 'AHC must be in the language of the country entered — or with a certified translation', 'Moving within the EU after entry: same requirements apply crossing each border'],
+      tips: ['PAWID Pet Passport consolidates all EU requirements in one QR-verified document', 'Switzerland, Norway, Liechtenstein follow EU rules despite not being EU members'],
+      timeline: ['Microchip', 'Rabies vaccine', 'DHPP + Lepto current', 'Book accredited vet', 'AHC within 10 days', 'Travel'],
+    },
+
+    USA: {
+      label: 'United States', diff: 'moderate', diffLabel: 'Moderate — CDC Compliance Required',
+      prepTime: '6–8 weeks', prepStart: 'Start 8 weeks before',
+      docs: [
+        { icon: '🔬', name: 'ISO Microchip', detail: 'Strongly recommended though not always federally mandated — many states and airlines require it.', req: 'important', timing: 'Before travel' },
+        { icon: '💉', name: 'Rabies Vaccination', detail: 'India is classified as a high-risk country for rabies. Dogs must have a valid rabies vaccination from an approved lab and vet.', req: 'critical', timing: 'Current, ≥12 days before travel' },
+        { icon: '📋', name: 'CDC Dog Import Form', detail: 'Completed online before travel via CDC website. Dogs from high-risk countries must arrive at a CDC-approved port.', req: 'critical', timing: 'Complete before booking finalized' },
+        { icon: '📄', name: 'USDA-Endorsed Health Certificate', detail: 'Health certificate issued by a USDA-accredited vet and endorsed by the USDA APHIS VS within 10 days of travel.', req: 'critical', timing: 'Within 10 days of travel' },
+        { icon: '✈️', name: 'Arrive at CDC-Approved Airport', detail: 'From high-risk countries, must arrive at one of ~18 CDC-approved airports. Not all US airports are approved.', req: 'critical', timing: 'At booking' },
+        { icon: '💊', name: 'External Parasite Treatment', detail: 'Dogs must be free of ticks and other external parasites. USDA inspector verifies on arrival.', req: 'important', timing: '24–48 hours before travel' },
+      ],
+      warnings: ['CDC rules for India (high-risk country) are stricter than for EU/UK origin', 'Hawaii has separate rules — treat as AU/NZ equivalent in terms of quarantine strictness', 'Some US states have additional requirements beyond federal — check destination state rules'],
+      tips: ['Find a USDA-accredited vet early — not all vets can endorse USDA health certificates', 'CDCs DogImport.cdc.gov for online form — fill before booking flights', 'Cats: US has no federal rabies requirement but airlines typically require vaccines'],
+      timeline: ['Microchip', 'Rabies vaccine', 'Fill CDC online form', 'USDA vet (within 10 days)', 'USDA endorsement', 'Arrive approved airport'],
+    },
+
+    CANADA: {
+      label: 'Canada', diff: 'standard', diffLabel: 'Standard — Streamlined',
+      prepTime: '2–3 weeks', prepStart: 'Start 3 weeks before',
+      docs: [
+        { icon: '💉', name: 'Rabies Vaccination Certificate', detail: 'Valid rabies vaccination certificate — must show pet\'s description, vaccine product, and expiry date.', req: 'critical', timing: 'Current' },
+        { icon: '📄', name: 'Health Certificate', detail: 'Signed by a licensed veterinarian within the previous few weeks. Recommends within 10 days.', req: 'important', timing: 'Within 10 days recommended' },
+        { icon: '🔬', name: 'Microchip', detail: 'Not federally mandated but required by many airlines and strongly recommended for identification.', req: 'important', timing: 'Before travel' },
+      ],
+      warnings: ['Canada is one of the simpler destinations for dogs and cats', 'Puppies under 8 months from high-rabies countries face stricter rules'],
+      tips: ['One of the more straightforward pet travel destinations', 'Canadian Food Inspection Agency (CFIA) has full requirements online'],
+      timeline: ['Rabies vaccine current', 'Health cert (within 10 days)', 'Travel'],
+    },
+
+    SINGAPORE: {
+      label: 'Singapore', diff: 'strict', diffLabel: 'Strict — AVS Import Permit Required',
+      prepTime: '3–4 months', prepStart: 'Start 4 months before',
+      docs: [
+        { icon: '📋', name: 'AVS Import Permit (Singapore)', detail: 'Import permit from the Animal & Veterinary Service (AVS) — must be obtained before pet is shipped. Processing time varies.', req: 'critical', timing: 'Apply 3+ months ahead' },
+        { icon: '🔬', name: 'ISO Microchip (11784/85)', detail: 'Mandatory — implanted before rabies vaccination.', req: 'critical', timing: 'Before vaccines' },
+        { icon: '💉', name: 'Rabies Vaccination', detail: 'Valid and current. Must be administered within 30 days of travel for dogs from India.', req: 'critical', timing: 'Within 30 days of travel' },
+        { icon: '📄', name: 'Veterinary Health Certificate', detail: 'Issued by accredited vet and endorsed by origin country authority within 10 days of travel.', req: 'critical', timing: 'Within 10 days of travel' },
+        { icon: '🏥', name: 'Quarantine on Arrival', detail: 'Dogs from India (non-approved countries): 30 days at Singapore Animal Quarantine Station at owner\'s cost.', req: 'critical', timing: 'On arrival — pre-arrange' },
+        { icon: '💉', name: 'Other Vaccinations (Distemper, Parvovirus etc.)', detail: 'Several additional vaccines required — full schedule per AVS guidelines.', req: 'important', timing: 'Current' },
+      ],
+      warnings: ['30-day quarantine cost is significant — budget SGD $1,500–$3,000', 'Only specific airlines and routes are AVS-approved', 'India is not on Singapore\'s approved countries list — stricter rules apply'],
+      tips: ['Contact AVS (www.nparks.gov.sg) for exact current requirements', 'Hire a Singapore-based pet relocation agent — process is complex'],
+      timeline: ['Microchip', 'Vaccines', 'Apply AVS permit', 'Health cert (10 days before)', 'Quarantine 30 days'],
+    },
+
+    GULF: {
+      label: 'Gulf Countries (UAE, Saudi Arabia, Qatar, Bahrain, Kuwait, Oman)', diff: 'moderate', diffLabel: 'Moderate — Import Permit Required',
+      prepTime: '4–6 weeks', prepStart: 'Start 6 weeks before',
+      docs: [
+        { icon: '🔬', name: 'ISO Microchip (11784/85)', detail: 'Mandatory for all Gulf countries.', req: 'critical', timing: 'Before vaccines' },
+        { icon: '💉', name: 'Rabies Vaccination', detail: 'Valid and current — must be endorsed by official vet.', req: 'critical', timing: 'Current' },
+        { icon: '💉', name: 'Additional Vaccinations (DHPP, Lepto)', detail: 'All core vaccinations required to be current — endorsed on health certificate.', req: 'critical', timing: 'Current' },
+        { icon: '📄', name: 'Official Veterinary Health Certificate', detail: 'Issued and endorsed by origin country\'s official veterinary authority (India: AQCS/state authority).', req: 'critical', timing: 'Within 10 days of travel' },
+        { icon: '📋', name: 'Import Permit (country-specific)', detail: 'UAE: Ministry of Climate Change & Environment (MOCCAE). Saudi Arabia: SFDA. Qatar: MMAA. Each has its own portal and processing time (~1–3 weeks).', req: 'critical', timing: 'Apply 4–6 weeks ahead' },
+        { icon: '✈️', name: 'Cargo-Only Arrival (most Gulf routes)', detail: 'Most Gulf countries do not permit pets in cabin. Pets travel as cargo.', req: 'important', timing: 'At booking' },
+      ],
+      warnings: ['Most Gulf countries do NOT permit pets in-cabin — cargo only', 'Breed restrictions apply: many banned breeds in UAE, Saudi, Qatar (pit bulls, Rottweilers etc.)', 'Cats are generally easier to import than dogs in Gulf countries'],
+      tips: ['UAE is the most pet-friendly of Gulf countries — process is relatively straightforward', 'MOCCAE UAE portal available online for import permit application'],
+      timeline: ['Microchip', 'All vaccines current', 'Apply import permit', 'AQCS health cert (India side)', 'Arrive as cargo'],
+    },
+
+    INDIA: {
+      label: 'India', diff: 'strict', diffLabel: 'Strict — DGFT + AQCS System',
+      prepTime: '6–8 weeks', prepStart: 'Start 8 weeks before',
+      docs: [
+        { icon: '🔬', name: 'ISO Microchip (11784/85)', detail: 'Must be implanted before rabies vaccination. ISO 11784/85 standard.', req: 'critical', timing: 'Before rabies vaccine' },
+        { icon: '💉', name: 'Rabies Vaccination', detail: 'India requires rabies vaccine NOT more than 1 year old — even if a 3-year US certificate was issued.', req: 'critical', timing: '≤12 months old' },
+        { icon: '💉', name: 'Additional Vaccinations (Distemper, Parvovirus, Hepatitis, Leptospirosis)', detail: 'All vaccinations must be current and documented on the health certificate.', req: 'critical', timing: 'Current' },
+        { icon: '📄', name: 'Official Veterinary Health Certificate', detail: 'Health certificate issued within 10 days of travel by an officially approved veterinarian in the origin country.', req: 'critical', timing: 'Within 10 days of travel' },
+        { icon: '📋', name: 'DGFT Import License (Form ANF-2M)', detail: 'Required for temporary visitors bringing pets — tourists, short-term visa holders. Apply to Directorate General of Foreign Trade. Processing: up to 30 days.', req: 'critical', timing: 'Apply 8+ weeks ahead' },
+        { icon: '📜', name: 'AQCS NOC (Advance No Objection Certificate)', detail: 'No Objection Certificate from the Animal Quarantine and Certification Station at destination airport. Apply 7 working days before arrival.', req: 'critical', timing: '7 days before arrival' },
+        { icon: '🛫', name: 'Maximum 2 Pets Per Passenger', detail: 'India allows maximum 2 pets per passenger as part of baggage rules.', req: 'important', timing: 'At booking' },
+      ],
+      warnings: ['DGFT license can take up to 1 month — start early', 'If transferring residence permanently (2+ years abroad), different rules apply — pets may come as baggage without DGFT license', 'Only dogs and cats can be imported as pets generally — other animals need CITES and DGFT', 'AQCS officers at: Mumbai, Delhi, Bengaluru, Chennai, Kolkata, Hyderabad airports'],
+      tips: ['Residents returning after 2+ years abroad: pets qualify as baggage — no DGFT license needed, just AQCS NOC', 'Puppies and kittens must be minimum 3 months old, microchipped, and vaccinated at least 30 days before entry'],
+      timeline: ['Microchip', 'Vaccines current', 'Apply DGFT license (8 weeks ahead)', 'Health cert (10 days before)', 'AQCS NOC (7 days before)', 'Arrive at approved airport'],
+    },
+
+    SEA: {
+      label: 'Southeast Asia (Thailand, Malaysia, Indonesia, Philippines, Vietnam, etc.)', diff: 'moderate', diffLabel: 'Moderate — Varies by Country',
+      prepTime: '4–6 weeks', prepStart: 'Start 6 weeks before',
+      docs: [
+        { icon: '🔬', name: 'ISO Microchip', detail: 'Required by Thailand, Malaysia, Philippines, Vietnam, Cambodia. Implanted before vaccines.', req: 'critical', timing: 'Before vaccines' },
+        { icon: '💉', name: 'Rabies Vaccination', detail: 'Valid and current — mandatory for all Southeast Asian countries.', req: 'critical', timing: 'Current, 21+ days before travel if first dose' },
+        { icon: '💉', name: 'Core Vaccinations (DHPP)', detail: 'Required current by most Southeast Asian countries.', req: 'important', timing: 'Current' },
+        { icon: '📄', name: 'Veterinary Health Certificate', detail: 'Issued by an accredited vet — most countries require endorsement by official veterinary authority.', req: 'critical', timing: 'Within 10 days of travel' },
+        { icon: '📋', name: 'Import Permit (country-specific)', detail: 'Thailand: Department of Livestock Development. Malaysia: Department of Veterinary Services. Philippines: BAFS. Indonesia: BARANTAN. Vietnam: Department of Animal Health.', req: 'critical', timing: 'Apply 3–4 weeks ahead' },
+      ],
+      warnings: ['Requirements vary significantly between SEA countries — check each country individually', 'Indonesia has strict rabies control zones — permits can take 4–6 weeks', 'Philippines: Bureau of Animal and Fishery Standards (BAFS) — online portal available'],
+      tips: ['Thailand is the most pet-friendly SEA country for imports', 'Malaysia has streamlined the process for common pet species'],
+      timeline: ['Microchip', 'Vaccines current', 'Apply country-specific permit', 'Health cert (10 days before)', 'Travel'],
+    },
+
+    CHINA: {
+      label: 'China (Mainland)', diff: 'strict', diffLabel: 'Strict — Quarantine Possible',
+      prepTime: '6–8 weeks', prepStart: 'Start 8 weeks before',
+      docs: [
+        { icon: '🔬', name: 'ISO Microchip (11784/85)', detail: 'Mandatory.', req: 'critical', timing: 'Before vaccines' },
+        { icon: '💉', name: 'Rabies Vaccination', detail: 'Valid and current. Must be administered at least 30 days before arrival.', req: 'critical', timing: '30+ days before travel' },
+        { icon: '💉', name: 'Comprehensive Vaccination Record', detail: 'Distemper, Parvovirus, Hepatitis, Leptospirosis — all required current.', req: 'critical', timing: 'Current' },
+        { icon: '📄', name: 'Health Certificate', detail: 'Issued by origin country official vet authority — Chinese customs endorsement may be required.', req: 'critical', timing: 'Within 10 days of travel' },
+        { icon: '📋', name: 'China Customs Quarantine Declaration', detail: 'Declare pet at Chinese customs on arrival — GACC (General Administration of Customs China) inspection.', req: 'critical', timing: 'On arrival' },
+        { icon: '🏥', name: 'Quarantine on Arrival (possible)', detail: 'GACC may impose 7–30 day quarantine at border or approved facility depending on inspection outcome.', req: 'important', timing: 'On arrival — prepare for possibility' },
+      ],
+      warnings: ['China limits to 1 dog per household in most cities — second dog import may be refused', 'Some Chinese cities have breed bans — check local regulations before travel', 'Quarantine decision made on arrival — cannot predict in advance'],
+      tips: ['Hong Kong has different (more straightforward) rules from mainland China', 'Hire a China-specialist pet relocation agent to navigate GACC requirements'],
+      timeline: ['Microchip', 'All vaccines (30 days before)', 'Health cert (10 days before)', 'Declare at GACC customs'],
+    },
+
+    CHINA_HK: {
+      label: 'Hong Kong', diff: 'moderate', diffLabel: 'Moderate — AFCD Permit',
+      prepTime: '4–6 weeks', prepStart: 'Start 6 weeks before',
+      docs: [
+        { icon: '🔬', name: 'ISO Microchip', detail: 'Mandatory.', req: 'critical', timing: 'Before vaccines' },
+        { icon: '💉', name: 'Rabies Vaccination', detail: 'Valid and current.', req: 'critical', timing: 'Current' },
+        { icon: '📋', name: 'AFCD Import Licence', detail: 'Agriculture Fisheries and Conservation Department (AFCD) import licence — obtained before shipping.', req: 'critical', timing: 'Apply 4+ weeks ahead' },
+        { icon: '📄', name: 'Veterinary Health Certificate', detail: 'Endorsed by origin country authority.', req: 'critical', timing: 'Within days of travel' },
+        { icon: '🏥', name: 'Quarantine on Arrival', detail: 'From India: typically 1–7 days quarantine at AFCD facility.', req: 'important', timing: 'On arrival' },
+      ],
+      warnings: ['Hong Kong operates independently of mainland China for pet imports', 'AFCD website has detailed country-specific requirements'],
+      tips: ['Process is more straightforward than mainland China', 'Online AFCD portal available'],
+      timeline: ['Microchip', 'Vaccines', 'AFCD permit', 'Health cert', 'Quarantine'],
+    },
+
+    KOREA: {
+      label: 'South Korea', diff: 'moderate', diffLabel: 'Moderate — QIAFF Permit',
+      prepTime: '4–6 weeks', prepStart: 'Start 6 weeks before',
+      docs: [
+        { icon: '🔬', name: 'ISO Microchip', detail: 'Mandatory.', req: 'critical', timing: 'Before vaccines' },
+        { icon: '💉', name: 'Rabies Vaccination', detail: 'Current. From India (high-risk country): may require titre test.', req: 'critical', timing: 'Current' },
+        { icon: '🧪', name: 'Rabies Titre Test (from high-risk countries)', detail: 'India is listed as high-risk — FAVN titre test may be required by QIAFF.', req: 'important', timing: '30 days after vaccine' },
+        { icon: '📄', name: 'Veterinary Health Certificate', detail: 'Endorsed by Indian veterinary authority within 10 days.', req: 'critical', timing: 'Within 10 days of travel' },
+        { icon: '📋', name: 'QIAFF Quarantine Application', detail: 'Quarantine Inspection Animal and Fishery Products division pre-arrival application.', req: 'critical', timing: 'Before departure' },
+        { icon: '🏥', name: 'Quarantine on Arrival', detail: 'From high-risk countries: 1–7 days quarantine.', req: 'important', timing: 'On arrival' },
+      ],
+      warnings: ['Korea differentiates between high-risk and low-risk origin countries', 'From India: expect quarantine and possible titre test requirement'],
+      tips: ['QIAFF Korea official website has country classification and full requirements', 'Incheon International Airport is the main arrival point for pet imports'],
+      timeline: ['Microchip', 'Vaccine', 'Titre test (if India)', 'QIAFF application', 'Health cert', 'Quarantine'],
+    },
+
+    TAIWAN: {
+      label: 'Taiwan', diff: 'strict', diffLabel: 'Strict — COA Permit + Quarantine',
+      prepTime: '3–5 months', prepStart: 'Start 5 months before',
+      docs: [
+        { icon: '🔬', name: 'ISO Microchip', detail: 'Mandatory.', req: 'critical', timing: 'Before vaccines' },
+        { icon: '💉', name: 'Rabies Vaccination', detail: 'Valid and current — Taiwan is rabies-free and strictly controls imports.', req: 'critical', timing: 'Current' },
+        { icon: '🧪', name: 'Rabies Neutralising Antibody Test', detail: 'Required for dogs from India — titre test at COA-approved lab.', req: 'critical', timing: '30+ days after vaccine' },
+        { icon: '📋', name: 'COA Import Permit', detail: 'Council of Agriculture (COA) Taiwan — import permit required before shipping.', req: 'critical', timing: 'Apply 3+ months ahead' },
+        { icon: '📄', name: 'Health Certificate', detail: 'Origin country official vet endorsement.', req: 'critical', timing: 'Within 10 days of travel' },
+        { icon: '🏥', name: 'Quarantine on Arrival', detail: 'Typically 21 days at Animal Health Research Institute quarantine station.', req: 'critical', timing: 'On arrival — pre-book' },
+      ],
+      warnings: ['Taiwan is extremely strict — rabies-free status rigorously protected', 'Non-compliance = immediate re-export or euthanasia'],
+      tips: ['Bureau of Animal and Plant Health Inspection and Quarantine (BAPHIQ) has full guidance', 'Process similar complexity to Japan'],
+      timeline: ['Microchip', 'Vaccine', 'Titre test', 'COA permit', 'Health cert', '21-day quarantine'],
+    },
+
+    RUSSIA: {
+      label: 'Russia', diff: 'moderate', diffLabel: 'Moderate — Rosselkhoznadzor Rules',
+      prepTime: '3–4 weeks', prepStart: 'Start 4 weeks before',
+      docs: [
+        { icon: '🔬', name: 'Microchip', detail: 'Required.', req: 'critical', timing: 'Before vaccines' },
+        { icon: '💉', name: 'Rabies Vaccination', detail: 'Valid and current — valid within 1 year.', req: 'critical', timing: 'Within 1 year' },
+        { icon: '💉', name: 'Core Vaccinations', detail: 'Distemper, Hepatitis, Parvovirus, Leptospirosis — within 1 year.', req: 'important', timing: 'Within 1 year' },
+        { icon: '📄', name: 'Veterinary Certificate Form 5a', detail: 'Russia-specific form completed by vet with Rosselkhoznadzor-compliant format.', req: 'critical', timing: 'Within 5 days of travel' },
+      ],
+      warnings: ['Current geopolitical situation affects some travel routes — check airline availability', 'Form 5a is Russia-specific and must follow exact format'],
+      tips: ['Russia allows up to 2 pets without commercial permit', 'Form 5a available from licensed vets familiar with Russian requirements'],
+      timeline: ['Microchip', 'Vaccines current', 'Form 5a (within 5 days)', 'Travel'],
+    },
+
+    ISLAND_MOD: {
+      label: 'Caribbean / Moderate Island Nation', diff: 'moderate', diffLabel: 'Moderate — Island Pet Rules',
+      prepTime: '3–4 weeks', prepStart: 'Start 4 weeks before',
+      docs: [
+        { icon: '🔬', name: 'Microchip', detail: 'Strongly recommended — required by most Caribbean destinations.', req: 'important', timing: 'Before vaccines' },
+        { icon: '💉', name: 'Rabies Vaccination', detail: 'Current — most Caribbean destinations require recent rabies vaccination.', req: 'critical', timing: '21+ days before travel' },
+        { icon: '📄', name: 'Veterinary Health Certificate', detail: 'Within 10 days of travel.', req: 'critical', timing: 'Within 10 days' },
+        { icon: '📋', name: 'Import Permit (varies by island)', detail: 'Jamaica, Barbados, Trinidad: import permit required. Some islands allow entry without permit.', req: 'important', timing: 'Apply 3–4 weeks ahead' },
+      ],
+      warnings: ['Requirements vary significantly between Caribbean islands', 'Some islands (Barbados, Jamaica) have strict quarantine rules'],
+      tips: ['Contact specific island\'s agricultural ministry for current rules', 'CARICOM countries have varying levels of harmonization'],
+      timeline: ['Microchip', 'Rabies vaccine', 'Apply permit if needed', 'Health cert (10 days)', 'Travel'],
+    },
+
+    STANDARD: {
+      label: 'Standard International', diff: 'standard', diffLabel: 'Standard — Core Documents',
+      prepTime: '2–3 weeks', prepStart: 'Start 3 weeks before',
+      docs: [
+        { icon: '🔬', name: 'Microchip (recommended)', detail: 'ISO 11784/85 microchip strongly recommended for identification. Required by many airlines.', req: 'important', timing: 'Before travel' },
+        { icon: '💉', name: 'Rabies Vaccination Certificate', detail: 'Valid and current rabies vaccination — the single most universally required document for international pet travel.', req: 'critical', timing: 'Current, 21+ days for first dose' },
+        { icon: '💉', name: 'Core Vaccinations (DHPP)', detail: 'Distemper, Hepatitis, Parvovirus, Parainfluenza — most countries require these to be current.', req: 'important', timing: 'Current' },
+        { icon: '📄', name: 'Veterinary Health Certificate', detail: 'Signed by a licensed veterinarian. Many countries require endorsement by official veterinary authority within 10 days of travel.', req: 'critical', timing: 'Within 10 days of travel' },
+      ],
+      warnings: ['Even "standard" destinations can have specific breed restrictions', 'Some countries may impose quarantine on arrival — check with official authorities'],
+      tips: ['Always check the destination country\'s official agricultural or veterinary ministry website for current rules', 'PAWID consolidates all documents in one QR code — accepted by most countries as supporting documentation'],
+      timeline: ['Rabies vaccine current', 'Core vaccines current', 'Health cert (within 10 days)', 'Travel'],
+    },
+  };
+
+  // ═══════════════════════════════════════════════════════════
+  //  SOURCE COUNTRY MODIFIERS
+  // ═══════════════════════════════════════════════════════════
+
+  const SRC_MODIFIERS = {
+    RABIES_FREE: {
+      label: 'Rabies-free country',
+      note: 'Your origin country has controlled or rabies-free status — this may REDUCE requirements at some destinations but strict destinations still apply full rules.',
+      bonus: 'Some destinations (EU, US, Canada) have simplified requirements for pets from certified rabies-free countries.'
+    },
+    EU_LOW: {
+      label: 'EU / Low-risk country',
+      note: 'Origin is an EU or low-risk country — standard international travel requirements apply with possible simplified entry to some destinations.',
+      bonus: 'EU Pet Passport valid for travel within the EU/EEA. AHC required for non-EU entry.'
+    },
+    RABIES_LOW: {
+      label: 'Low-risk rabies country',
+      note: 'Origin is a low-risk country for rabies — some destinations have streamlined requirements.',
+      bonus: ''
+    },
+    HIGH_RISK: {
+      label: 'High-risk rabies country',
+      note: '⚠ India and other high-risk countries face STRICTER requirements at many destinations — including mandatory titre tests, extended waiting periods, and stricter health certificates.',
+      bonus: ''
+    },
+    STANDARD: {
+      label: 'Standard risk country',
+      note: 'Standard international pet travel requirements apply.',
+      bonus: ''
+    }
+  };
+
+  // ═══════════════════════════════════════════════════════════
+  //  PET-TYPE SPECIFIC ADDITIONS
+  // ═══════════════════════════════════════════════════════════
+
+  const PET_ADDITIONS = {
+    bird: {
+      extraDocs: [
+        { icon: '📋', name: 'CITES Permit', detail: 'Convention on International Trade in Endangered Species — required for most parrot species and many birds. Export permit from India Wildlife Crime Control Bureau. Processing: 2–4 weeks.', req: 'critical', timing: 'Apply 4+ weeks ahead' },
+        { icon: '📄', name: 'Avian Health Certificate', detail: 'Issued by a registered vet confirming freedom from avian influenza and other notifiable avian diseases.', req: 'critical', timing: 'Within 7 days of travel' },
+        { icon: '🏥', name: 'Quarantine', detail: 'Most countries require 30+ days quarantine for birds due to avian disease risk.', req: 'critical', timing: 'On arrival' },
+      ],
+      warning: 'Birds face the STRICTEST import rules globally due to avian influenza and CITES protection. Many common parrot species are CITES Appendix II. Check CITES listing before planning any travel.'
+    },
+    rabbit: {
+      extraDocs: [
+        { icon: '📋', name: 'Import Permit', detail: 'Most countries require specific import permit for rabbits — separate from cats and dogs.', req: 'critical', timing: 'Apply 4+ weeks ahead' },
+        { icon: '📄', name: 'Health Certificate', detail: 'Rabbit-specific health certificate — freedom from RHD (Rabbit Hemorrhagic Disease) and myxomatosis.', req: 'critical', timing: 'Within 5 days of travel' },
+      ],
+      warning: 'Rabbits are often classified separately from dogs/cats and may face quarantine in Australia, NZ, and EU countries. Some countries prohibit rabbit imports entirely.'
+    },
+    other: {
+      extraDocs: [
+        { icon: '📋', name: 'CITES Permit (if applicable)', detail: 'Many exotic pet species are CITES-protected. Verify your pet\'s species CITES status before booking any travel.', req: 'critical', timing: 'Apply early — can take months' },
+        { icon: '📄', name: 'Species-Specific Health Certificate', detail: 'Standard dog/cat health certificates are NOT valid for exotic species.', req: 'critical', timing: 'Within days of travel' },
+      ],
+      warning: '⚠ Exotic, reptile, and non-standard pets face extremely complex import rules. Many are prohibited outright. Consult a specialist wildlife vet and the destination country\'s CITES authority BEFORE making any travel plans.'
+    }
+  };
+
+  // ═══════════════════════════════════════════════════════════
+  //  UI LOGIC
+  // ═══════════════════════════════════════════════════════════
+
+  let selectedPet = 'dog';
+
+  function setPetType(btn, type) {
+    document.querySelectorAll('.pet-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    selectedPet = type;
+  }
+
+  function populateSelects() {
+    const sorted = [...COUNTRIES].sort((a, b) => a.n.localeCompare(b.n));
+    const src = document.getElementById('src-country');
+    const dst = document.getElementById('dst-country');
+    sorted.forEach(c => {
+      const o1 = new Option(`${c.f} ${c.n}`, c.c);
+      const o2 = new Option(`${c.f} ${c.n}`, c.c);
+      src.appendChild(o1);
+      dst.appendChild(o2);
+    });
+    // Default India as source
+    src.value = 'IN';
+    updateFlag('src-flag', 'IN');
+    enableCheck();
+  }
+
+  function updateFlag(id, code) {
+    const c = COUNTRIES.find(x => x.c === code);
+    document.getElementById(id).textContent = c ? c.f : '';
+    enableCheck();
+  }
+
+  function enableCheck() {
+    const s = document.getElementById('src-country').value;
+    const d = document.getElementById('dst-country').value;
+    document.getElementById('check-btn').disabled = !s || !d;
+  }
+
+  function swapCountries() {
+    const src = document.getElementById('src-country');
+    const dst = document.getElementById('dst-country');
+    const tmp = src.value;
+    src.value = dst.value;
+    dst.value = tmp;
+    updateFlag('src-flag', src.value);
+    updateFlag('dst-flag', dst.value);
+    // toggle rotate
+    const btn = document.querySelector('.swap-btn');
+    btn.classList.toggle('rotate');
+  }
+
+  function checkDocs() {
+    const srcCode = document.getElementById('src-country').value;
+    const dstCode = document.getElementById('dst-country').value;
+    if (!srcCode || !dstCode) return;
+
+    // Same country check
+    if (srcCode === dstCode) {
+      document.getElementById('results').innerHTML = `
+      <div style="text-align:center;padding:24px;background:var(--mist);border-radius:12px;">
+        <div style="font-size:2rem;margin-bottom:10px;">🏠</div>
+        <h3 style="color:var(--forest);">Same Origin & Destination</h3>
+        <p style="max-width:none;">You've selected the same country for both origin and destination. No international pet travel documents are required for domestic travel within the same country.</p>
+      </div>`;
+      document.getElementById('results').classList.add('show');
+      return;
+    }
+
+    const srcCountry = COUNTRIES.find(c => c.c === srcCode);
+    const dstCountry = COUNTRIES.find(c => c.c === dstCode);
+    const req = DEST_REQS[dstCountry.dst] || DEST_REQS.STANDARD;
+    const srcMod = SRC_MODIFIERS[srcCountry.src] || SRC_MODIFIERS.STANDARD;
+    const petAdd = PET_ADDITIONS[selectedPet];
+
+    // Loading animation
+    const loading = document.getElementById('loading');
+    const results = document.getElementById('results');
+    loading.classList.add('show');
+    results.classList.remove('show');
+
+    setTimeout(() => {
+      loading.classList.remove('show');
+      results.innerHTML = buildResults(srcCountry, dstCountry, req, srcMod, petAdd);
+      results.classList.add('show');
+    }, 900);
+  }
+
+  function buildResults(src, dst, req, srcMod, petAdd) {
+    const petEmoji = { dog: '🐕', cat: '🐱', bird: '🐦', rabbit: '🐰', other: '🐾' }[selectedPet] || '🐾';
+    const petLabel = { dog: 'Dog', cat: 'Cat', bird: 'Bird', rabbit: 'Rabbit', other: 'Pet' }[selectedPet] || 'Pet';
+
+    const allDocs = [...req.docs, ...(petAdd ? petAdd.extraDocs : [])];
+    const criticalCount = allDocs.filter(d => d.req === 'critical').length;
+    const importantCount = allDocs.filter(d => d.req === 'important').length;
+
+    let docsHTML = '';
+    allDocs.forEach(doc => {
+      const reqClass = { critical: 'critical', important: 'important', standard: 'standard', optional: 'optional' }[doc.req] || 'standard';
+      const reqLabel = { critical: '🔴 Mandatory', important: '🟡 Required', standard: '🟢 Standard', optional: '🔵 Recommended' }[doc.req] || '';
+      const reqBadge = { critical: 'req-critical', important: 'req-important', standard: 'req-standard', optional: 'req-optional' }[doc.req] || '';
+      docsHTML += `
+      <div class="doc-card ${reqClass}">
+        <div class="doc-icon">${doc.icon}</div>
+        <div class="doc-body">
+          <div class="doc-name-row">
+            <span class="doc-name">${doc.name}</span>
+            <span class="doc-req ${reqBadge}">${reqLabel}</span>
+          </div>
+          <div class="doc-detail">${doc.detail}</div>
+          ${doc.timing ? `<div class="doc-timing">⏱ ${doc.timing}</div>` : ''}
+        </div>
+      </div>`;
+    });
+
+    let warningsHTML = '';
+    const allWarnings = [...(req.warnings || []), ...(petAdd ? [petAdd.warning] : [])].filter(Boolean);
+    if (allWarnings.length) {
+      warningsHTML = `
+      <div class="warnings-box">
+        <div class="warnings-title">⚠ Critical Warnings</div>
+        <ul class="warn-list">
+          ${allWarnings.map(w => `<li>${w}</li>`).join('')}
+        </ul>
+      </div>`;
+    }
+
+    let tipsHTML = '';
+    if (req.tips && req.tips.length) {
+      tipsHTML = `
+      <div class="tips-box">
+        <div class="tips-title">💡 PAWID Travel Tips</div>
+        <ul class="tip-list">
+          ${req.tips.map(t => `<li>${t}</li>`).join('')}
+        </ul>
+      </div>`;
+    }
+
+    let srcNoteHTML = '';
+    if (srcMod.note) {
+      const isWarning = src.src === 'HIGH_RISK';
+      srcNoteHTML = `
+      <div style="background:${isWarning ? '#fff5f5' : '#f0fdf4'};border:1px solid ${isWarning ? 'rgba(220,38,38,.15)' : 'rgba(22,163,74,.15)'};border-radius:10px;padding:14px 18px;margin-bottom:16px;">
+        <div style="font-size:.78rem;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:${isWarning ? 'var(--red)' : 'var(--green)'};margin-bottom:5px;">
+          ${isWarning ? '⚠' : '✓'} Origin Country: ${srcMod.label}
+        </div>
+        <div style="font-size:.86rem;color:var(--ink);">${srcMod.note}</div>
+        ${srcMod.bonus ? `<div style="font-size:.84rem;color:var(--green);margin-top:6px;">✓ ${srcMod.bonus}</div>` : ''}
+      </div>`;
+    }
+
+    let tlHTML = '';
+    if (req.timeline && req.timeline.length) {
+      const dots = req.timeline.map((step, i) => `
+      <div class="tl-item">
+        <div style="display:flex;align-items:center;">
+          <div class="tl-dot">${i + 1}</div>
+          ${i < req.timeline.length - 1 ? '<div class="tl-line"></div>' : ''}
+        </div>
+        <div class="tl-label">${step}</div>
+      </div>`).join('');
+      tlHTML = `
+      <div class="timeline-bar">
+        <div class="tl-title">📅 Required Timeline</div>
+        <div class="tl-items">${dots}</div>
+      </div>`;
+    }
+
+    return `
+    <div class="results-header">
+      <div class="rh-left">
+        <h3>Travel Requirements — ${petEmoji} ${petLabel}</h3>
+        <div class="rh-route">
+          <div class="rh-country"><span class="flag">${src.f}</span><span class="cname">${src.n}</span></div>
+          <span class="rh-arrow">✈️ →</span>
+          <div class="rh-country"><span class="flag">${dst.f}</span><span class="cname">${dst.n}</span></div>
+        </div>
+      </div>
+      <div class="rh-right">
+        <span class="diff-pill diff-${req.diff}">${req.diffLabel}</span>
+        <span class="prep-badge">⏱ ${req.prepTime}</span>
+      </div>
+    </div>
+
+    <div class="stats-row">
+      <div class="stat-box"><div class="sn">${allDocs.length}</div><div class="sl">Total Documents</div></div>
+      <div class="stat-box"><div class="sn" style="color:var(--red);">${criticalCount}</div><div class="sl">Mandatory</div></div>
+      <div class="stat-box"><div class="sn" style="color:var(--orange);">${importantCount}</div><div class="sl">Required</div></div>
+      <div class="stat-box"><div class="sn" style="color:var(--fern);">${req.prepTime}</div><div class="sl">Prep Time</div></div>
+    </div>
+
+    ${srcNoteHTML}
+    ${warningsHTML}
+    <div class="docs-title">📋 Required Documents — ${dst.n}</div>
+    <div class="doc-cards">${docsHTML}</div>
+    ${tlHTML}
+    ${tipsHTML}
+
+    <div class="pawid-cta">
+      <div>
+        <h4>PAWID consolidates all of these into one QR code</h4>
+        <p>No paperwork. No missed documents. One scan — accepted by airlines and customs globally.</p>
+      </div>
+      <a href="/create-petid.html" class="btn-white">🐾 Get PAWID Pet Passport →</a>
+    </div>
+
+    <div style="text-align:center;margin-top:16px;font-size:.78rem;color:var(--slate);">
+      Requirements last verified March 2026. Always confirm with <a href="/pet-passport.html" style="color:var(--fern);">official government sources</a> before travel.
+    </div>`;
+  }
+
+  // Init
+  document.addEventListener('DOMContentLoaded', () => {
+    populateSelects();
+    document.getElementById('src-country').addEventListener('change', enableCheck);
+    document.getElementById('dst-country').addEventListener('change', enableCheck);
+  });
+</script>
 </body>
 
 </html>
