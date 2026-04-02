@@ -1,4 +1,4 @@
-name: Html (local to s3)
+name: CD (local to s3)
 
 on:
   push:
