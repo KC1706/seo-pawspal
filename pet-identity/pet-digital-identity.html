@@ -251,11 +251,11 @@
   <link
     href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&display=swap"
     rel="stylesheet" />
-    <!-- Font awesome cdn -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
-      integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
-      crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="/styles/navbar.css">
+  <!-- Font awesome cdn -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+    integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="/styles/navbar.css">
   <style>
     /* ════════════════════════════════════════
        DESIGN TOKENS — same as pawid-seo.html
@@ -734,7 +734,11 @@
       box-shadow: var(--shadow-lg);
     }
 
-    .card-icon { overflow: hidden; display: flex; align-items: center; justify-content: center;
+    .card-icon {
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       font-size: 2.2rem;
       margin-bottom: 16px;
     }
@@ -1046,7 +1050,11 @@
       min-width: 120px;
     }
 
-    .flow-step-circle { overflow:hidden; display:flex; align-items:center; justify-content:center;
+    .flow-step-circle {
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       width: 64px;
       height: 64px;
       border-radius: 50%;
@@ -1265,7 +1273,11 @@
       box-shadow: var(--shadow);
     }
 
-    .vm-icon { overflow:hidden; display:flex; align-items:center; justify-content:center;
+    .vm-icon {
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       font-size: 3rem;
       margin-bottom: 16px;
     }
@@ -1947,6 +1959,7 @@
       font-size: .82rem;
     }
   </style>
+  <link rel="icon" href="/assets/logo-small.png" type="image/png">
 </head>
 
 <body>
@@ -1955,8 +1968,8 @@
      NAVIGATION
 ══════════════════════════════════════════ -->
 
-<div id="navbar"></div>
-  
+  <div id="navbar"></div>
+
 
   <!-- ══════════════════════════════════════════
      BREADCRUMB
@@ -2166,42 +2179,48 @@
       </div>
       <div class="g3" style="margin-bottom:48px;">
         <div class="card" style="border-left:4px solid #ef4444;">
-          <div class="card-icon"><img src="/assets/seo_health_record.png" style="width:100%; height:100%; object-fit:cover;" alt="Records"></div>
+          <div class="card-icon"><img src="/assets/seo_health_record.png"
+              style="width:100%; height:100%; object-fit:cover;" alt="Records"></div>
           <h3>Fragmented Medical Records</h3>
           <p>78% of pet owners in India rely on paper records that get lost, damaged, or left at the wrong clinic. When
             a pet is seen by a new vet, the entire history starts from scratch — leading to repeated tests,
             misdiagnosis, and preventable complications.</p>
         </div>
         <div class="card" style="border-left:4px solid #ef4444;">
-          <div class="card-icon"><img src="/assets/seo_pet_travel.png" style="width:100%; height:100%; object-fit:cover;" alt="Travel"></div>
+          <div class="card-icon"><img src="/assets/seo_pet_travel.png"
+              style="width:100%; height:100%; object-fit:cover;" alt="Travel"></div>
           <h3>Complex Pet Travel</h3>
           <p>International pet travel requires vaccination certificates, health certificates, microchip verification,
             and import permits — all in paper format, from different sources. A missing document means the pet cannot
             board. PAWID digitises and unifies all of it.</p>
         </div>
         <div class="card" style="border-left:4px solid #ef4444;">
-          <div class="card-icon"><img src="/assets/blog_emergency.png" style="width:100%; height:100%; object-fit:cover;" alt="Emergency"></div>
+          <div class="card-icon"><img src="/assets/blog_emergency.png"
+              style="width:100%; height:100%; object-fit:cover;" alt="Emergency"></div>
           <h3>Emergency Information Blackout</h3>
           <p>In a pet emergency, the treating vet often has zero history — no known allergies, no current medications,
             no vaccination status. This delays critical decisions and increases risk. PAWID makes the full record
             available in seconds via QR scan.</p>
         </div>
         <div class="card" style="border-left:4px solid #f59e0b;">
-          <div class="card-icon"><img src="/assets/blog_tracking.png" style="width:100%; height:100%; object-fit:cover;" alt="Ownership"></div>
+          <div class="card-icon"><img src="/assets/blog_tracking.png" style="width:100%; height:100%; object-fit:cover;"
+              alt="Ownership"></div>
           <h3>No Ownership Verification Standard</h3>
           <p>Pet theft and ownership disputes have no resolution mechanism. Shelters, vets, and authorities cannot
             verify who legally owns a pet. PAWID's blockchain-backed ownership registry creates an immutable,
             tamper-proof proof of ownership.</p>
         </div>
         <div class="card" style="border-left:4px solid #f59e0b;">
-          <div class="card-icon"><img src="/assets/seo_adoption.png" style="width:100%; height:100%; object-fit:cover;" alt="Lost Pets"></div>
+          <div class="card-icon"><img src="/assets/seo_adoption.png" style="width:100%; height:100%; object-fit:cover;"
+              alt="Lost Pets"></div>
           <h3>Lost Pets Without Identity</h3>
           <p>30% of pets go missing at some point. Without a digital identity linked to QR or NFC, a Good Samaritan who
             finds the pet has no way to contact the owner. PAWID's QR tag instantly surfaces owner contact details to
             anyone who scans it.</p>
         </div>
         <div class="card" style="border-left:4px solid #f59e0b;">
-          <div class="card-icon"><img src="/assets/seo_ai_vet.png" style="width:100%; height:100%; object-fit:cover;" alt="Genetics"></div>
+          <div class="card-icon"><img src="/assets/seo_ai_vet.png" style="width:100%; height:100%; object-fit:cover;"
+              alt="Genetics"></div>
           <h3>No Breeding Lineage Transparency</h3>
           <p>Fake pedigree certificates, undisclosed genetic disease risks, and fraudulent breeding practices harm both
             pets and buyers. PAWID's DNA identity layer and blockchain breeding registry create a transparent, verified
@@ -2446,39 +2465,46 @@
         <p class="mx-auto">From first download to globally verified PetID — the entire process takes under 5 minutes.
           Here is the complete Pet Digital Identity creation workflow.</p>
       </div>
-      <div class="flow-steps" role="list" aria-label="PetID creation workflow" style="display: flex; justify-content: center; align-items: center; ">
+      <div class="flow-steps" role="list" aria-label="PetID creation workflow"
+        style="display: flex; justify-content: center; align-items: center; ">
         <div class="flow-step" role="listitem">
-          <div class="flow-step-circle"><img src="/assets/seo_vet_software.png" style="width:100%; height:100%; object-fit:cover;" alt="App"></div>
+          <div class="flow-step-circle"><img src="/assets/seo_vet_software.png"
+              style="width:100%; height:100%; object-fit:cover;" alt="App"></div>
           <div class="flow-step-label">Download App</div>
           <div class="flow-step-sub">iOS & Android — free signup in 60 seconds</div>
         </div>
         <div class="flow-arrow" aria-hidden="true">→</div>
         <div class="flow-step" role="listitem">
-          <div class="flow-step-circle"><img src="/assets/seo_health_record.png" style="width:100%; height:100%; object-fit:cover;" alt="Profile"></div>
+          <div class="flow-step-circle"><img src="/assets/seo_health_record.png"
+              style="width:100%; height:100%; object-fit:cover;" alt="Profile"></div>
           <div class="flow-step-label">Create Pet Profile</div>
           <div class="flow-step-sub">Name, species, breed, photo, DOB, microchip</div>
         </div>
         <div class="flow-arrow" aria-hidden="true">→</div>
         <div class="flow-step" role="listitem">
-          <div class="flow-step-circle"><img src="/assets/blog_app.png" style="width:100%; height:100%; object-fit:cover;" alt="User"></div>
+          <div class="flow-step-circle"><img src="/assets/blog_app.png"
+              style="width:100%; height:100%; object-fit:cover;" alt="User"></div>
           <div class="flow-step-label">Owner Verification</div>
           <div class="flow-step-sub">WhatsApp, email, address, emergency contact</div>
         </div>
         <div class="flow-arrow" aria-hidden="true">→</div>
         <div class="flow-step" role="listitem">
-          <div class="flow-step-circle"><img src="/assets/blog_health.png" style="width:100%; height:100%; object-fit:cover;" alt="Data"></div>
+          <div class="flow-step-circle"><img src="/assets/blog_health.png"
+              style="width:100%; height:100%; object-fit:cover;" alt="Data"></div>
           <div class="flow-step-label">Upload Health Data</div>
           <div class="flow-step-sub">Vaccinations, records, allergies, medications</div>
         </div>
         <div class="flow-arrow" aria-hidden="true">→</div>
         <div class="flow-step" role="listitem">
-          <div class="flow-step-circle"><img src="/assets/seo_ai_vet.png" style="width:100%; height:100%; object-fit:cover;" alt="Vet"></div>
+          <div class="flow-step-circle"><img src="/assets/seo_ai_vet.png"
+              style="width:100%; height:100%; object-fit:cover;" alt="Vet"></div>
           <div class="flow-step-label">Vet Verification</div>
           <div class="flow-step-sub">PAWID-certified vet digitally signs within 24h</div>
         </div>
         <div class="flow-arrow" aria-hidden="true">→</div>
         <div class="flow-step" role="listitem">
-          <div class="flow-step-circle"><img src="/assets/seo_adoption.png" style="width:100%; height:100%; object-fit:cover;" alt="ID"></div>
+          <div class="flow-step-circle"><img src="/assets/seo_adoption.png"
+              style="width:100%; height:100%; object-fit:cover;" alt="ID"></div>
           <div class="flow-step-label">PetID Issued</div>
           <div class="flow-step-sub">Global PetID + QR tag + health card + passport</div>
         </div>
@@ -2581,9 +2607,10 @@
         </div>
         <div class="fv" role="img" aria-label="PAWID Digital Health Card illustration"
           style="background:linear-gradient(145deg,#e8f5f0,#d0ecde); overflow:hidden; display:flex; align-items:center; justify-content:center;">
-          <img src="/assets/seo_health_record.png" style="width:100%; height:100%; object-fit:cover;" alt="Digital Health Card">
+          <img src="/assets/seo_health_record.png" style="width:100%; height:100%; object-fit:cover;"
+            alt="Digital Health Card">
         </div>
-    </div>
+      </div>
   </section>
 
   <!-- ══════════════════════════════════════════
@@ -2599,7 +2626,8 @@
       </div>
       <div class="vm-grid">
         <div class="vm-card">
-          <div class="vm-icon"><img src="/assets/blog_app.png" style="width:100%; height:100%; object-fit:cover;" alt="QR Code"></div>
+          <div class="vm-icon"><img src="/assets/blog_app.png" style="width:100%; height:100%; object-fit:cover;"
+              alt="QR Code"></div>
           <h3>QR Code Collar Tag</h3>
           <p>Every registered pet receives a durable, weatherproof QR tag for their collar. Any smartphone camera scans
             it instantly — no app required — to open the pet's full PAWID profile, including owner contact and emergency
@@ -2607,7 +2635,8 @@
           <div class="vm-badge">No app required to scan</div>
         </div>
         <div class="vm-card">
-          <div class="vm-icon"><img src="/assets/blog_tracking.png" style="width:100%; height:100%; object-fit:cover;" alt="Network"></div>
+          <div class="vm-icon"><img src="/assets/blog_tracking.png" style="width:100%; height:100%; object-fit:cover;"
+              alt="Network"></div>
           <h3>NFC Smart Tag</h3>
           <p>Tap any NFC-enabled phone to the pet's collar tag and instantly receive the pet's identity card. Supported
             by all modern Android and Apple devices. Ideal for shelters, veterinary clinics, and customs authorities
@@ -2615,7 +2644,8 @@
           <div class="vm-badge">Tap-to-verify in 0.3s</div>
         </div>
         <div class="vm-card">
-          <div class="vm-icon"><img src="/assets/seo_health_record.png" style="width:100%; height:100%; object-fit:cover;" alt="Lab"></div>
+          <div class="vm-icon"><img src="/assets/seo_health_record.png"
+              style="width:100%; height:100%; object-fit:cover;" alt="Lab"></div>
           <h3>Microchip Integration</h3>
           <p>PAWID links directly to the pet's implanted microchip. When a vet clinic or shelter scans the chip with an
             ISO 11784/85 compliant reader, the PetID is automatically retrieved from the PAWID network — even offline in
@@ -2961,7 +2991,8 @@
       </div>
       <div class="g4">
         <div class="card">
-          <div class="card-icon"><img src="/assets/blog_app.png" style="width:100%; height:100%; object-fit:cover;" alt="ID"></div>
+          <div class="card-icon"><img src="/assets/blog_app.png" style="width:100%; height:100%; object-fit:cover;"
+              alt="ID"></div>
           <h3>Pet Digital Identity</h3>
           <p>A permanent unique PetID — storing breed, ownership, microchip, and verified health data. The foundation of
             everything.</p>
@@ -2970,7 +3001,8 @@
             Page ✦</a>
         </div>
         <div class="card">
-          <div class="card-icon"><img src="/assets/seo_health_record.png" style="width:100%; height:100%; object-fit:cover;" alt="Health"></div>
+          <div class="card-icon"><img src="/assets/seo_health_record.png"
+              style="width:100%; height:100%; object-fit:cover;" alt="Health"></div>
           <h3>Pet Health Records</h3>
           <p>Complete digital EMR — vaccinations, lab reports, prescriptions, deworming schedules, surgical history, and
             AI-powered health insights.</p>
@@ -2978,7 +3010,8 @@
             style="display:inline-block;margin-top:14px;font-weight:600;font-size:.88rem;">My Pet Dashboard →</a>
         </div>
         <div class="card">
-          <div class="card-icon"><img src="/assets/seo_ai_vet.png" style="width:100%; height:100%; object-fit:cover;" alt="AI"></div>
+          <div class="card-icon"><img src="/assets/seo_ai_vet.png" style="width:100%; height:100%; object-fit:cover;"
+              alt="AI"></div>
           <h3>AI Vet (BharatPetGPT)</h3>
           <p>24/7 intelligent veterinary support — symptom analysis, emergency guidance, lab report interpretation, and
             preventive care AI.</p>
@@ -2986,7 +3019,8 @@
             Details →</a>
         </div>
         <div class="card">
-          <div class="card-icon"><img src="/assets/seo_pet_travel.png" style="width:100%; height:100%; object-fit:cover;" alt="Passport"></div>
+          <div class="card-icon"><img src="/assets/seo_pet_travel.png"
+              style="width:100%; height:100%; object-fit:cover;" alt="Passport"></div>
           <h3>Global Pet Passport</h3>
           <p>A vet-verified, QR-enabled travel document accepted in 40+ countries — the world's first digital global pet
             passport infrastructure.</p>
@@ -2996,7 +3030,8 @@
       </div>
       <div class="g2 mt-8">
         <a href="/blockchain-registry.html" class="card" style="text-decoration:none;">
-          <div class="card-icon"><img src="/assets/seo_adoption.png" style="width:100%; height:100%; object-fit:cover;" alt="Security"></div>
+          <div class="card-icon"><img src="/assets/seo_adoption.png" style="width:100%; height:100%; object-fit:cover;"
+              alt="Security"></div>
           <h3>Blockchain Pet Registry</h3>
           <p>Immutable ownership verification, adoption certificates, breeding lineage, and tamper-proof veterinary
             records — secured on a distributed ledger.</p>
@@ -3005,7 +3040,8 @@
             Registry →</span>
         </a>
         <a href="/smart-collar.html" class="card" style="text-decoration:none;">
-          <div class="card-icon"><img src="/assets/blog_tracking.png" style="width:100%; height:100%; object-fit:cover;" alt="Tracking"></div>
+          <div class="card-icon"><img src="/assets/blog_tracking.png" style="width:100%; height:100%; object-fit:cover;"
+              alt="Tracking"></div>
           <h3>Smart Collar & IoT Network</h3>
           <p>GPS tracking, activity monitoring, temperature alerts, and lost pet notification — all linked to the pet's
             PetID for instant identity resolution.</p>
@@ -3121,7 +3157,7 @@
       </div>
 
       <!-- The Form -->
-      
+
       <!-- Multi-step Sliding Form -->
       <style>
         .pawid-wizard-container {
@@ -3129,13 +3165,14 @@
           gap: 24px;
           background: #fff;
           border-radius: 16px;
-          box-shadow: 0 10px 25px -5px rgba(0,0,0,0.05);
+          box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05);
           overflow: hidden;
           max-width: 900px;
           margin: 0 auto 40px;
           border: 1px solid var(--border);
           text-align: left;
         }
+
         .pw-sidebar {
           background: #f8fafc;
           padding: 32px 24px;
@@ -3143,6 +3180,7 @@
           border-right: 1px solid var(--border);
           flex-shrink: 0;
         }
+
         .pw-step-item {
           display: flex;
           align-items: flex-start;
@@ -3150,149 +3188,266 @@
           position: relative;
           margin-bottom: 24px;
         }
-        .pw-step-item:last-child { margin-bottom: 0; }
+
+        .pw-step-item:last-child {
+          margin-bottom: 0;
+        }
+
         .pw-step-item:not(:last-child)::after {
-          content: ''; position: absolute; left: 14px; top: 32px; bottom: -20px; width: 2px;
-          background: var(--border); z-index: 1;
+          content: '';
+          position: absolute;
+          left: 14px;
+          top: 32px;
+          bottom: -20px;
+          width: 2px;
+          background: var(--border);
+          z-index: 1;
         }
-        .pw-step-item.completed:not(:last-child)::after { background: var(--success, #10b981); }
+
+        .pw-step-item.completed:not(:last-child)::after {
+          background: var(--success, #10b981);
+        }
+
         .pw-step-circle {
-          width: 30px; height: 30px; border-radius: 50%; display: flex; align-items: center; justify-content: center;
-          background: #e2e8f0; color: #64748b; font-weight: 600; font-size: 0.85rem; z-index: 2; position: relative;
+          width: 30px;
+          height: 30px;
+          border-radius: 50%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          background: #e2e8f0;
+          color: #64748b;
+          font-weight: 600;
+          font-size: 0.85rem;
+          z-index: 2;
+          position: relative;
         }
-        .pw-step-item.active .pw-step-circle { background: var(--forest, #144b36); color: white; }
-        .pw-step-item.completed .pw-step-circle { background: var(--success, #10b981); color: white; }
-        .pw-step-text { font-weight: 500; color: #64748b; padding-top: 5px; font-size: 0.95rem; }
-        .pw-step-item.active .pw-step-text { color: var(--forest, #144b36); font-weight: 700; }
-        .pw-step-item.completed .pw-step-text { color: var(--text); }
-        
+
+        .pw-step-item.active .pw-step-circle {
+          background: var(--forest, #144b36);
+          color: white;
+        }
+
+        .pw-step-item.completed .pw-step-circle {
+          background: var(--success, #10b981);
+          color: white;
+        }
+
+        .pw-step-text {
+          font-weight: 500;
+          color: #64748b;
+          padding-top: 5px;
+          font-size: 0.95rem;
+        }
+
+        .pw-step-item.active .pw-step-text {
+          color: var(--forest, #144b36);
+          font-weight: 700;
+        }
+
+        .pw-step-item.completed .pw-step-text {
+          color: var(--text);
+        }
+
         .pw-content {
           flex: 1;
           position: relative;
-          overflow: hidden; /* For slider effect */
+          overflow: hidden;
+          /* For slider effect */
           /* padding moved to pw-slide to prevent track width leakage */
         }
+
         .pw-slider-track {
           display: flex;
-          width: 500%; /* 5 steps (4 form + 1 loading) */
+          width: 500%;
+          /* 5 steps (4 form + 1 loading) */
           transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1);
         }
+
         .pw-slide {
-          width: 20%; /* 1/5th of 500% = 100% of parent */
+          width: 20%;
+          /* 1/5th of 500% = 100% of parent */
           flex-shrink: 0;
           padding: 32px;
           box-sizing: border-box;
         }
-        .pw-header { margin-bottom: 24px; }
-        .pw-header h3 { font-size: 1.35rem; margin-bottom: 8px; color: var(--text); }
-        .pw-header p { color: #64748b; font-size: 0.9rem; margin: 0; }
-        
-        .pw-group { margin-bottom: 20px; }
-        .pw-row { display: flex; gap: 16px; margin-bottom: 20px; }
-        .pw-row .pw-group { margin-bottom: 0; flex: 1; }
-        .pw-group label { display: block; margin-bottom: 6px; font-weight: 600; font-size: 0.85rem; color: var(--text); }
-        .pw-input, .pw-select {
-          width: 100%; padding: 10px 14px; border-radius: 8px; border: 1px solid var(--border);
-          background: #f8fafc; color: var(--text); font-size: 0.95rem; outline: none; transition: all 0.2s;
+
+        .pw-header {
+          margin-bottom: 24px;
         }
-        .pw-input:focus, .pw-select:focus { border-color: var(--primary); background: #fff; box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1); }
-        
-        .pw-actions { display: flex; justify-content: space-between; margin-top: 32px; padding-top: 20px; border-top: 1px solid var(--border); }
-        .pw-actions.single { justify-content: flex-end; }
-        
+
+        .pw-header h3 {
+          font-size: 1.35rem;
+          margin-bottom: 8px;
+          color: var(--text);
+        }
+
+        .pw-header p {
+          color: #64748b;
+          font-size: 0.9rem;
+          margin: 0;
+        }
+
+        .pw-group {
+          margin-bottom: 20px;
+        }
+
+        .pw-row {
+          display: flex;
+          gap: 16px;
+          margin-bottom: 20px;
+        }
+
+        .pw-row .pw-group {
+          margin-bottom: 0;
+          flex: 1;
+        }
+
+        .pw-group label {
+          display: block;
+          margin-bottom: 6px;
+          font-weight: 600;
+          font-size: 0.85rem;
+          color: var(--text);
+        }
+
+        .pw-input,
+        .pw-select {
+          width: 100%;
+          padding: 10px 14px;
+          border-radius: 8px;
+          border: 1px solid var(--border);
+          background: #f8fafc;
+          color: var(--text);
+          font-size: 0.95rem;
+          outline: none;
+          transition: all 0.2s;
+        }
+
+        .pw-input:focus,
+        .pw-select:focus {
+          border-color: var(--primary);
+          background: #fff;
+          box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+        }
+
+        .pw-actions {
+          display: flex;
+          justify-content: space-between;
+          margin-top: 32px;
+          padding-top: 20px;
+          border-top: 1px solid var(--border);
+        }
+
+        .pw-actions.single {
+          justify-content: flex-end;
+        }
+
         .pw-loader {
-          border: 4px solid #f8fafc; border-top: 4px solid var(--primary);
-          border-radius: 50%; width: 40px; height: 40px; animation: spin 1s linear infinite; margin: 0 auto 20px;
+          border: 4px solid #f8fafc;
+          border-top: 4px solid var(--primary);
+          border-radius: 50%;
+          width: 40px;
+          height: 40px;
+          animation: spin 1s linear infinite;
+          margin: 0 auto 20px;
         }
 
-@media (max-width: 768px) {
+        @media (max-width: 768px) {
 
-  /* making layout vertically */
-  .pawid-wizard-container {
-    flex-direction: column;
-    gap: 0;
-  }
+          /* making layout vertically */
+          .pawid-wizard-container {
+            flex-direction: column;
+            gap: 0;
+          }
 
-  /* sidebar into top progress bar */
-  .pw-sidebar {
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    padding: 16px;
-    border-right: none;
-    border-bottom: 1px solid var(--border);
-  }
+          /* sidebar into top progress bar */
+          .pw-sidebar {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            padding: 16px;
+            border-right: none;
+            border-bottom: 1px solid var(--border);
+          }
 
-  /* Making steps horizontal */
-  .pw-step-item {
-    flex-direction: column;
-    align-items: center;
-    gap: 6px;
-    margin-bottom: 0;
-  }
+          /* Making steps horizontal */
+          .pw-step-item {
+            flex-direction: column;
+            align-items: center;
+            gap: 6px;
+            margin-bottom: 0;
+          }
 
-  /* Removing vertical line */
-  .pw-step-item::after {
-    display: none !important;
-  }
+          /* Removing vertical line */
+          .pw-step-item::after {
+            display: none !important;
+          }
 
-  .pw-step-text {
-    font-size: 0.7rem;
-    text-align: center;
-  }
+          .pw-step-text {
+            font-size: 0.7rem;
+            text-align: center;
+          }
 
-  /* Reduced circle size */
-  .pw-step-circle {
-    width: 24px;
-    height: 24px;
-    font-size: 0.7rem;
-  }
+          /* Reduced circle size */
+          .pw-step-circle {
+            width: 24px;
+            height: 24px;
+            font-size: 0.7rem;
+          }
 
-  .pw-slide {
-    padding: 20px 16px;
-  }
+          .pw-slide {
+            padding: 20px 16px;
+          }
 
-  .pw-row {
-    flex-direction: column;
-    gap: 12px;
-  }
+          .pw-row {
+            flex-direction: column;
+            gap: 12px;
+          }
 
-  .pw-actions {
-    flex-direction: column;
-    gap: 10px;
-  }
+          .pw-actions {
+            flex-direction: column;
+            gap: 10px;
+          }
 
-  .pw-actions button {
-    width: 100%;
-  }
+          .pw-actions button {
+            width: 100%;
+          }
 
-}
+        }
       </style>
       <div class="pawid-wizard-container" id="pawid-wizard-container">
         <!-- Sidebar -->
         <div class="pw-sidebar" id="pw-sidebar">
           <div class="pw-step-item active" id="pw-nav-1">
-            <div class="pw-step-circle">1</div><div class="pw-step-text">Pet Info</div>
+            <div class="pw-step-circle">1</div>
+            <div class="pw-step-text">Pet Info</div>
           </div>
           <div class="pw-step-item" id="pw-nav-2">
-            <div class="pw-step-circle">2</div><div class="pw-step-text">Owner Info</div>
+            <div class="pw-step-circle">2</div>
+            <div class="pw-step-text">Owner Info</div>
           </div>
           <div class="pw-step-item" id="pw-nav-3">
-            <div class="pw-step-circle">3</div><div class="pw-step-text">Lifestyle</div>
+            <div class="pw-step-circle">3</div>
+            <div class="pw-step-text">Lifestyle</div>
           </div>
           <div class="pw-step-item" id="pw-nav-4">
-            <div class="pw-step-circle">4</div><div class="pw-step-text">Medical</div>
+            <div class="pw-step-circle">4</div>
+            <div class="pw-step-text">Medical</div>
           </div>
           <div class="pw-step-item" id="pw-nav-5">
-            <div class="pw-step-circle">5</div><div class="pw-step-text">Account</div>
+            <div class="pw-step-circle">5</div>
+            <div class="pw-step-text">Account</div>
           </div>
         </div>
 
         <!-- Slider Content -->
         <div class="pw-content">
-          <div id="pw-error-msg" style="display:none; background:#fee2e2; color:#ef4444; padding:12px; border-radius:8px; margin-bottom:16px; font-weight:600; font-size:0.9rem;">Please fill all required fields.</div>
+          <div id="pw-error-msg"
+            style="display:none; background:#fee2e2; color:#ef4444; padding:12px; border-radius:8px; margin-bottom:16px; font-weight:600; font-size:0.9rem;">
+            Please fill all required fields.</div>
           <form class="pw-slider-track" id="pw-slider-track">
-            
+
             <!-- Slide 1: Pet Info -->
             <div class="pw-slide" data-step="1">
               <div class="pw-header">
@@ -3307,12 +3462,10 @@
               <div class="pw-row">
                 <div class="pw-group">
                   <label>Species *</label>
-                  <select id="pw_petSpecies" class="pw-select required">
+                  <select id="pw_petSpecies" class="pw-select required" onchange="pwUpdateBreedDataList()">
                     <option value="">Select Species</option>
-                    <option>Dog</option>
-                    <option>Cat</option>
-                    <option>Bird</option>
-                    <option>Horse</option>
+                    <option value="Dog">Dog</option>
+                    <option value="Cat">Cat</option>
                   </select>
                 </div>
                 <div class="pw-group">
@@ -3326,18 +3479,13 @@
               </div>
               <div class="pw-group">
                 <label>Breed *</label>
-                <select id="pw_petBreed" class="pw-select required">
-                  <option value="">Select Breed</option>
-                  <option>Golden Retriever</option>
-                  <option>Labrador Retriever</option>
-                  <option>German Shepherd</option>
-                  <option>French Bulldog</option>
-                  <option>Beagle</option>
-                  <option>Poodle</option>
-                  <option>Bulldog</option>
-                  <option>Mixed/Unknown</option>
-                  <option>Other</option>
-                </select>
+                <input type="text" id="pw_petBreed" class="pw-input required" list="breed_list"
+                  placeholder="Search or type breed name..." disabled>
+                <datalist id="breed_list">
+                  <!-- Populated via Javascript based on species -->
+                </datalist>
+                <small style="font-size: 0.75rem; color: #64748b; margin-top: 4px; display: inline-block;">Please select
+                  a species first.</small>
               </div>
               <div class="pw-group">
                 <label>Date of Birth *</label>
@@ -3359,7 +3507,7 @@
                 <label>Full Name *</label>
 
                 <input type="text" id="pw_ownerName" class="pw-input required">
-                
+
                 <!-- ✅ DIFFERENT ID -->
                 <small id="pw_ownerNameError" style="color:red; font-size:12px;"></small>
               </div>
@@ -3369,15 +3517,11 @@
               </div>
               <div class="pw-group">
                 <label>Phone Number *</label>
-<<<<<<< HEAD
-                <input type="text" id="pw_phone" class="pw-input required" maxlength="10">
-                <small id="pw_phoneError" style="color:red; font-size:12px;"></small>
-=======
                 <input type="number" id="pw_phone" class="pw-input required">
->>>>>>> 09b895cf4263681c08a644a98f689291fc1ea06a
               </div>
               <div class="pw-actions">
-                <button type="button" class="btn" style="background:#e2e8f0; color:#0f172a;" onclick="pwSlideTo(1, false)">&larr; Back</button>
+                <button type="button" class="btn" style="background:#e2e8f0; color:#0f172a;"
+                  onclick="pwSlideTo(1, false)">&larr; Back</button>
                 <button type="button" class="btn btn-primary" onclick="pwSlideTo(3, true)">Next &rarr;</button>
               </div>
             </div>
@@ -3415,7 +3559,8 @@
                 <input type="number" class="pw-input">
               </div>
               <div class="pw-actions">
-                <button type="button" class="btn" style="background:#e2e8f0; color:#0f172a;" onclick="pwSlideTo(2, false)">&larr; Back</button>
+                <button type="button" class="btn" style="background:#e2e8f0; color:#0f172a;"
+                  onclick="pwSlideTo(2, false)">&larr; Back</button>
                 <button type="button" class="btn btn-primary" onclick="pwSlideTo(4, true)">Next &rarr;</button>
               </div>
             </div>
@@ -3458,9 +3603,11 @@
                 <input type="file" accept=".pdf,.jpg,.png">
               </div>
 
-              <!-- Navigation -->
-              <button onclick="pwSlideTo(3)">← Back</button>
-              <button onclick="pwSlideTo(5)">Next →</button>
+              <div class="pw-actions">
+                <button type="button" class="btn" style="background:#e2e8f0; color:#0f172a;"
+                  onclick="pwSlideTo(3, false)">&larr; Back</button>
+                <button type="button" class="btn btn-primary" onclick="pwSlideTo(5, true)">Next &rarr;</button>
+              </div>
 
             </div>
 
@@ -3472,31 +3619,37 @@
               </div>
               <div class="pw-group">
                 <label>Email Address *</label>
-                <input type="email" id="pw_email" class="pw-input required" required  pattern="^[^\s@]+@[^\s@]+\.[^\s@]{2,}$">
+                <input type="email" id="pw_email" class="pw-input required" required
+                  pattern="^[^\s@]+@[^\s@]+\.[^\s@]{2,}$">
                 <small id="email_error" style="color:red; display:none;"></small>
               </div>
               <div class="pw-group" style="position: relative;">
                 <label>Password *</label>
                 <input type="password" id="pw_pass" class="pw-input required">
-                <span onclick="pwToggleVis('pw_pass')" style="position:absolute; right:12px; top:32px; cursor:pointer; font-size:1.1rem; opacity:0.6;">👁️</span>
+                <span onclick="pwToggleVis('pw_pass')"
+                  style="position:absolute; right:12px; top:32px; cursor:pointer; font-size:1.1rem; opacity:0.6;">👁️</span>
               </div>
               <div class="pw-group" style="position: relative;">
                 <label>Confirm Password *</label>
                 <input type="password" id="pw_pass_confirm" class="pw-input required">
-                <span onclick="pwToggleVis('pw_pass_confirm')" style="position:absolute; right:12px; top:32px; cursor:pointer; font-size:1.1rem; opacity:0.6;">👁️</span>
+                <span onclick="pwToggleVis('pw_pass_confirm')"
+                  style="position:absolute; right:12px; top:32px; cursor:pointer; font-size:1.1rem; opacity:0.6;">👁️</span>
               </div>
               <div class="pw-group" style="display:flex; align-items:center; gap:8px;">
                 <input type="checkbox" id="pw_terms" class="required" checked style="width:auto;">
-                <label for="pw_terms" style="margin:0; font-weight:normal; font-size:0.85rem;">I agree to the PAWID Terms of Registry</label>
+                <label for="pw_terms" style="margin:0; font-weight:normal; font-size:0.85rem;">I agree to the PAWID
+                  Terms of Registry</label>
               </div>
               <div class="pw-actions">
-                <button type="button" class="btn" style="background:#e2e8f0; color:#0f172a;" onclick="pwSlideTo(2, false)">&larr; Back</button>
+                <button type="button" class="btn" style="background:#e2e8f0; color:#0f172a;"
+                  onclick="pwSlideTo(4, false)">&larr; Back</button>
                 <button type="button" class="btn btn-primary" onclick="pwSubmitGenerator()">Generate PAWID →</button>
               </div>
             </div>
 
             <!-- Slide 5: Generating State -->
-            <div class="pw-slide" style="display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; padding: 40px 0;">
+            <div class="pw-slide"
+              style="display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; padding: 40px 0;">
               <div class="pw-loader"></div>
               <h3 style="color:var(--forest);">Minting Digital PetID...</h3>
               <p style="color:#64748b;">Registering pet on the global network and generating cryptography elements.</p>
@@ -3507,107 +3660,212 @@
       </div>
 
       <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+      <script src="https://www.gstatic.com/firebasejs/10.9.0/firebase-app-compat.js"></script>
+      <script src="https://www.gstatic.com/firebasejs/10.9.0/firebase-auth-compat.js"></script>
       <script>
-        let currentSlideIndex = 0;
-        
+        const firebaseConfig = {
+          apiKey: "AIzaSyCDBWaH-7wHavdmr5P3Iyc0pEFnZgdNjHg",
+          authDomain: "pawspalconnect-storage.firebaseapp.com",
+          projectId: "pawspalconnect-storage",
+          storageBucket: "pawspalconnect-storage.firebasestorage.app",
+          messagingSenderId: "614707455963",
+          appId: "1:614707455963:web:32f21b0e2e4e81ba6b29fe"
+        };
+        if (!firebase.apps.length) {
+          firebase.initializeApp(firebaseConfig);
+        }
+        let currentStepNumber = 1;
+
         function pwToggleVis(id) {
           let el = document.getElementById(id);
           el.type = el.type === 'password' ? 'text' : 'password';
         }
 
-        function validateSlide(slideIndex) {
-           const slide = document.querySelectorAll('.pw-slide')[slideIndex];
-           const reqs = slide.querySelectorAll('.required');
-           for (let el of reqs) {
-              if (el.type === 'checkbox') {
-                 if (!el.checked) return false;
-              } else {
-                 if (!el.value || el.value.trim() === '') return false;
-              }
-           }
-           // Special confirmation check for passwords on slide 4
-           if (slideIndex === 3) {
-              const p1 = document.getElementById('pw_pass').value;
-              const p2 = document.getElementById('pw_pass_confirm').value;
-              if (p1 !== p2) return false;
-           }
-           return true;
+        const commonBreedsDB = {
+          "Dog": [
+            "Indian Pariah (Indie)", "Labrador Retriever", "Golden Retriever", "German Shepherd",
+            "Beagle", "Shih Tzu", "Pug", "Rottweiler", "Pomeranian", "Dachshund",
+            "Great Dane", "Boxer", "Doberman", "Husky", "Pitbull", "Mixed/Unknown", "Other"
+          ],
+          "Cat": [
+            "Indian Billi (Indie)", "Persian", "Siamese", "Maine Coon", "Bengal",
+            "Himalayan", "British Shorthair", "Ragdoll", "Mixed/Unknown", "Other"
+          ]
+        };
+
+        function pwUpdateBreedDataList() {
+          const speciesSelect = document.getElementById('pw_petSpecies');
+          const breedInput = document.getElementById('pw_petBreed');
+          const dataList = document.getElementById('breed_list');
+          const hint = breedInput.nextElementSibling;
+
+          dataList.innerHTML = ''; // clear options
+          breedInput.value = ''; // reset breed
+
+          const species = speciesSelect.value;
+          if (species && commonBreedsDB[species]) {
+            breedInput.disabled = false;
+            hint.style.display = 'none';
+            breedInput.placeholder = `Search or type ${species.toLowerCase()} breed...`;
+
+            commonBreedsDB[species].forEach(breed => {
+              const option = document.createElement('option');
+              option.value = breed;
+              dataList.appendChild(option);
+            });
+          } else {
+            breedInput.disabled = true;
+            hint.style.display = 'inline-block';
+            breedInput.placeholder = "Select species first";
+          }
         }
 
-        function pwSlideTo(index, validate) {
-          if (validate && index > currentSlideIndex) {
-             if (!validateSlide(currentSlideIndex)) {
-                document.getElementById('pw-error-msg').style.display = 'block';
-                // Add shake animation to slide
-                let tr = document.getElementById('pw-slider-track');
-                tr.style.transform = `translateX(calc(-${currentSlideIndex * 20}% + 10px))`;
-                setTimeout(()=> tr.style.transform = `translateX(-${currentSlideIndex * 20}%)`, 150);
-                setTimeout(()=> tr.style.transform = `translateX(calc(-${currentSlideIndex * 20}% - 10px))`, 300);
-                setTimeout(()=> tr.style.transform = `translateX(-${currentSlideIndex * 20}%)`, 450);
-                return;
-             }
+        function validateSlide(slideIndex) {
+          const slide = document.querySelectorAll('.pw-slide')[slideIndex];
+          const reqs = slide.querySelectorAll('.required');
+          for (let el of reqs) {
+            if (el.type === 'checkbox') {
+              if (!el.checked) return false;
+            } else {
+              if (!el.value || el.value.trim() === '') return false;
+            }
           }
-          
+          // Special confirmation check for passwords on slide 4 (which is Account, index 4)
+          if (slideIndex === 4) {
+            const p1 = document.getElementById('pw_pass').value;
+            const p2 = document.getElementById('pw_pass_confirm').value;
+            if (p1 !== p2) return false;
+          }
+          return true;
+        }
+
+        function pwSlideTo(stepNumber, validate) {
+          if (validate && stepNumber > currentStepNumber) {
+            if (!validateSlide(currentStepNumber - 1)) {
+              document.getElementById('pw-error-msg').style.display = 'block';
+              let tr = document.getElementById('pw-slider-track');
+              tr.style.transform = `translateX(calc(-${(currentStepNumber - 1) * 20}% + 10px))`;
+              setTimeout(() => tr.style.transform = `translateX(-${(currentStepNumber - 1) * 20}%)`, 150);
+              setTimeout(() => tr.style.transform = `translateX(calc(-${(currentStepNumber - 1) * 20}% - 10px))`, 300);
+              setTimeout(() => tr.style.transform = `translateX(-${(currentStepNumber - 1) * 20}%)`, 450);
+              return;
+            }
+          }
+
           document.getElementById('pw-error-msg').style.display = 'none';
-          currentSlideIndex = index;
+          currentStepNumber = stepNumber;
           const track = document.getElementById('pw-slider-track');
-          track.style.transform = `translateX(-${(index-1) * 20}%)`;
-          
-          if(index < 5) {
-            // Update Navigation sidebar
-            for(let i=1; i<=5; i++) {
-              let navItem = document.getElementById('pw-nav-'+i);
-              navItem.className = 'pw-step-item';
-              let circle = navItem.querySelector('.pw-step-circle');
-              if(i < (index+1)) {
-                navItem.classList.add('completed');
-                circle.innerHTML = '✓';
-              } else if(i === (index+1)) {
-                navItem.classList.add('active');
-                circle.innerHTML = i;
-              } else {
-                circle.innerHTML = i;
+          track.style.transform = `translateX(-${(stepNumber - 1) * 20}%)`;
+
+          if (stepNumber <= 6) {
+            for (let i = 1; i <= 5; i++) {
+              let navItem = document.getElementById('pw-nav-' + i);
+              if (navItem) {
+                navItem.className = 'pw-step-item';
+                let circle = navItem.querySelector('.pw-step-circle');
+                if (i < stepNumber) {
+                  navItem.classList.add('completed');
+                  circle.innerHTML = '✓';
+                } else if (i === stepNumber) {
+                  navItem.classList.add('active');
+                  circle.innerHTML = i;
+                } else {
+                  circle.innerHTML = i;
+                }
               }
             }
           }
         }
 
-        function pwSubmitGenerator() {
-            const form = document.getElementById('pw-slider-track'); 
-            if (!form.checkValidity()) {
+        async function pwSubmitGenerator() {
+          const form = document.getElementById('pw-slider-track');
+          if (!form.checkValidity()) {
             form.reportValidity();
             return;
           }
-          if (!validateSlide(3)) {
-             document.getElementById('pw-error-msg').style.display = 'block';
-             document.getElementById('pw-error-msg').innerText = "Please ensure passwords match and terms are checked.";
-             return;
+          if (!validateSlide(4)) {
+            document.getElementById('pw-error-msg').style.display = 'block';
+            document.getElementById('pw-error-msg').innerText = "Please ensure passwords match and terms are checked.";
+            return;
           }
-        
-          pwSlideTo(4, false); // Show loader slide
-          document.getElementById('pw-sidebar').style.display = 'none'; // hide sidebar on finish
-          
-          setTimeout(() => {
-            // Populate the Smart Card from DOM inputs
-            document.getElementById('sc_name').innerText = document.getElementById('pw_petName').value || 'Bruno';
-            let breed = document.getElementById('pw_petBreed').value || 'Golden Retriever';
-            let species = document.getElementById('pw_petSpecies').value || 'Dog';
-            document.getElementById('sc_breed').innerText = breed + ' · ' + species;
-            
-            document.getElementById('sc_owner').innerText = document.getElementById('pw_ownerName').value || 'Rahul Sharma';
-            document.getElementById('sc_city').innerText = document.getElementById('pw_ownerCity').value || 'Bangalore, India';
-            
-            let dateStr = new Date().toLocaleDateString('en-GB', {day:'numeric', month:'short', year:'numeric'});
-            document.getElementById('sc_date').innerText = dateStr;
 
-            // Generate contextual PAWID number based on inputs
-            let idNum = Math.floor(100000 + Math.random() * 900000);
-            document.getElementById('sc_pawid_full').innerText = `PAW-IND-${species.substring(0, 2).toUpperCase()}-${idNum}`;
+          const errMsg = document.getElementById('pw-error-msg');
+          errMsg.style.display = 'none';
 
-            // Hide forming UI completely and show success UI
-            document.getElementById('pawid-wizard-container').style.display = 'none';
-            document.getElementById('pawid-success').style.display = 'block';
-          }, 1800);
+          const btn = form.querySelector('.pw-slide[data-step="4"] .btn-primary');
+          const originalBtnText = btn ? btn.innerText : 'Generate PAWID →';
+          if (btn) {
+            btn.innerText = "Registering...";
+            btn.disabled = true;
+          }
+
+          // Extract data
+          const ownerName = document.getElementById('pw_ownerName').value;
+          const ownerPhone = document.getElementById('pw_phone').value;
+          const ownerEmail = document.getElementById('pw_email').value;
+          const ownerPass = document.getElementById('pw_pass').value;
+
+          try {
+            // 1. Firebase Authentication
+            const cred = await firebase.auth().createUserWithEmailAndPassword(ownerEmail, ownerPass);
+            await cred.user.sendEmailVerification();
+            const idToken = await cred.user.getIdToken();
+
+            // 2. Register Owner Account via Backend
+            const backendRes = await fetch("https://api.pawspalconnect.com/authentication/register", {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json",
+                "Authorization": `Bearer ${idToken}`
+              },
+              body: JSON.stringify({
+                name: ownerName,
+                email: ownerEmail,
+                mobile: ownerPhone,
+                password: ownerPass,
+                role: "pet_owner"
+              })
+            });
+
+            if (!backendRes.ok) {
+              const errorData = await backendRes.json();
+              throw new Error(errorData.detail || errorData.error || "Failed to create Pet Owner account on the backend.");
+            }
+
+            // Move to slide 5 - Generating state
+            pwSlideTo(6, false);
+            document.getElementById('pw-sidebar').style.display = 'none'; // hide sidebar on finish
+
+            setTimeout(() => {
+              // Populate the Smart Card from DOM inputs
+              document.getElementById('sc_name').innerText = document.getElementById('pw_petName').value || 'Bruno';
+              let breed = document.getElementById('pw_petBreed').value || 'Golden Retriever';
+              let species = document.getElementById('pw_petSpecies').value || 'Dog';
+              document.getElementById('sc_breed').innerText = breed + ' · ' + species;
+
+              document.getElementById('sc_owner').innerText = document.getElementById('pw_ownerName').value || 'Rahul Sharma';
+              document.getElementById('sc_city').innerText = document.getElementById('pw_ownerCity').value || 'Bangalore, India';
+
+              let dateStr = new Date().toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' });
+              document.getElementById('sc_date').innerText = dateStr;
+
+              // Generate contextual PAWID number based on inputs
+              let idNum = Math.floor(100000 + Math.random() * 900000);
+              document.getElementById('sc_pawid_full').innerText = `PAW-IND-${species.substring(0, 2).toUpperCase()}-${idNum}`;
+
+              // Hide forming UI completely and show success UI
+              document.getElementById('pawid-wizard-container').style.display = 'none';
+              document.getElementById('pawid-success').style.display = 'block';
+            }, 1800);
+          } catch (error) {
+            console.error("Account creation error:", error);
+            errMsg.style.display = 'block';
+            errMsg.innerText = error.message.replace("Firebase: ", "");
+            if (btn) {
+              btn.innerText = originalBtnText;
+              btn.disabled = false;
+            }
+          }
         }
 
         async function downloadPawidCard() {
@@ -3628,15 +3886,15 @@
             }
 
             const { jsPDF } = window.jspdf;
-            
+
             // 1. Capture Front Card
             const frontEl = document.querySelector('.smart-card-front');
             const canvasFront = await html2canvas(frontEl, { scale: 3, useCORS: true, backgroundColor: null });
-            
+
             // 2. Capture Back Card - Cloning strictly required due to 3D matrix transforms
             const backEl = document.querySelector('.smart-card-back');
             const backClone = backEl.cloneNode(true);
-            
+
             // Strip out 3D rotation and hidden backface logic to render safely in 2D
             backClone.style.transform = 'none';
             backClone.style.backfaceVisibility = 'visible';
@@ -3646,7 +3904,7 @@
             backClone.style.width = getComputedStyle(backEl).width;
             backClone.style.height = getComputedStyle(backEl).height;
             document.body.appendChild(backClone);
-            
+
             const canvasBack = await html2canvas(backClone, { scale: 3, useCORS: true, backgroundColor: null });
             document.body.removeChild(backClone);
 
@@ -3654,28 +3912,28 @@
             const pdfWidth = canvasFront.width;
             const pdfHeight = canvasFront.height;
             const pdf = new jsPDF('landscape', 'pt', [pdfWidth, pdfHeight]);
-            
+
             // Page 1: Front
             pdf.addImage(canvasFront.toDataURL('image/jpeg', 1.0), 'JPEG', 0, 0, pdfWidth, pdfHeight);
-            
+
             // Page 2: Back
             pdf.addPage([canvasBack.width, canvasBack.height], 'landscape');
             pdf.addImage(canvasBack.toDataURL('image/jpeg', 1.0), 'JPEG', 0, 0, canvasBack.width, canvasBack.height);
-            
+
             // Fire Download
             const petName = document.getElementById('sc_name').innerText || 'Pet';
             pdf.save(`PAWID-Global-Identity-${petName}.pdf`);
-            
-          } catch(e) {
-             console.error('PDF generation failed', e);
-             alert('Failed to generate PDF. Please try again.');
+
+          } catch (e) {
+            console.error('PDF generation failed', e);
+            alert('Failed to generate PDF. Please try again.');
           } finally {
-             btn.innerHTML = origText;
-             btn.disabled = false;
+            btn.innerHTML = origText;
+            btn.disabled = false;
           }
         }
       </script>
-<!-- Success Outcome UI (Hidden initially) -->
+      <!-- Success Outcome UI (Hidden initially) -->
       <style>
         /* 3D Smart Card Styles */
         .smart-card-container {
@@ -4068,7 +4326,8 @@
             <div class="smart-card-face smart-card-front">
               <div class="sc-header">
                 <div class="sc-brand">
-                  <div class="sc-logo" style="display:flex; align-items:center; flex-shrink: 0;"><img src="/assets/logo-transparent.png" style="height:38px; object-fit:contain;" alt="PawsPal"></div>
+                  <div class="sc-logo" style="display:flex; align-items:center; flex-shrink: 0;"><img
+                      src="/assets/logo-transparent.png" style="height:38px; object-fit:contain;" alt="PawsPal"></div>
                   <div class="sc-title">
                     <h4>PAWS PAL CONNECT</h4>
                     <p>PAWID SMART CARD</p>
@@ -4134,102 +4393,138 @@
         <div style="text-align:center; margin-top:30px;">
           <p style="color:var(--slate); font-size:1.05rem; margin-bottom:18px;"> Tap the card to flip it over.</p>
           <div style="display:flex; justify-content:center; gap:16px;">
-            <button id="downloadPawidBtn" class="btn" style="background:var(--slate); color:#fff; border:none;" onclick="downloadPawidCard()">📥 Download PAWID Card</button>
-            <a href="#how-to-create-petid" class="btn btn-primary" onclick="location.reload();">Create Another PAWID</a>
+            <button id="downloadPawidBtn" class="btn" style="background:var(--slate); color:#fff; border:none;"
+              onclick="downloadPawidCard()">📥 Download PAWID Card</button>
+            <button class="btn btn-primary" style="border:none; cursor:pointer;" onclick="showVerifyPopup()">Go to Pet
+              Owner Dashboard &rarr;</button>
           </div>
+        </div>
       </div>
-    </div>
 
-    <script>
-      document.getElementById('pw-slider-track').addEventListener('submit', async function (e) {
-        e.preventDefault();
+      <!-- VERIFY EMAIL POPUP -->
+      <div id="verifyEmailPopup"
+        style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.8); backdrop-filter:blur(4px); z-index:100; align-items:center; justify-content:center; padding:16px; font-family:'DM Sans', sans-serif;">
+        <div
+          style="background:#14100e; border: 1px solid rgba(239, 167, 94, 0.3); border-radius: 2rem; padding: 32px; text-align: center; max-width: 400px; width: 100%; box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);">
+          <div
+            style="width: 80px; height: 80px; background: rgba(239, 167, 94, 0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 24px;">
+            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none"
+              stroke="#efa75e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect width="20" height="16" x="2" y="4" rx="2" />
+              <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
+            </svg>
+          </div>
+          <h2 style="font-size: 1.6rem; font-weight: bold; color: #fff; margin-bottom: 12px; margin-top: 0;">Check Your
+            Inbox</h2>
+          <p style="font-size: 0.95rem; color: #9ca3af; margin-bottom: 32px; line-height: 1.6;">
+            We've sent a verification link to <br /><span id="verifyPopupEmail"
+              style="color: #fff; font-weight: 500;"></span>.<br /><br />
+            Please verify your email to activate your account.
+          </p>
+          <a href="https://dev.pawspalconnect.com/login"
+            style="display: block; width: 100%; padding: 16px; border-radius: 1rem; background: #efa75e; color: #000; font-weight: bold; text-decoration: none; font-size: 1rem; transition: background 0.2s; box-sizing: border-box;">
+            Back to Login
+          </a>
+        </div>
+      </div>
+      <script>
+        function showVerifyPopup() {
+          const email = document.getElementById('pw_email').value || 'your email';
+          document.getElementById('verifyPopupEmail').innerText = email;
+          document.getElementById('verifyEmailPopup').style.display = 'flex';
+        }
+      </script>
+
+      <script>
+        document.getElementById('pw-slider-track').addEventListener('submit', async function (e) {
+          e.preventDefault();
           const form = this;
-        const btn = document.getElementById('submitBtn');
-        const err = document.getElementById('formError');
+          const btn = document.getElementById('submitBtn');
+          const err = document.getElementById('formError');
 
-// if (!form.checkValidity()) {
-//   form.reportValidity(); // shows browser errors
-//   return; // stop submission
-// }
-        btn.innerText = 'Synchronising with registry...';
-        btn.style.opacity = '0.7';
-        err.style.display = 'none';
+          // if (!form.checkValidity()) {
+          //   form.reportValidity(); // shows browser errors
+          //   return; // stop submission
+          // }
+          btn.innerText = 'Synchronising with registry...';
+          btn.style.opacity = '0.7';
+          err.style.display = 'none';
 
-        const payload = {
-          owner: {
-            full_name: document.getElementById('owner_name').value,
-            email: document.getElementById('owner_email').value,
-            phone_number: document.getElementById('owner_phone').value,
-            city: document.getElementById('owner_city').value || null
-          },
-          pet: {
-            name: document.getElementById('pet_name').value,
-            species: document.getElementById('pet_species').value,
-            breed: document.getElementById('pet_breed').value || null,
-            dob: document.getElementById('pet_dob').value || null,
-            gender: document.getElementById('pet_gender').value || null
-          }
-        };
-
-        try {
-          const response = await fetch('http://localhost:8001/api/register-pawid', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(payload)
-          });
-
-          const data = await response.json();
-
-          if (response.ok) {
-            // Hide form, show 3D Smart Card UI
-            document.getElementById('pawid-card-form').style.display = 'none';
-            document.getElementById('pawid-success').style.display = 'block';
-
-            const rawId = data.pawid_number; // 12 digits
-
-            // Data Binding
-            let pBreedCode = (payload.pet.breed) ? payload.pet.breed.substring(0, 2).toUpperCase() : 'XX';
-            const displayId = `PAW-IND-${pBreedCode}-${rawId.substring(0, 6)}`;
-
-            document.getElementById('sc_pawid_full').innerText = displayId;
-            document.getElementById('sc_name').innerText = payload.pet.name;
-            document.getElementById('sc_breed').innerText = `${payload.pet.breed || payload.pet.species} · ${payload.pet.species.toLowerCase()}`;
-            document.getElementById('sc_owner').innerText = payload.owner.full_name;
-            document.getElementById('sc_city').innerText = payload.owner.city ? `${payload.owner.city}, India` : 'India';
-
-            // Avatar logic
-            if (payload.pet.species.toLowerCase() === 'cat') {
-              document.getElementById('sc_avatar_bg').style.backgroundImage = "url('https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80')";
+          const payload = {
+            owner: {
+              full_name: document.getElementById('owner_name').value,
+              email: document.getElementById('owner_email').value,
+              phone_number: document.getElementById('owner_phone').value,
+              city: document.getElementById('owner_city').value || null
+            },
+            pet: {
+              name: document.getElementById('pet_name').value,
+              species: document.getElementById('pet_species').value,
+              breed: document.getElementById('pet_breed').value || null,
+              dob: document.getElementById('pet_dob').value || null,
+              gender: document.getElementById('pet_gender').value || null
             }
+          };
 
-            // QR Binding
-            document.getElementById('sc_qr_img').src = `https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=pawid-${rawId}&margin=0`;
+          try {
+            const response = await fetch('http://localhost:8001/api/register-pawid', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify(payload)
+            });
 
-            // Current Date Issue
-            const today = new Date();
-            const options = { day: 'numeric', month: 'short', year: 'numeric' };
-            document.getElementById('sc_date').innerText = today.toLocaleDateString('en-GB', options);
+            const data = await response.json();
 
-            // Scroll to center of the Smart Card
-            document.getElementById('pawid-success').scrollIntoView({ behavior: 'smooth', block: 'center' });
-          } else {
-            if (data.detail && Array.isArray(data.detail)) {
-              err.innerText = "Validation Error: " + data.detail.map(d => `${d.loc[1]} - ${d.msg}`).join(', ');
+            if (response.ok) {
+              // Hide form, show 3D Smart Card UI
+              document.getElementById('pawid-card-form').style.display = 'none';
+              document.getElementById('pawid-success').style.display = 'block';
+
+              const rawId = data.pawid_number; // 12 digits
+
+              // Data Binding
+              let pBreedCode = (payload.pet.breed) ? payload.pet.breed.substring(0, 2).toUpperCase() : 'XX';
+              const displayId = `PAW-IND-${pBreedCode}-${rawId.substring(0, 6)}`;
+
+              document.getElementById('sc_pawid_full').innerText = displayId;
+              document.getElementById('sc_name').innerText = payload.pet.name;
+              document.getElementById('sc_breed').innerText = `${payload.pet.breed || payload.pet.species} · ${payload.pet.species.toLowerCase()}`;
+              document.getElementById('sc_owner').innerText = payload.owner.full_name;
+              document.getElementById('sc_city').innerText = payload.owner.city ? `${payload.owner.city}, India` : 'India';
+
+              // Avatar logic
+              if (payload.pet.species.toLowerCase() === 'cat') {
+                document.getElementById('sc_avatar_bg').style.backgroundImage = "url('https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80')";
+              }
+
+              // QR Binding
+              document.getElementById('sc_qr_img').src = `https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=pawid-${rawId}&margin=0`;
+
+              // Current Date Issue
+              const today = new Date();
+              const options = { day: 'numeric', month: 'short', year: 'numeric' };
+              document.getElementById('sc_date').innerText = today.toLocaleDateString('en-GB', options);
+
+              // Scroll to center of the Smart Card
+              document.getElementById('pawid-success').scrollIntoView({ behavior: 'smooth', block: 'center' });
             } else {
-              err.innerText = data.detail || 'An error occurred during registration.';
+              if (data.detail && Array.isArray(data.detail)) {
+                err.innerText = "Validation Error: " + data.detail.map(d => `${d.loc[1]} - ${d.msg}`).join(', ');
+              } else {
+                err.innerText = data.detail || 'An error occurred during registration.';
+              }
+              err.style.display = 'block';
+              btn.innerText = 'Generate Official PAWID →';
+              btn.style.opacity = '1';
             }
+          } catch (error) {
+            err.innerText = 'Failed to connect to PAWID Secure Engine. Ensure the backend server is running on port 8001.';
             err.style.display = 'block';
             btn.innerText = 'Generate Official PAWID →';
             btn.style.opacity = '1';
           }
-        } catch (error) {
-          err.innerText = 'Failed to connect to PAWID Secure Engine. Ensure the backend server is running on port 8001.';
-          err.style.display = 'block';
-          btn.innerText = 'Generate Official PAWID →';
-          btn.style.opacity = '1';
-        }
-      });
-    </script>
+        });
+      </script>
   </section>
 
   <!-- ══════════════════════════════════════════
@@ -4334,7 +4629,7 @@
         </div>
       </div>
       <div class="footer-bottom">
-        <span>Built with  for India's 50 million pets</span>
+        <span>Built with for India's 50 million pets</span>
         <span>
           <a href="/#privacy" style="color:rgba(255,255,255,.4);">Privacy</a> ·
           <a href="/#terms" style="color:rgba(255,255,255,.4);">Terms</a> ·
@@ -4343,13 +4638,13 @@
       </div>
     </div>
   </footer>
-<script src='/script/script.js'></script>
+  <script src='/script/script.js'></script>
 
-<script>
-  // Date of birth error handling
-const today = new Date().toISOString().split("T")[0];
-const input = document.getElementById("pw_petDOB");
-const dobError = document.getElementById("dob_error");
+  <script>
+    // Date of birth error handling
+    const today = new Date().toISOString().split("T")[0];
+    const input = document.getElementById("pw_petDOB");
+    const dobError = document.getElementById("dob_error");
     input.max = today;
     input.addEventListener("change", () => {
       if (input.value > today) {
@@ -4360,148 +4655,143 @@ const dobError = document.getElementById("dob_error");
         dobError.style.display = "none";
       }
     });
-// Email error handling
-  const email = document.getElementById("pw_email");
-  const emailError = document.getElementById("email_error");
+    // Email error handling
+    const email = document.getElementById("pw_email");
+    const emailError = document.getElementById("email_error");
 
-  email.addEventListener("blur", () => {
-    if (!email.checkValidity()) {
-      emailError.textContent = "Enter a valid email (e.g. example@gmail.com)";
-      emailError.style.display = "block";
-    } else {
-      emailError.style.display = "none";
-    }
-  });
+    email.addEventListener("blur", () => {
+      if (!email.checkValidity()) {
+        emailError.textContent = "Enter a valid email (e.g. example@gmail.com)";
+        emailError.style.display = "block";
+      } else {
+        emailError.style.display = "none";
+      }
+    });
     document.addEventListener("DOMContentLoaded", () => {
-    let currentPath = window.location.pathname;
-    if (currentPath.endsWith('/')) currentPath = currentPath.slice(0, -1);
-    
-    document.querySelectorAll('.link-pill').forEach(pill => {
+      let currentPath = window.location.pathname;
+      if (currentPath.endsWith('/')) currentPath = currentPath.slice(0, -1);
+
+      document.querySelectorAll('.link-pill').forEach(pill => {
         let href = pill.getAttribute('href');
         if (!href) return;
-        
+
         let pathName = href;
         if (href.startsWith('.')) {
-            let leaf = href.split('/').pop().replace('.html', '');
-            if (currentPath.includes(leaf)) {
-                pill.style.display = 'none';
-            }
+          let leaf = href.split('/').pop().replace('.html', '');
+          if (currentPath.includes(leaf)) {
+            pill.style.display = 'none';
+          }
         } else {
-            if (pathName.endsWith('/')) pathName = pathName.slice(0, -1);
-            if (currentPath === pathName || currentPath === pathName + '/index.html' || currentPath.includes(pathName)) {
-                if(pathName !== '/blog' && pathName !== '/') {
-                   pill.style.display = 'none';
-                }
+          if (pathName.endsWith('/')) pathName = pathName.slice(0, -1);
+          if (currentPath === pathName || currentPath === pathName + '/index.html' || currentPath.includes(pathName)) {
+            if (pathName !== '/blog' && pathName !== '/') {
+              pill.style.display = 'none';
             }
+          }
         }
+      });
     });
-});
 
-</script>
-<script>
-document.addEventListener("DOMContentLoaded", function () {
+  </script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
 
-  // ===== PET NAME =====
-  const petName = document.getElementById("pw_petName");
-  const petNameError = document.getElementById("pw_petNameError");
+      // ===== PET NAME =====
+      const petName = document.getElementById("pw_petName");
+      const petNameError = document.getElementById("pw_petNameError");
 
-  petName.addEventListener("input", function () {
-    let value = petName.value;
+      petName.addEventListener("input", function () {
+        let value = petName.value;
 
-    if (!/^[A-Za-z\s]*$/.test(value)) {
-      petNameError.textContent = "Only alphabets allowed (no numbers or symbols)";
-      value = value.replace(/[^A-Za-z\s]/g, "");
-    } else if (value.trim() === "") {
-      petNameError.textContent = "Pet name is required";
-    } else {
-      petNameError.textContent = "";
+        if (!/^[A-Za-z\s]*$/.test(value)) {
+          petNameError.textContent = "Only alphabets allowed (no numbers or symbols)";
+          value = value.replace(/[^A-Za-z\s]/g, "");
+        } else if (value.trim() === "") {
+          petNameError.textContent = "Pet name is required";
+        } else {
+          petNameError.textContent = "";
+        }
+
+        petName.value = value;
+      });
+
+      // ===== OWNER NAME =====
+      const ownerName = document.getElementById("pw_ownerName");
+      const ownerNameError = document.getElementById("pw_ownerNameError");
+
+      ownerName.addEventListener("input", function () {
+        let value = ownerName.value;
+
+        if (!/^[A-Za-z\s]*$/.test(value)) {
+          ownerNameError.textContent = "Only alphabets allowed";
+          value = value.replace(/[^A-Za-z\s]/g, "");
+        } else if (value.trim() === "") {
+          ownerNameError.textContent = "Name is required";
+        } else {
+          ownerNameError.textContent = "";
+        }
+
+        ownerName.value = value;
+      });
+
+      // ===== PHONE =====
+      const phone = document.getElementById("pw_phone");
+      const phoneError = document.getElementById("pw_phoneError");
+
+      phone.addEventListener("input", function () {
+        let value = phone.value;
+
+        value = value.replace(/\D/g, "");
+
+        if (value.length > 10) {
+          value = value.slice(0, 10);
+        }
+
+        phone.value = value;
+
+        if (value.length === 0) {
+          phoneError.textContent = "Phone number is required";
+        } else if (value.length < 10) {
+          phoneError.textContent = "Phone number must be exactly 10 digits";
+        } else {
+          phoneError.textContent = "";
+        }
+      });
+
+    });
+  </script>
+
+  <script>
+    function pwSlideTo(step) {
+      const track = document.getElementById("pw-slider-track");
+      const total = 5;
+
+      // Move slider
+      track.style.transform = `translateX(-${(step - 1) * (100 / total)}%)`;
+
+      // Update sidebar
+      for (let i = 1; i <= total; i++) {
+        let nav = document.getElementById("pw-nav-" + i);
+        if (!nav) continue;
+
+        nav.className = "pw-step-item";
+
+        let circle = nav.querySelector(".pw-step-circle");
+
+        if (i < step) {
+          nav.classList.add("completed");
+          circle.innerHTML = "✓";
+        }
+        else if (i === step) {
+          nav.classList.add("active");
+          circle.innerHTML = i;
+        }
+        else {
+          circle.innerHTML = i;
+        }
+      }
     }
-
-    petName.value = value;
-  });
-
-  // ===== OWNER NAME =====
-  const ownerName = document.getElementById("pw_ownerName");
-  const ownerNameError = document.getElementById("pw_ownerNameError");
-
-  ownerName.addEventListener("input", function () {
-    let value = ownerName.value;
-
-    if (!/^[A-Za-z\s]*$/.test(value)) {
-      ownerNameError.textContent = "Only alphabets allowed";
-      value = value.replace(/[^A-Za-z\s]/g, "");
-    } else if (value.trim() === "") {
-      ownerNameError.textContent = "Name is required";
-    } else {
-      ownerNameError.textContent = "";
-    }
-
-    ownerName.value = value;
-  });
-
-  // ===== PHONE =====
-  const phone = document.getElementById("pw_phone");
-  const phoneError = document.getElementById("pw_phoneError");
-
-  phone.addEventListener("input", function () {
-    let value = phone.value;
-
-    value = value.replace(/\D/g, "");
-
-    if (value.length > 10) {
-      value = value.slice(0, 10);
-    }
-
-    phone.value = value;
-
-    if (value.length === 0) {
-      phoneError.textContent = "Phone number is required";
-    } else if (value.length < 10) {
-      phoneError.textContent = "Phone number must be exactly 10 digits";
-    } else {
-      phoneError.textContent = "";
-    }
-  });
-
-});
-</script>
-
-<script>
-function pwSlideTo(step) {
-  const track = document.getElementById("pw-slider-track");
-  const total = 5;
-
-<<<<<<< HEAD
-  // Move slider
-  track.style.transform = `translateX(-${(step - 1) * (100 / total)}%)`;
-
-  // Update sidebar
-  for (let i = 1; i <= total; i++) {
-    let nav = document.getElementById("pw-nav-" + i);
-    if (!nav) continue;
-
-    nav.className = "pw-step-item";
-
-    let circle = nav.querySelector(".pw-step-circle");
-
-    if (i < step) {
-      nav.classList.add("completed");
-      circle.innerHTML = "✓";
-    } 
-    else if (i === step) {
-      nav.classList.add("active");
-      circle.innerHTML = i;
-    } 
-    else {
-      circle.innerHTML = i;
-    }
-  }
-}
-</script>
-=======
-
-
->>>>>>> 09b895cf4263681c08a644a98f689291fc1ea06a
+  </script>
 </body>
 
 </html>
