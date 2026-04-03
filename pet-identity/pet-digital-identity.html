@@ -1958,6 +1958,72 @@
       gap: 12px;
       font-size: .82rem;
     }
+  .vm-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(28, 28, 28, 0.6);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+
+.vm-modal {
+  background: var(--cream);
+  padding: 30px 40px;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-lg);
+  text-align: center;
+  max-width: 420px;
+  width: 90%;
+  animation: vmFadeIn 0.3s ease;
+}
+
+.vm-modal h2 {
+  color: var(--forest);
+  margin-bottom: 10px;
+}
+
+.vm-modal p {
+  color: var(--slate);
+  font-size: 14px;
+  margin-bottom: 20px;
+}
+
+.vm-btn {
+  background: var(--amber);
+  color: var(--white);
+  border: none;
+  padding: 12px 20px;
+  border-radius: var(--radius);
+  cursor: pointer;
+  font-weight: 600;
+  margin-right: 10px;
+}
+
+.vm-btn:hover {
+  background: var(--gold);
+}
+
+.vm-secondary {
+  background: transparent;
+  border: 1px solid var(--slate);
+  padding: 10px 18px;
+  border-radius: var(--radius);
+  cursor: pointer;
+}
+
+.vm-secondary:hover {
+  background: var(--mist);
+}
+
+@keyframes vmFadeIn {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
   </style>
   <link rel="icon" href="/assets/logo-small.png" type="image/png">
 </head>
@@ -3812,7 +3878,7 @@
             const idToken = await cred.user.getIdToken();
 
             // 2. Register Owner Account via Backend
-            const backendRes = await fetch("https://api.pawspalconnect.com/authentication/register", {
+            const backendRes = await fetch("https://api.pawspalconnect.com/uthentication/register", {
               method: "POST",
               headers: {
                 "Content-Type": "application/json",
@@ -4395,14 +4461,14 @@
           <div style="display:flex; justify-content:center; gap:16px;">
             <button id="downloadPawidBtn" class="btn" style="background:var(--slate); color:#fff; border:none;"
               onclick="downloadPawidCard()">📥 Download PAWID Card</button>
-            <button class="btn btn-primary" style="border:none; cursor:pointer;" onclick="showVerifyPopup()">Go to Pet
+            <button class="btn btn-primary" style="border:none; cursor:pointer;" onclick="openVerifyModal()">Go to Pet
               Owner Dashboard &rarr;</button>
           </div>
         </div>
       </div>
 
       <!-- VERIFY EMAIL POPUP -->
-      <div id="verifyEmailPopup"
+      <!-- <div id="verifyEmailPopup"
         style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.8); backdrop-filter:blur(4px); z-index:100; align-items:center; justify-content:center; padding:16px; font-family:'DM Sans', sans-serif;">
         <div
           style="background:#14100e; border: 1px solid rgba(239, 167, 94, 0.3); border-radius: 2rem; padding: 32px; text-align: center; max-width: 400px; width: 100%; box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);">
@@ -4426,13 +4492,53 @@
             Back to Login
           </a>
         </div>
-      </div>
-      <script>
+      </div> -->
+<div id="verifyModal" class="vm-overlay">
+  <div class="vm-modal">
+    <h2>Before continuing</h2>
+    <p>
+      Please confirm that you have verified your email before going to your dashboard.
+    </p>
+
+    <button onclick="handleVerifiedClick()" class="vm-btn">
+      I have verified
+    </button>
+  </div>
+</div>
+     <script>
         function showVerifyPopup() {
           const email = document.getElementById('pw_email').value || 'your email';
           document.getElementById('verifyPopupEmail').innerText = email;
           document.getElementById('verifyEmailPopup').style.display = 'flex';
         }
+        function openVerifyModal() {
+            document.getElementById("verifyModal").style.display = "flex";
+          }
+  async function handleVerifiedClick() {
+    try {
+      const user = firebase.auth().currentUser;
+
+      if (!user) {
+        alert("Session expired. Please login again.");
+        return;
+      }
+
+      await user.reload();
+
+      if (!user.emailVerified) {
+        alert("Your email is still not verified. Please check your inbox.");
+        return;
+      }
+
+      const idToken = await user.getIdToken(true);
+
+      window.location.href = `https://pawspalconnect.com/login?idToken=${idToken}&verified=true`;
+
+    } catch (err) {
+      console.error(err);
+      alert("Something went wrong. Please try again.");
+    }
+  }
       </script>
 
       <script>
