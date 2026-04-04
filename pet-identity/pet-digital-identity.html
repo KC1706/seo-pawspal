@@ -258,8 +258,8 @@
   <link rel="stylesheet" href="/styles/navbar.css">
   <style>
     /* ════════════════════════════════════════
-       DESIGN TOKENS — same as pawid-seo.html
-    ════════════════════════════════════════ */
+         DESIGN TOKENS — same as pawid-seo.html
+      ════════════════════════════════════════ */
     :root {
       --forest: #1a3a2a;
       --moss: #2d5a40;
@@ -278,7 +278,7 @@
       --shadow: 0 8px 40px rgba(26, 58, 42, .12);
       --shadow-lg: 0 20px 60px rgba(26, 58, 42, .18);
     }
-
+  
     *,
     *::before,
     *::after {
@@ -286,11 +286,11 @@
       margin: 0;
       padding: 0;
     }
-
+  
     html {
       scroll-behavior: smooth;
     }
-
+  
     body {
       font-family: 'DM Sans', sans-serif;
       background: var(--cream);
@@ -298,7 +298,7 @@
       line-height: 1.7;
       overflow-x: hidden;
     }
-
+  
     h1,
     h2,
     h3,
@@ -306,131 +306,131 @@
       font-family: 'DM Serif Display', serif;
       line-height: 1.2;
     }
-
+  
     h1 {
       font-size: clamp(2rem, 5vw, 3.5rem);
     }
-
+  
     h2 {
       font-size: clamp(1.5rem, 3vw, 2.3rem);
     }
-
+  
     h3 {
       font-size: 1.25rem;
     }
-
+  
     h4 {
       font-size: 1rem;
       font-family: 'DM Sans', sans-serif;
       font-weight: 600;
     }
-
+  
     p {
       font-size: 1.05rem;
       color: var(--slate);
       max-width: 68ch;
     }
-
+  
     a {
       color: var(--fern);
       text-decoration: none;
       transition: color .2s;
     }
-
+  
     a:hover {
       color: var(--amber);
     }
-
+  
     .wrap {
       max-width: 1160px;
       margin: 0 auto;
       padding: 0 24px;
     }
-
+  
     .section {
       padding: 88px 0;
     }
-
+  
     .section-sm {
       padding: 52px 0;
     }
-
+  
     .g2 {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 48px;
       align-items: center;
     }
-
+  
     .g3 {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 28px;
     }
-
+  
     .g4 {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
       gap: 22px;
     }
-
+  
     .g2-3 {
       display: grid;
       grid-template-columns: 2fr 3fr;
       gap: 48px;
       align-items: start;
     }
-
+  
     @media(max-width:900px) {
-
+  
       .g2,
       .g2-3,
       .g3,
       .g4 {
         grid-template-columns: 1fr;
       }
-
+  
       h1 {
         font-size: 2rem;
       }
     }
-
+  
     @media(max-width:600px) {
       nav .nav-links {
         display: none;
       }
     }
-
+  
     /* Utility */
     .text-center {
       text-align: center;
     }
-
+  
     .mx-auto {
       margin-left: auto;
       margin-right: auto;
     }
-
+  
     .mt-4 {
       margin-top: 16px;
     }
-
+  
     .mt-6 {
       margin-top: 24px;
     }
-
+  
     .mt-8 {
       margin-top: 32px;
     }
-
+  
     .mb-12 {
       margin-bottom: 48px;
     }
-
+  
     .max-prose {
       max-width: 72ch;
     }
-
+  
     /* ── BUTTONS ── */
     .btn {
       display: inline-flex;
@@ -446,110 +446,110 @@
       transition: all .25s;
       text-decoration: none;
     }
-
+  
     .btn-primary {
       background: var(--forest);
       color: var(--white);
     }
-
+  
     .btn-primary:hover {
       background: var(--moss);
       transform: translateY(-2px);
       box-shadow: 0 6px 24px rgba(26, 58, 42, .25);
       color: var(--white);
     }
-
+  
     .btn-amber {
       background: var(--amber);
       color: var(--white);
     }
-
+  
     .btn-amber:hover {
       background: var(--gold);
       color: var(--white);
       transform: translateY(-2px);
     }
-
+  
     .btn-outline {
       background: transparent;
       color: var(--forest);
       border: 2px solid var(--forest);
     }
-
+  
     .btn-outline:hover {
       background: var(--forest);
       color: var(--white);
     }
-
+  
     .btn-ghost-w {
       background: rgba(255, 255, 255, .12);
       color: var(--white);
       border: 1px solid rgba(255, 255, 255, .25);
     }
-
+  
     .btn-ghost-w:hover {
       background: rgba(255, 255, 255, .2);
       color: var(--white);
     }
-
+  
     /* ── NAV ── */
     /* nav {
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      background: rgba(248, 244, 238, .95);
-      backdrop-filter: blur(14px);
-      border-bottom: 1px solid rgba(26, 58, 42, .08);
-      padding: 14px 0;
-    }
-
-    .nav-inner {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 12px;
-      flex-wrap: wrap;
-    }
-
-    .nav-logo {
-      font-family: 'DM Serif Display', serif;
-      font-size: 1.35rem;
-      color: var(--forest);
-      letter-spacing: -.5px;
-    }
-
-    .nav-logo span {
-      color: var(--amber);
-    }
-
-    .nav-links {
-      display: flex;
-      gap: 24px;
-      list-style: none;
-    }
-
-    .nav-links a {
-      font-size: .88rem;
-      font-weight: 500;
-      color: var(--ink);
-      padding: 4px 0;
-      border-bottom: 2px solid transparent;
-      transition: all .2s;
-    }
-
-    .nav-links a:hover,
-    .nav-links a.active {
-      color: var(--fern);
-      border-bottom-color: var(--fern);
-    } */
-
+        position: sticky;
+        top: 0;
+        z-index: 100;
+        background: rgba(248, 244, 238, .95);
+        backdrop-filter: blur(14px);
+        border-bottom: 1px solid rgba(26, 58, 42, .08);
+        padding: 14px 0;
+      }
+  
+      .nav-inner {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+        flex-wrap: wrap;
+      }
+  
+      .nav-logo {
+        font-family: 'DM Serif Display', serif;
+        font-size: 1.35rem;
+        color: var(--forest);
+        letter-spacing: -.5px;
+      }
+  
+      .nav-logo span {
+        color: var(--amber);
+      }
+  
+      .nav-links {
+        display: flex;
+        gap: 24px;
+        list-style: none;
+      }
+  
+      .nav-links a {
+        font-size: .88rem;
+        font-weight: 500;
+        color: var(--ink);
+        padding: 4px 0;
+        border-bottom: 2px solid transparent;
+        transition: all .2s;
+      }
+  
+      .nav-links a:hover,
+      .nav-links a.active {
+        color: var(--fern);
+        border-bottom-color: var(--fern);
+      } */
+  
     /* ── BREADCRUMB ── */
     .breadcrumb {
       background: var(--white);
       border-bottom: 1px solid rgba(26, 58, 42, .07);
       padding: 10px 0;
     }
-
+  
     .bc-list {
       display: flex;
       gap: 8px;
@@ -557,21 +557,21 @@
       list-style: none;
       font-size: .82rem;
     }
-
+  
     .bc-list li+li::before {
       content: '/';
       color: var(--sage);
       margin-right: 8px;
     }
-
+  
     .bc-list a {
       color: var(--fern);
     }
-
+  
     .bc-list li:last-child {
       color: var(--slate);
     }
-
+  
     /* ── HERO ── */
     .hero {
       background: linear-gradient(135deg, var(--forest) 0%, var(--moss) 55%, var(--fern) 100%);
@@ -580,7 +580,7 @@
       position: relative;
       overflow: hidden;
     }
-
+  
     .hero::before {
       content: '';
       position: absolute;
@@ -590,12 +590,12 @@
         radial-gradient(circle at 12% 88%, rgba(122, 184, 150, .16) 0%, transparent 42%),
         url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.02'%3E%3Ccircle cx='30' cy='30' r='2'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
     }
-
+  
     .hero-content {
       position: relative;
       z-index: 1;
     }
-
+  
     .hero-badge {
       display: inline-flex;
       align-items: center;
@@ -611,18 +611,18 @@
       color: var(--honey);
       margin-bottom: 24px;
     }
-
+  
     .hero h1 {
       color: var(--white);
       margin-bottom: 20px;
       max-width: 820px;
     }
-
+  
     .hero h1 em {
       color: var(--honey);
       font-style: normal;
     }
-
+  
     .hero .lead {
       font-size: 1.15rem;
       color: rgba(255, 255, 255, .8);
@@ -630,40 +630,40 @@
       margin-bottom: 36px;
       font-weight: 300;
     }
-
+  
     .hero-actions {
       display: flex;
       gap: 14px;
       flex-wrap: wrap;
       margin-bottom: 60px;
     }
-
+  
     .hero-stats {
       display: flex;
       gap: 44px;
       flex-wrap: wrap;
     }
-
+  
     .stat-num {
       font-family: 'DM Serif Display', serif;
       font-size: 2rem;
       color: var(--honey);
     }
-
+  
     .stat-lbl {
       font-size: .8rem;
       color: rgba(255, 255, 255, .6);
       text-transform: uppercase;
       letter-spacing: .06em;
     }
-
+  
     /* ── TRUST BAR ── */
     .trust {
       background: var(--white);
       border-bottom: 1px solid rgba(26, 58, 42, .06);
       padding: 18px 0;
     }
-
+  
     .trust-inner {
       display: flex;
       align-items: center;
@@ -671,7 +671,7 @@
       gap: 40px;
       flex-wrap: wrap;
     }
-
+  
     .trust-item {
       display: flex;
       align-items: center;
@@ -680,7 +680,7 @@
       font-weight: 500;
       color: var(--slate);
     }
-
+  
     /* ── LABEL PILL ── */
     .label {
       display: inline-block;
@@ -694,31 +694,31 @@
       letter-spacing: .08em;
       margin-bottom: 14px;
     }
-
+  
     .label-amber {
       background: #fef0dd;
       color: var(--gold);
     }
-
+  
     .label-dark {
       background: rgba(255, 255, 255, .12);
       color: rgba(255, 255, 255, .85);
     }
-
+  
     /* ── SECTION HEADERS ── */
     .sh {
       margin-bottom: 56px;
     }
-
+  
     .sh h2 {
       color: var(--forest);
       margin-bottom: 12px;
     }
-
+  
     .sh p {
       margin: 0 auto;
     }
-
+  
     /* ── CARDS ── */
     .card {
       background: var(--white);
@@ -728,12 +728,12 @@
       border: 1px solid rgba(26, 58, 42, .06);
       transition: transform .25s, box-shadow .25s;
     }
-
+  
     .card:hover {
       transform: translateY(-4px);
       box-shadow: var(--shadow-lg);
     }
-
+  
     .card-icon {
       overflow: hidden;
       display: flex;
@@ -742,17 +742,17 @@
       font-size: 2.2rem;
       margin-bottom: 16px;
     }
-
+  
     .card h3 {
       color: var(--forest);
       margin-bottom: 10px;
     }
-
+  
     .card p {
       font-size: .95rem;
       max-width: none;
     }
-
+  
     /* ── FEATURE VISUAL ── */
     .fv {
       background: linear-gradient(145deg, var(--mist), var(--cream));
@@ -766,14 +766,14 @@
       position: relative;
       overflow: hidden;
     }
-
+  
     .fv::after {
       content: '';
       position: absolute;
       inset: 0;
       background: radial-gradient(circle at 60% 40%, rgba(122, 184, 150, .18), transparent 65%);
     }
-
+  
     /* ── PETID CARD ── */
     .petid-card {
       background: linear-gradient(145deg, var(--forest), var(--moss));
@@ -784,7 +784,7 @@
       overflow: hidden;
       box-shadow: var(--shadow-lg);
     }
-
+  
     .petid-card::before {
       content: '';
       position: absolute;
@@ -792,12 +792,12 @@
       background: radial-gradient(circle at 80% 20%, rgba(245, 200, 122, .18), transparent 55%),
         radial-gradient(circle at 10% 80%, rgba(122, 184, 150, .12), transparent 45%);
     }
-
+  
     .petid-content {
       position: relative;
       z-index: 1;
     }
-
+  
     .petid-badge {
       display: inline-flex;
       align-items: center;
@@ -813,14 +813,14 @@
       color: var(--honey);
       margin-bottom: 20px;
     }
-
+  
     .petid-pet {
       display: flex;
       align-items: center;
       gap: 16px;
       margin-bottom: 24px;
     }
-
+  
     .petid-avatar {
       width: 64px;
       height: 64px;
@@ -832,18 +832,18 @@
       font-size: 2rem;
       flex-shrink: 0;
     }
-
+  
     .petid-name {
       font-family: 'DM Serif Display', serif;
       font-size: 1.5rem;
       color: var(--white);
     }
-
+  
     .petid-breed {
       font-size: .85rem;
       color: rgba(255, 255, 255, .65);
     }
-
+  
     .petid-id-box {
       background: rgba(0, 0, 0, .25);
       border-radius: 12px;
@@ -851,7 +851,7 @@
       margin-bottom: 20px;
       border: 1px solid rgba(255, 255, 255, .1);
     }
-
+  
     .petid-id-label {
       font-size: .72rem;
       text-transform: uppercase;
@@ -859,34 +859,34 @@
       color: rgba(255, 255, 255, .5);
       margin-bottom: 6px;
     }
-
+  
     .petid-id-value {
       font-family: 'DM Serif Display', serif;
       font-size: 1.3rem;
       color: var(--honey);
       letter-spacing: .05em;
     }
-
+  
     .petid-id-sub {
       font-size: .75rem;
       color: rgba(255, 255, 255, .45);
       margin-top: 4px;
       font-style: italic;
     }
-
+  
     .petid-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 10px;
     }
-
+  
     .petid-field {
       background: rgba(255, 255, 255, .07);
       border-radius: 8px;
       padding: 12px 14px;
       border: 1px solid rgba(255, 255, 255, .08);
     }
-
+  
     .petid-field-label {
       font-size: .7rem;
       text-transform: uppercase;
@@ -894,13 +894,13 @@
       color: rgba(255, 255, 255, .45);
       margin-bottom: 4px;
     }
-
+  
     .petid-field-val {
       font-size: .88rem;
       color: var(--white);
       font-weight: 500;
     }
-
+  
     .verified-dot {
       display: inline-block;
       width: 7px;
@@ -909,7 +909,7 @@
       background: #4ade80;
       margin-right: 5px;
     }
-
+  
     .petid-footer {
       display: flex;
       justify-content: space-between;
@@ -918,7 +918,7 @@
       padding-top: 18px;
       border-top: 1px solid rgba(255, 255, 255, .1);
     }
-
+  
     .petid-qr {
       width: 52px;
       height: 52px;
@@ -933,34 +933,34 @@
       text-align: center;
       line-height: 1.2;
     }
-
+  
     .petid-tags {
       display: flex;
       flex-direction: column;
       gap: 5px;
     }
-
+  
     .ptag {
       font-size: .75rem;
       color: rgba(255, 255, 255, .6);
     }
-
+  
     .ptag strong {
       color: var(--honey);
     }
-
+  
     /* ── ARCHITECTURE LAYERS ── */
     .arch-section {
       background: var(--forest);
       color: var(--white);
     }
-
+  
     .arch-layers {
       display: flex;
       flex-direction: column;
       gap: 0;
     }
-
+  
     .arch-layer {
       background: rgba(255, 255, 255, .06);
       border: 1px solid rgba(255, 255, 255, .1);
@@ -973,11 +973,11 @@
       transition: background .25s;
       cursor: default;
     }
-
+  
     .arch-layer:hover {
       background: rgba(255, 255, 255, .1);
     }
-
+  
     .arch-layer-num {
       width: 40px;
       height: 40px;
@@ -992,7 +992,7 @@
       color: var(--honey);
       flex-shrink: 0;
     }
-
+  
     .arch-layer-body h4 {
       color: var(--honey);
       margin-bottom: 4px;
@@ -1000,20 +1000,20 @@
       font-family: 'DM Sans', sans-serif;
       font-weight: 600;
     }
-
+  
     .arch-layer-body p {
       font-size: .88rem;
       color: rgba(255, 255, 255, .65);
       max-width: none;
     }
-
+  
     .arch-layer-tags {
       display: flex;
       gap: 8px;
       flex-wrap: wrap;
       margin-top: 8px;
     }
-
+  
     .atag {
       background: rgba(255, 255, 255, .08);
       color: rgba(255, 255, 255, .7);
@@ -1021,19 +1021,19 @@
       border-radius: 50px;
       font-size: .75rem;
     }
-
+  
     .arch-connector {
       text-align: center;
       color: rgba(255, 255, 255, .25);
       font-size: 1.2rem;
       padding: 4px 0;
     }
-
+  
     /* ── FLOW DIAGRAM ── */
     .flow-section {
       background: var(--cream);
     }
-
+  
     .flow-steps {
       display: flex;
       align-items: stretch;
@@ -1041,7 +1041,7 @@
       overflow-x: auto;
       padding-bottom: 8px;
     }
-
+  
     .flow-step {
       display: flex;
       flex-direction: column;
@@ -1049,7 +1049,7 @@
       flex: 1;
       min-width: 120px;
     }
-
+  
     .flow-step-circle {
       overflow: hidden;
       display: flex;
@@ -1067,7 +1067,7 @@
       flex-shrink: 0;
       box-shadow: 0 4px 20px rgba(26, 58, 42, .2);
     }
-
+  
     .flow-step-label {
       font-size: .82rem;
       font-weight: 600;
@@ -1075,7 +1075,7 @@
       text-align: center;
       margin-top: 12px;
     }
-
+  
     .flow-step-sub {
       font-size: .75rem;
       color: var(--slate);
@@ -1083,7 +1083,7 @@
       margin-top: 4px;
       max-width: 100px;
     }
-
+  
     .flow-arrow {
       display: flex;
       align-items: center;
@@ -1093,25 +1093,25 @@
       margin-top: -28px;
       flex-shrink: 0;
     }
-
+  
     @media(max-width:768px) {
       .flow-steps {
         flex-direction: column;
         align-items: flex-start;
         gap: 16px;
       }
-
+  
       .flow-arrow {
         transform: rotate(90deg);
         margin: 0 auto;
       }
     }
-
+  
     /* ── PETID FORMAT ── */
     .petid-format-section {
       background: var(--white);
     }
-
+  
     .format-box {
       background: linear-gradient(135deg, var(--forest), var(--moss));
       border-radius: 16px;
@@ -1119,7 +1119,7 @@
       text-align: center;
       color: var(--white);
     }
-
+  
     .format-string {
       font-family: 'DM Serif Display', serif;
       font-size: clamp(1.1rem, 3vw, 1.8rem);
@@ -1127,7 +1127,7 @@
       letter-spacing: .08em;
       margin: 20px 0;
     }
-
+  
     .format-parts {
       display: flex;
       gap: 0;
@@ -1135,23 +1135,23 @@
       flex-wrap: wrap;
       margin-top: 28px;
     }
-
+  
     .format-part {
       text-align: center;
       padding: 0 16px;
       border-right: 1px solid rgba(255, 255, 255, .15);
     }
-
+  
     .format-part:last-child {
       border-right: none;
     }
-
+  
     .fp-code {
       font-family: 'DM Serif Display', serif;
       font-size: 1.1rem;
       color: var(--honey);
     }
-
+  
     .fp-label {
       font-size: .75rem;
       color: rgba(255, 255, 255, .55);
@@ -1159,60 +1159,60 @@
       text-transform: uppercase;
       letter-spacing: .07em;
     }
-
+  
     .format-examples {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 14px;
       margin-top: 28px;
     }
-
+  
     @media(max-width:600px) {
       .format-examples {
         grid-template-columns: 1fr;
       }
-
+  
       .format-parts {
         gap: 16px;
       }
-
+  
       .format-part {
         border-right: none;
         border-bottom: 1px solid rgba(255, 255, 255, .1);
         padding-bottom: 12px;
       }
     }
-
+  
     .fe-item {
       background: rgba(255, 255, 255, .08);
       border-radius: 10px;
       padding: 16px;
       border: 1px solid rgba(255, 255, 255, .1);
     }
-
+  
     .fe-item .icon {
       font-size: 1.5rem;
       margin-bottom: 8px;
     }
-
+  
     .fe-item .id {
       font-size: .8rem;
       font-family: 'DM Serif Display', serif;
       color: var(--honey);
       letter-spacing: .04em;
     }
-
+  
     .fe-item .desc {
       font-size: .75rem;
       color: rgba(255, 255, 255, .55);
       margin-top: 4px;
     }
-
+  
     /* ── DARK CARDS (benefits) ── */
     .dc-section {
       background: var(--forest);
     }
-
+  
     .dc {
       background: rgba(255, 255, 255, .07);
       border: 1px solid rgba(255, 255, 255, .1);
@@ -1220,45 +1220,45 @@
       padding: 28px;
       transition: background .25s;
     }
-
+  
     .dc:hover {
       background: rgba(255, 255, 255, .12);
     }
-
+  
     .dc .icon {
       font-size: 2rem;
       margin-bottom: 14px;
     }
-
+  
     .dc h3 {
       color: var(--honey);
       margin-bottom: 8px;
       font-size: 1.1rem;
     }
-
+  
     .dc p {
       font-size: .9rem;
       color: rgba(255, 255, 255, .7);
       max-width: none;
     }
-
+  
     /* ── VERIFICATION METHODS ── */
     .verify-section {
       background: var(--cream);
     }
-
+  
     .vm-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 24px;
     }
-
+  
     @media(max-width:768px) {
       .vm-grid {
         grid-template-columns: 1fr;
       }
     }
-
+  
     .vm-card {
       background: var(--white);
       border-radius: var(--radius);
@@ -1267,12 +1267,12 @@
       border: 1px solid rgba(26, 58, 42, .06);
       transition: transform .25s, box-shadow .25s;
     }
-
+  
     .vm-card:hover {
       transform: translateY(-4px);
       box-shadow: var(--shadow);
     }
-
+  
     .vm-icon {
       overflow: hidden;
       display: flex;
@@ -1281,17 +1281,17 @@
       font-size: 3rem;
       margin-bottom: 16px;
     }
-
+  
     .vm-card h3 {
       color: var(--forest);
       margin-bottom: 10px;
     }
-
+  
     .vm-card p {
       font-size: .92rem;
       max-width: none;
     }
-
+  
     .vm-badge {
       display: inline-block;
       background: var(--mist);
@@ -1302,7 +1302,7 @@
       font-weight: 600;
       margin-top: 14px;
     }
-
+  
     /* ── FEATURE LIST ── */
     .flist {
       list-style: none;
@@ -1310,7 +1310,7 @@
       flex-direction: column;
       gap: 12px;
     }
-
+  
     .flist li {
       display: flex;
       align-items: flex-start;
@@ -1318,7 +1318,7 @@
       font-size: .97rem;
       color: var(--ink);
     }
-
+  
     .flist li::before {
       content: '✦';
       color: var(--amber);
@@ -1326,24 +1326,24 @@
       margin-top: 4px;
       flex-shrink: 0;
     }
-
+  
     /* ── GLOBAL REACH ── */
     .globe-section {
       background: var(--white);
     }
-
+  
     .country-grid {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
       gap: 14px;
     }
-
+  
     @media(max-width:768px) {
       .country-grid {
         grid-template-columns: repeat(2, 1fr);
       }
     }
-
+  
     .country-item {
       background: var(--cream);
       border-radius: 10px;
@@ -1353,28 +1353,28 @@
       gap: 10px;
       border: 1px solid rgba(26, 58, 42, .06);
     }
-
+  
     .country-flag {
       font-size: 1.5rem;
     }
-
+  
     .country-info .name {
       font-size: .88rem;
       font-weight: 600;
       color: var(--forest);
     }
-
+  
     .country-info .code {
       font-size: .75rem;
       color: var(--sage);
       font-family: 'DM Serif Display', serif;
     }
-
+  
     /* ── COMPARISON ── */
     .comp-section {
       background: var(--cream);
     }
-
+  
     .comp-table {
       width: 100%;
       border-collapse: collapse;
@@ -1383,7 +1383,7 @@
       overflow: hidden;
       box-shadow: var(--shadow);
     }
-
+  
     .comp-table th {
       background: var(--forest);
       color: var(--white);
@@ -1393,93 +1393,93 @@
       font-size: .88rem;
       font-weight: 600;
     }
-
+  
     .comp-table th:first-child {
       background: var(--moss);
     }
-
+  
     .comp-table td {
       padding: 14px 20px;
       font-size: .9rem;
       color: var(--ink);
       border-bottom: 1px solid rgba(26, 58, 42, .06);
     }
-
+  
     .comp-table tr:last-child td {
       border-bottom: none;
     }
-
+  
     .comp-table tr:hover td {
       background: rgba(26, 58, 42, .02);
     }
-
+  
     .tick {
       color: #22c55e;
       font-weight: 700;
     }
-
+  
     .cross {
       color: #ef4444;
     }
-
+  
     .partial {
       color: var(--amber);
     }
-
+  
     /* ── PETID HEALTH CARD ── */
     .hc-section {
       background: var(--white);
     }
-
+  
     .hc-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
       gap: 18px;
     }
-
+  
     @media(max-width:600px) {
       .hc-grid {
         grid-template-columns: 1fr;
       }
     }
-
+  
     .hc-item {
       background: var(--cream);
       border-radius: 12px;
       padding: 22px;
       border-left: 4px solid var(--fern);
     }
-
+  
     .hc-item h4 {
       color: var(--forest);
       margin-bottom: 6px;
     }
-
+  
     .hc-item p {
       font-size: .9rem;
       max-width: none;
     }
-
+  
     /* ── NETWORK EFFECT ── */
     .network-section {
       background: var(--forest);
     }
-
+  
     .ne-center {
       text-align: center;
       margin-bottom: 48px;
     }
-
+  
     .ne-center h2 {
       color: var(--white);
       margin-bottom: 12px;
     }
-
+  
     .ne-center p {
       color: rgba(255, 255, 255, .7);
       margin: 0 auto;
     }
-
+  
     .ne-flow {
       display: flex;
       flex-direction: column;
@@ -1488,7 +1488,7 @@
       max-width: 480px;
       margin: 0 auto;
     }
-
+  
     .ne-node {
       background: rgba(255, 255, 255, .08);
       border: 1px solid rgba(255, 255, 255, .15);
@@ -1497,60 +1497,60 @@
       text-align: center;
       width: 100%;
     }
-
+  
     .ne-node strong {
       color: var(--honey);
       font-family: 'DM Serif Display', serif;
       font-size: 1.1rem;
     }
-
+  
     .ne-node span {
       display: block;
       font-size: .82rem;
       color: rgba(255, 255, 255, .55);
       margin-top: 2px;
     }
-
+  
     .ne-arrow {
       color: var(--sage);
       font-size: 1.4rem;
       padding: 6px 0;
     }
-
+  
     .ne-node-primary {
       background: rgba(245, 200, 122, .12);
       border-color: rgba(245, 200, 122, .3);
     }
-
+  
     .ne-node-primary strong {
       color: var(--honey);
       font-size: 1.3rem;
     }
-
+  
     /* ── PAGES NAV ── */
     .pages-nav {
       background: var(--moss);
       padding: 36px 0;
     }
-
+  
     .pages-grid {
       display: grid;
       grid-template-columns: repeat(5, 1fr);
       gap: 12px;
     }
-
+  
     @media(max-width:900px) {
       .pages-grid {
         grid-template-columns: repeat(3, 1fr);
       }
     }
-
+  
     @media(max-width:500px) {
       .pages-grid {
         grid-template-columns: repeat(2, 1fr);
       }
     }
-
+  
     .page-pill {
       display: block;
       text-align: center;
@@ -1563,29 +1563,29 @@
       font-weight: 500;
       transition: all .2s;
     }
-
+  
     .page-pill:hover {
       background: rgba(255, 255, 255, .18);
       color: var(--white);
     }
-
+  
     .page-pill .pill-icon {
       font-size: 1.4rem;
       display: block;
       margin-bottom: 6px;
     }
-
+  
     .page-pill.active-page {
       background: rgba(245, 200, 122, .2);
       border-color: rgba(245, 200, 122, .4);
       color: var(--honey);
     }
-
+  
     /* ── FAQ ── */
     .faq-section {
       background: var(--white);
     }
-
+  
     .faq-list {
       max-width: 800px;
       margin: 0 auto;
@@ -1593,13 +1593,13 @@
       flex-direction: column;
       gap: 12px;
     }
-
+  
     details.faq {
       border: 1px solid rgba(26, 58, 42, .1);
       border-radius: 12px;
       overflow: hidden;
     }
-
+  
     details.faq summary {
       padding: 20px 24px;
       background: var(--cream);
@@ -1612,18 +1612,18 @@
       align-items: center;
       list-style: none;
     }
-
+  
     details.faq summary::after {
       content: '＋';
       font-size: 1.2rem;
       color: var(--amber);
       flex-shrink: 0;
     }
-
+  
     details[open].faq summary::after {
       content: '－';
     }
-
+  
     details.faq .ans {
       padding: 20px 24px;
       font-size: .97rem;
@@ -1631,14 +1631,14 @@
       border-top: 1px solid rgba(26, 58, 42, .07);
       line-height: 1.7;
     }
-
+  
     /* ── CTA ── */
     .cta-section {
       background: linear-gradient(135deg, var(--amber), var(--gold));
       text-align: center;
       padding: 80px 0;
     }
-
+  
     .cta-section h2 {
       color: var(--white);
       margin-bottom: 14px;
@@ -1646,37 +1646,37 @@
       margin-left: auto;
       margin-right: auto;
     }
-
+  
     .cta-section p {
       color: rgba(255, 255, 255, .85);
       margin: 0 auto 36px;
       max-width: 54ch;
     }
-
+  
     .cta-actions {
       display: flex;
       gap: 14px;
       justify-content: center;
       flex-wrap: wrap;
     }
-
+  
     .btn-white {
       background: var(--white);
       color: var(--gold);
       font-weight: 700;
     }
-
+  
     .btn-white:hover {
       background: var(--cream);
       color: var(--gold);
     }
-
+  
     /* ── INTERNAL LINK SILO ── */
     .silo {
       background: var(--forest);
       padding: 44px 0;
     }
-
+  
     .silo-label {
       text-align: center;
       color: rgba(255, 255, 255, .4);
@@ -1685,14 +1685,14 @@
       letter-spacing: .09em;
       margin-bottom: 18px;
     }
-
+  
     .silo-links {
       display: flex;
       flex-wrap: wrap;
       gap: 10px;
       justify-content: center;
     }
-
+  
     .silo-link {
       background: rgba(255, 255, 255, .08);
       color: rgba(255, 255, 255, .8);
@@ -1703,43 +1703,43 @@
       font-weight: 500;
       transition: background .2s;
     }
-
+  
     .silo-link:hover {
       background: rgba(255, 255, 255, .18);
       color: var(--white);
     }
-
+  
     /* ── FOOTER ── */
     footer {
       background: var(--charcoal);
       color: rgba(255, 255, 255, .6);
       padding: 48px 0 24px;
     }
-
+  
     .footer-grid {
       display: grid;
       grid-template-columns: 2fr 1fr 1fr 1fr;
       gap: 40px;
       margin-bottom: 40px;
     }
-
+  
     @media(max-width:768px) {
       .footer-grid {
         grid-template-columns: 1fr 1fr;
       }
     }
-
+  
     .f-logo {
       font-family: 'DM Serif Display', serif;
       font-size: 1.4rem;
       color: var(--white);
       margin-bottom: 10px;
     }
-
+  
     .f-logo span {
       color: var(--amber);
     }
-
+  
     .f-col h4 {
       color: var(--white);
       font-size: .86rem;
@@ -1748,24 +1748,24 @@
       margin-bottom: 14px;
       font-family: 'DM Sans', sans-serif;
     }
-
+  
     .f-col ul {
       list-style: none;
       display: flex;
       flex-direction: column;
       gap: 7px;
     }
-
+  
     .f-col ul li a {
       font-size: .86rem;
       color: rgba(255, 255, 255, .5);
       transition: color .2s;
     }
-
+  
     .f-col ul li a:hover {
       color: var(--honey);
     }
-
+  
     .footer-bottom {
       border-top: 1px solid rgba(255, 255, 255, .08);
       padding-top: 22px;
@@ -1775,44 +1775,44 @@
       gap: 10px;
       font-size: .8rem;
     }
-
+  
     /* ── ANIMATIONS ── */
     @keyframes fadeUp {
       from {
         opacity: 0;
         transform: translateY(28px)
       }
-
+  
       to {
         opacity: 1;
         transform: translateY(0)
       }
     }
-
+  
     .hero-content>* {
       animation: fadeUp .7s ease both;
     }
-
+  
     .hero-content>*:nth-child(1) {
       animation-delay: .05s
     }
-
+  
     .hero-content>*:nth-child(2) {
       animation-delay: .15s
     }
-
+  
     .hero-content>*:nth-child(3) {
       animation-delay: .25s
     }
-
+  
     .hero-content>*:nth-child(4) {
       animation-delay: .35s
     }
-
+  
     .hero-content>*:nth-child(5) {
       animation-delay: .45s
     }
-
+  
     /* ── HIGHLIGHT BOX ── */
     .highlight-box {
       background: var(--mist);
@@ -1820,55 +1820,55 @@
       padding: 28px 32px;
       border: 1px solid rgba(26, 58, 42, .1);
     }
-
+  
     .highlight-box.amber-box {
       background: #fef3e2;
       border-color: rgba(232, 145, 58, .2);
     }
-
+  
     .insight-box {
       background: linear-gradient(135deg, var(--forest), var(--moss));
       border-radius: 14px;
       padding: 32px;
       color: var(--white);
     }
-
+  
     .insight-box h3 {
       color: var(--honey);
       margin-bottom: 12px;
     }
-
+  
     .insight-box p {
       color: rgba(255, 255, 255, .8);
       max-width: none;
       font-size: .97rem;
     }
-
+  
     /* small responsive tweaks */
     @media(max-width:480px) {
       .hero {
         padding: 72px 0 64px
       }
-
+  
       .btn {
         padding: 10px 20px;
         font-size: .88rem
       }
     }
-
+  
     /* ── INTERNAL LINKS ──────────────────────────────── */
     .links-section {
       background: var(--forest);
       padding: 48px 0;
     }
-
+  
     .links-inner {
       display: flex;
       flex-wrap: wrap;
       gap: 14px;
       justify-content: center;
     }
-
+  
     .link-pill {
       background: rgba(255, 255, 255, .09);
       color: rgba(255, 255, 255, .85);
@@ -1879,50 +1879,50 @@
       font-weight: 500;
       transition: background .2s;
     }
-
+  
     .link-pill:hover {
       background: rgba(255, 255, 255, .18);
       color: var(--white);
     }
-
+  
     /* ── FOOTER ──────────────────────────────────────── */
     footer {
       background: var(--charcoal);
       color: rgba(255, 255, 255, .6);
       padding: 48px 0 28px;
     }
-
+  
     .footer-grid {
       display: grid;
       grid-template-columns: 2fr 1fr 1fr 1fr;
       gap: 40px;
       margin-bottom: 40px;
     }
-
+  
     @media (max-width: 768px) {
       .footer-grid {
         grid-template-columns: 1fr 1fr;
       }
     }
-
+  
     .footer-brand {}
-
+  
     .footer-logo {
       font-family: 'DM Serif Display', serif;
       font-size: 1.4rem;
       color: var(--white);
       margin-bottom: 12px;
     }
-
+  
     .footer-logo span {
       color: var(--amber);
     }
-
+  
     .footer-brand p {
       font-size: .88rem;
       line-height: 1.6;
     }
-
+  
     .footer-col h4 {
       color: var(--white);
       font-size: .88rem;
@@ -1931,24 +1931,24 @@
       margin-bottom: 16px;
       font-family: 'DM Sans', sans-serif;
     }
-
+  
     .footer-col ul {
       list-style: none;
       display: flex;
       flex-direction: column;
       gap: 8px;
     }
-
+  
     .footer-col ul li a {
       font-size: .88rem;
       color: rgba(255, 255, 255, .55);
       transition: color .2s;
     }
-
+  
     .footer-col ul li a:hover {
       color: var(--honey);
     }
-
+  
     .footer-bottom {
       border-top: 1px solid rgba(255, 255, 255, .08);
       padding-top: 24px;
@@ -1958,72 +1958,79 @@
       gap: 12px;
       font-size: .82rem;
     }
-  .vm-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(28, 28, 28, 0.6);
-  display: none;
-  align-items: center;
-  justify-content: center;
-  z-index: 9999;
-}
-
-.vm-modal {
-  background: var(--cream);
-  padding: 30px 40px;
-  border-radius: var(--radius);
-  box-shadow: var(--shadow-lg);
-  text-align: center;
-  max-width: 420px;
-  width: 90%;
-  animation: vmFadeIn 0.3s ease;
-}
-
-.vm-modal h2 {
-  color: var(--forest);
-  margin-bottom: 10px;
-}
-
-.vm-modal p {
-  color: var(--slate);
-  font-size: 14px;
-  margin-bottom: 20px;
-}
-
-.vm-btn {
-  background: var(--amber);
-  color: var(--white);
-  border: none;
-  padding: 12px 20px;
-  border-radius: var(--radius);
-  cursor: pointer;
-  font-weight: 600;
-  margin-right: 10px;
-}
-
-.vm-btn:hover {
-  background: var(--gold);
-}
-
-.vm-secondary {
-  background: transparent;
-  border: 1px solid var(--slate);
-  padding: 10px 18px;
-  border-radius: var(--radius);
-  cursor: pointer;
-}
-
-.vm-secondary:hover {
-  background: var(--mist);
-}
-
-@keyframes vmFadeIn {
-  from { opacity: 0; transform: scale(0.95); }
-  to { opacity: 1; transform: scale(1); }
-}
+    .vm-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(28, 28, 28, 0.6);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
+    }
+  
+    .vm-modal {
+      background: var(--cream);
+      padding: 30px 40px;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow-lg);
+      text-align: center;
+      max-width: 420px;
+      width: 90%;
+      animation: vmFadeIn 0.3s ease;
+    }
+  
+    .vm-modal h2 {
+      color: var(--forest);
+      margin-bottom: 10px;
+    }
+  
+    .vm-modal p {
+      color: var(--slate);
+      font-size: 14px;
+      margin-bottom: 20px;
+    }
+  
+    .vm-btn {
+      background: var(--amber);
+      color: var(--white);
+      border: none;
+      padding: 12px 20px;
+      border-radius: var(--radius);
+      cursor: pointer;
+      font-weight: 600;
+      margin-right: 10px;
+    }
+  
+    .vm-btn:hover {
+      background: var(--gold);
+    }
+  
+    .vm-secondary {
+      background: transparent;
+      border: 1px solid var(--slate);
+      padding: 10px 18px;
+      border-radius: var(--radius);
+      cursor: pointer;
+    }
+  
+    .vm-secondary:hover {
+      background: var(--mist);
+    }
+  
+    @keyframes vmFadeIn {
+      from {
+        opacity: 0;
+        transform: scale(0.95);
+      }
+  
+      to {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
   </style>
   <link rel="icon" href="/assets/logo-small.png" type="image/png">
 </head>
@@ -2035,7 +2042,6 @@
 ══════════════════════════════════════════ -->
 
   <div id="navbar"></div>
-
 
   <!-- ══════════════════════════════════════════
      BREADCRUMB
@@ -3225,7 +3231,7 @@
       <!-- The Form -->
 
       <!-- Multi-step Sliding Form (Replaced with Custom Modal UI) -->
-<style>
+      <style>
 #modal, #pawid-success {
   --bg: #fdfaf6;
   --bg2: #ffffff;
@@ -3308,15 +3314,15 @@ footer{background:var(--bg2);border-top:1px solid var(--border2);padding:48px 80
 /* Password Eye */
 .pw-eye{position:absolute; right:12px; top:38px; cursor:pointer; font-size:1.1rem; opacity:0.6;}
 </style>
-<!-- CREATE PETID MODAL -->
+      <!-- CREATE PETID MODAL -->
 
-  <div class="modal" id="modal">
-    
+      <div class="modal" id="modal">
 
-    <div class="mhead">
-      <h2>🐾 Create Your PetID</h2>
-      <p>A permanent, verified digital identity for your pet. Free forever.</p>
-    </div>
+
+        <div class="mhead">
+          <h2>🐾 Create Your PetID</h2>
+          <p>A permanent, verified digital identity for your pet. Free forever.</p>
+        </div>
 
     <div class="prog">
       <div class="prog-bars">
@@ -3324,18 +3330,18 @@ footer{background:var(--bg2);border-top:1px solid var(--border2);padding:48px 80
         <div class="pb-bar" id="bar2"></div><div style="width:4px"></div>
         <div class="pb-bar" id="bar3"></div><div style="width:4px"></div>
         <div class="pb-bar" id="bar4"></div><div style="width:4px"></div>
-        <div class="pb-bar" id="bar5"></div>
-      </div>
-      <div class="prog-labels">
-        <span class="plab active" id="lab1">Owner</span>
-        <span class="plab" id="lab2">Pet Info</span>
-        <span class="plab" id="lab3">Health</span>
-        <span class="plab" id="lab4">Review</span>
-        <span class="plab" id="lab5">Done!</span>
-      </div>
-    </div>
+            <div class="pb-bar" id="bar5"></div>
+          </div>
+          <div class="prog-labels">
+            <span class="plab active" id="lab1">Owner</span>
+            <span class="plab" id="lab2">Pet Info</span>
+            <span class="plab" id="lab3">Health</span>
+            <span class="plab" id="lab4">Review</span>
+            <span class="plab" id="lab5">Done!</span>
+          </div>
+        </div>
 
-    <div class="fbody">
+        <div class="fbody">
 
       <!-- STEP 1: OWNER INFO -->
       <div class="fstep active" id="step1">
@@ -3351,58 +3357,90 @@ footer{background:var(--bg2);border-top:1px solid var(--border2);padding:48px 80
               <option value="">Select country</option>
               <option>India</option><option>United States</option><option>United Kingdom</option><option>UAE</option><option>Singapore</option><option>Australia</option><option>Canada</option><option>Germany</option><option>France</option><option>Japan</option><option>Other</option>
             </select>
-          </div>
-        </div>
-        <div class="fg c2">
-          <div><label>City</label><input type="text" id="pw_ownerCity" placeholder="Bangalore"></div>
-          <div><label>ID Type</label>
-            <select id="o_idtype">
+              </div>
+            </div>
+            <div class="fg c2">
+              <div><label>City</label><input type="text" id="pw_ownerCity" placeholder="Bangalore"></div>
+              <div><label>ID Type</label>
+                <select id="o_idtype">
               <option value="">Select ID type</option>
               <option>Aadhaar (India)</option><option>PAN Card</option><option>Passport</option><option>Driver's License</option><option>National ID</option>
-            </select>
-          </div>
+                </select>
+              </div>
         </div>
         <div class="fg"><div><label>Government ID Number</label><input type="text" id="o_idnum" placeholder="For ownership verification (encrypted & secure)"></div></div>
         <p style="font-size:12px;color:var(--text3);margin-top:8px;line-height:1.5">🔒 Your personal data is encrypted and used only for ownership verification. PAWID never shares your data.</p>
         <div class="faction"><span class="sc">Step 1 of 4</span><button class="bnx" onclick="nextStep(1)">Next: Pet Info →</button></div>
       </div>
 
-      <!-- STEP 2: PET INFO -->
+          <!-- STEP 2: PET INFO -->
       <div class="fstep" id="step2">
         <div class="sdiv">Pet Basic Information</div>
         <div class="fg c2">
           <div><label>Pet Name <span class="req">*</span></label><input type="text" id="pw_petName" placeholder="Bruno"></div>
           <div><label>Date of Birth <span class="req">*</span></label><input type="date" id="p_dob"></div>
         </div>
-        <div style="margin-bottom:14px">
-          <label>Species <span class="req">*</span></label>
-          <div class="radio-g" id="species_grid" style="grid-template-columns: repeat(2, 1fr);">
+            <div style="margin-bottom:14px">
+              <label>Species <span class="req">*</span></label>
+              <div class="radio-g" id="species_grid" style="grid-template-columns: repeat(2, 1fr);">
             <div class="rc" onclick="selectRadio('species','Dog',this)"><div class="ri">🐕</div><div class="rl">Dog</div></div>
             <div class="rc" onclick="selectRadio('species','Cat',this)"><div class="ri">🐈</div><div class="rl">Cat</div></div>
-          </div>
-          <input type="hidden" id="pw_petSpecies" value="">
-        </div>
-        <div class="fg c2">
-          <div>
-            <label>Breed</label>
-            <input type="text" id="pw_petBreed" list="breed_list" placeholder="Select species first" disabled>
-            <datalist id="breed_list"></datalist>
-            <div style="font-size:11px;color:var(--text3);margin-top:4px;">Select species to load breeds</div>
-          </div>
-          <div><label>Gender <span class="req">*</span></label>
-            <select id="p_gender">
+              </div>
+              <input type="hidden" id="pw_petSpecies" value="">
+            </div>
+            <div class="fg c2">
+              <div>
+                <label>Breed</label>
+                <input type="text" id="pw_petBreed" list="breed_list" placeholder="Select species first" disabled>
+                <datalist id="breed_list"></datalist>
+                <div style="font-size:11px;color:var(--text3);margin-top:4px;">Select species to load breeds</div>
+              </div>
+              <div><label>Gender <span class="req">*</span></label>
+                <select id="p_gender">
               <option value="">Select gender</option>
               <option>Male</option><option>Female</option><option>Male (neutered)</option><option>Female (spayed)</option>
-            </select>
-          </div>
-        </div>
-        <div class="fg c3">
-          <div><label>Coat Color</label><input type="text" id="p_color" placeholder="Golden, Black, etc."></div>
-          <div><label>Weight (kg)</label><input type="number" id="p_weight" placeholder="25" min="0" step="0.1"></div>
-          <div><label>Distinctive Marks</label><input type="text" id="p_marks" placeholder="White patch on chest"></div>
-        </div>
-        <div class="fg c2">
-          <div>
+                </select>
+              </div>
+            </div>
+            <div class="fg c3">
+              <div>
+                <label for="p_color">Coat Color</label>
+
+                <select id="p_color" onchange="handleColorChange()">
+                  <option value="">Select color</option>
+                  <option value="black">Black</option>
+                  <option value="white">White</option>
+                  <option value="brown">Brown</option>
+                  <option value="golden">Golden</option>
+                  <option value="cream">Cream</option>
+                  <option value="gray">Gray</option>
+                  <option value="red">Red</option>
+                  <option value="blue">Blue</option>
+                  <option value="fawn">Fawn</option>
+                  <option value="tan">Tan</option>
+                  <option value="bi-color">Bi-color</option>
+                  <option value="tri-color">Tri-color</option>
+                  <option value="brindle">Brindle</option>
+                  <option value="merle">Merle</option>
+                  <option value="spotted">Spotted</option>
+                  <option value="tabby">Tabby</option>
+                  <option value="calico">Calico</option>
+                  <option value="tortoiseshell">Tortoiseshell</option>
+                  <option value="mixed">Mixed / Unknown</option>
+                  <option value="other">Other</option>
+                </select>
+
+                <input type="text" id="p_color_other" placeholder="Enter custom color"
+                  style="margin-top:8px; display:none;">
+              </div>
+
+              <div><label>Weight (kg)</label><input type="number" id="p_weight" placeholder="25" min="0" step="0.1">
+              </div>
+              <div><label>Distinctive Marks</label><input type="text" id="p_marks" placeholder="White patch on chest">
+              </div>
+            </div>
+            <div class="fg c2">
+              <div>
             <label>Blood Group</label>
             <select id="p_blood">
               <option value="">Select blood group</option>
@@ -3415,45 +3453,45 @@ footer{background:var(--bg2);border-top:1px solid var(--border2);padding:48px 80
           </div>
           <div>
             <label>Pet Photo URL <span style="font-size:11px;color:var(--text3)">(or leave blank for default)</span></label>
-            <input type="text" id="p_photo" placeholder="https://... or leave blank">
-          </div>
-        </div>
-        <div class="sdiv">Identification</div>
-        <div class="fg c2">
+                <input type="text" id="p_photo" placeholder="https://... or leave blank">
+              </div>
+            </div>
+            <div class="sdiv">Identification</div>
+            <div class="fg c2">
           <div><label>Microchip Number</label><input type="text" id="p_chip" placeholder="900182001234567 (15 digits)"></div>
-          <div><label>Existing Tag/License No.</label><input type="text" id="p_tag" placeholder="If any"></div>
-        </div>
-        <div class="faction">
-          <button class="bbk" onclick="prevStep(2)">← Back</button>
-          <span class="sc">Step 2 of 4</span>
-          <button class="bnx" onclick="nextStep(2)">Next: Health Records →</button>
-        </div>
-      </div>
+              <div><label>Existing Tag/License No.</label><input type="text" id="p_tag" placeholder="If any"></div>
+            </div>
+            <div class="faction">
+              <button class="bbk" onclick="prevStep(2)">← Back</button>
+              <span class="sc">Step 2 of 4</span>
+              <button class="bnx" onclick="nextStep(2)">Next: Health Records →</button>
+            </div>
+          </div>
 
-      <!-- STEP 3: HEALTH -->
-      <div class="fstep" id="step3">
-        <div class="sdiv">Veterinary Information</div>
-        <div class="fg c2">
+          <!-- STEP 3: HEALTH -->
+          <div class="fstep" id="step3">
+            <div class="sdiv">Veterinary Information</div>
+            <div class="fg c2">
           <div><label>Primary Vet Clinic</label><input type="text" id="h_vet" placeholder="Caring Paws Veterinary, Bangalore"></div>
-          <div><label>Vet Doctor Name</label><input type="text" id="h_vetdr" placeholder="Dr. Priya Menon"></div>
-        </div>
-        <div class="fg c2">
-          <div><label>Last Vet Visit</label><input type="date" id="h_lastvisit"></div>
-          <div><label>Next Appointment</label><input type="date" id="h_nextvisit"></div>
-        </div>
-        <div class="sdiv">Vaccination History</div>
-        <div class="vg">
-          <div class="vi"><input type="checkbox" id="v1"><label for="v1">Rabies</label></div>
-          <div class="vi"><input type="checkbox" id="v2"><label for="v2">Distemper (DHPP)</label></div>
-          <div class="vi"><input type="checkbox" id="v3"><label for="v3">Parvovirus</label></div>
-          <div class="vi"><input type="checkbox" id="v4"><label for="v4">Hepatitis</label></div>
-          <div class="vi"><input type="checkbox" id="v5"><label for="v5">Bordetella</label></div>
-          <div class="vi"><input type="checkbox" id="v6"><label for="v6">Leptospirosis</label></div>
-          <div class="vi"><input type="checkbox" id="v7"><label for="v7">Influenza</label></div>
-          <div class="vi"><input type="checkbox" id="v8"><label for="v8">Feline FVRCP</label></div>
-        </div>
-        <div class="sdiv">Medical History</div>
-        <div class="fg">
+              <div><label>Vet Doctor Name</label><input type="text" id="h_vetdr" placeholder="Dr. Priya Menon"></div>
+            </div>
+            <div class="fg c2">
+              <div><label>Last Vet Visit</label><input type="date" id="h_lastvisit"></div>
+              <div><label>Next Appointment</label><input type="date" id="h_nextvisit"></div>
+            </div>
+            <div class="sdiv">Vaccination History</div>
+            <div class="vg">
+              <div class="vi"><input type="checkbox" id="v1"><label for="v1">Rabies</label></div>
+              <div class="vi"><input type="checkbox" id="v2"><label for="v2">Distemper (DHPP)</label></div>
+              <div class="vi"><input type="checkbox" id="v3"><label for="v3">Parvovirus</label></div>
+              <div class="vi"><input type="checkbox" id="v4"><label for="v4">Hepatitis</label></div>
+              <div class="vi"><input type="checkbox" id="v5"><label for="v5">Bordetella</label></div>
+              <div class="vi"><input type="checkbox" id="v6"><label for="v6">Leptospirosis</label></div>
+              <div class="vi"><input type="checkbox" id="v7"><label for="v7">Influenza</label></div>
+              <div class="vi"><input type="checkbox" id="v8"><label for="v8">Feline FVRCP</label></div>
+            </div>
+            <div class="sdiv">Medical History</div>
+            <div class="fg">
           <div><label>Known Medical Conditions</label><textarea id="h_conditions" placeholder="Diabetes, allergies, arthritis... or leave blank if none"></textarea></div>
         </div>
         <div class="fg c2">
@@ -3585,96 +3623,96 @@ footer{background:var(--bg2);border-top:1px solid var(--border2);padding:48px 80
 </div>
 
 <script>
-let currentStep = 1;
-const totalSteps = 5;
-let selectedSpecies = '';
+        let currentStep = 1;
+        const totalSteps = 5;
+        let selectedSpecies = '';
 
-function showStep(n) {
-  for (let i = 1; i <= totalSteps; i++) {
-    const s = document.getElementById('step' + i);
-    const b = document.getElementById('bar' + i);
-    const l = document.getElementById('lab' + i);
-    if (s) { s.classList.toggle('active', i === n); }
-    if (b) {
-      b.classList.remove('done','active');
-      if (i < n) b.classList.add('done');
-      else if (i === n) b.classList.add('active');
-    }
-    if (l) { l.classList.toggle('active', i === n); }
-  }
-  currentStep = n;
-  const modal = document.getElementById('modal');
-  if(modal) modal.scrollTop = 0;
-}
+        function showStep(n) {
+          for (let i = 1; i <= totalSteps; i++) {
+            const s = document.getElementById('step' + i);
+            const b = document.getElementById('bar' + i);
+            const l = document.getElementById('lab' + i);
+            if (s) { s.classList.toggle('active', i === n); }
+            if (b) {
+              b.classList.remove('done','active');
+              if (i < n) b.classList.add('done');
+              else if (i === n) b.classList.add('active');
+            }
+            if (l) { l.classList.toggle('active', i === n); }
+          }
+          currentStep = n;
+          const modal = document.getElementById('modal');
+          if(modal) modal.scrollTop = 0;
+        }
 
-function selectRadio(group, val, el) {
-  document.querySelectorAll('#species_grid .rc').forEach(r => r.classList.remove('sel'));
-  el.classList.add('sel');
-  document.getElementById('pw_petSpecies').value = val;
-  selectedSpecies = val;
-  // trigger breed update
-  pwUpdateBreedDataList();
-}
+        function selectRadio(group, val, el) {
+          document.querySelectorAll('#species_grid .rc').forEach(r => r.classList.remove('sel'));
+          el.classList.add('sel');
+          document.getElementById('pw_petSpecies').value = val;
+          selectedSpecies = val;
+          // trigger breed update
+          pwUpdateBreedDataList();
+        }
 
-function nextStep(from) {
-  if (from === 1) {
-    const name = document.getElementById('pw_ownerName').value.trim();
-    const email = document.getElementById('pw_email').value.trim();
-    const phone = document.getElementById('pw_phone').value.trim();
-    const country = document.getElementById('o_country').value;
-    if (!name || !email || !phone || !country) { alert('Please fill in all required fields (Name, Email, Phone, Country).'); return; }
-  }
-  if (from === 2) {
-    const pname = document.getElementById('pw_petName').value.trim();
-    const pdob = document.getElementById('p_dob').value;
-    const pgender = document.getElementById('p_gender').value;
-    const pspecies = document.getElementById('pw_petSpecies').value;
-    if (!pname || !pdob || !pgender || !pspecies) { alert('Please fill in pet name, date of birth, gender, and select a species.'); return; }
-  }
-  if (from === 3) { populateReview(); }
-  if (from === 4) { 
-    const pass = document.getElementById('pw_pass').value;
-    const pass2 = document.getElementById('pw_pass_confirm').value;
-    if(!pass || !pass2 || pass !== pass2) {
-      alert('Passwords do not match or are empty!');
-      return;
-    }
-    if (!document.getElementById('c1').checked || !document.getElementById('c2').checked || !document.getElementById('c3').checked) {
-      alert('Please accept all terms and conditions to proceed.');
-      return;
-    }
-    pwSubmitGenerator(); 
-    return; 
-  }
-  showStep(from + 1);
-}
+        function nextStep(from) {
+          if (from === 1) {
+            const name = document.getElementById('pw_ownerName').value.trim();
+            const email = document.getElementById('pw_email').value.trim();
+            const phone = document.getElementById('pw_phone').value.trim();
+            const country = document.getElementById('o_country').value;
+            if (!name || !email || !phone || !country) { alert('Please fill in all required fields (Name, Email, Phone, Country).'); return; }
+          }
+          if (from === 2) {
+            const pname = document.getElementById('pw_petName').value.trim();
+            const pdob = document.getElementById('p_dob').value;
+            const pgender = document.getElementById('p_gender').value;
+            const pspecies = document.getElementById('pw_petSpecies').value;
+            if (!pname || !pdob || !pgender || !pspecies) { alert('Please fill in pet name, date of birth, gender, and select a species.'); return; }
+          }
+          if (from === 3) { populateReview(); }
+          if (from === 4) {
+            const pass = document.getElementById('pw_pass').value;
+            const pass2 = document.getElementById('pw_pass_confirm').value;
+            if(!pass || !pass2 || pass !== pass2) {
+              alert('Passwords do not match or are empty!');
+              return;
+            }
+            if (!document.getElementById('c1').checked || !document.getElementById('c2').checked || !document.getElementById('c3').checked) {
+              alert('Please accept all terms and conditions to proceed.');
+              return;
+            }
+            pwSubmitGenerator();
+            return;
+          }
+          showStep(from + 1);
+        }
 
-function prevStep(from) {
-  showStep(from - 1);
-}
+        function prevStep(from) {
+          showStep(from - 1);
+        }
 
-function populateReview() {
-  const city = document.getElementById('pw_ownerCity').value;
-  const country = document.getElementById('o_country').value;
-  document.getElementById('r_name').textContent = document.getElementById('pw_ownerName').value || '—';
-  document.getElementById('r_email').textContent = document.getElementById('pw_email').value || '—';
-  document.getElementById('r_phone').textContent = document.getElementById('pw_phone').value || '—';
-  document.getElementById('r_loc').textContent = [city, country].filter(Boolean).join(', ') || '—';
-  document.getElementById('r_pname').textContent = document.getElementById('pw_petName').value || '—';
-  const sp = document.getElementById('pw_petSpecies').value;
-  const br = document.getElementById('pw_petBreed').value;
-  document.getElementById('r_species').textContent = [sp, br].filter(Boolean).join(' · ') || '—';
-  document.getElementById('r_dob').textContent = document.getElementById('p_dob').value || '—';
-  document.getElementById('r_chip').textContent = document.getElementById('p_chip').value || 'Not provided';
-  document.getElementById('r_gender').textContent = document.getElementById('p_gender').value || '—';
-  document.getElementById('r_vet').textContent = document.getElementById('h_vet').value || 'Not provided';
-  document.getElementById('r_lvisit').textContent = document.getElementById('h_lastvisit').value || 'Not provided';
-  const vaccs = ['Rabies','Distemper','Parvovirus','Hepatitis','Bordetella','Leptospirosis','Influenza','Feline FVRCP'];
-  const checked = vaccs.filter((_, i) => document.getElementById('v' + (i+1)).checked);
-  document.getElementById('r_vacc').textContent = checked.length > 0 ? checked.join(', ') : 'None selected';
-}
-</script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+        function populateReview() {
+          const city = document.getElementById('pw_ownerCity').value;
+          const country = document.getElementById('o_country').value;
+          document.getElementById('r_name').textContent = document.getElementById('pw_ownerName').value || '—';
+          document.getElementById('r_email').textContent = document.getElementById('pw_email').value || '—';
+          document.getElementById('r_phone').textContent = document.getElementById('pw_phone').value || '—';
+          document.getElementById('r_loc').textContent = [city, country].filter(Boolean).join(', ') || '—';
+          document.getElementById('r_pname').textContent = document.getElementById('pw_petName').value || '—';
+          const sp = document.getElementById('pw_petSpecies').value;
+          const br = document.getElementById('pw_petBreed').value;
+          document.getElementById('r_species').textContent = [sp, br].filter(Boolean).join(' · ') || '—';
+          document.getElementById('r_dob').textContent = document.getElementById('p_dob').value || '—';
+          document.getElementById('r_chip').textContent = document.getElementById('p_chip').value || 'Not provided';
+          document.getElementById('r_gender').textContent = document.getElementById('p_gender').value || '—';
+          document.getElementById('r_vet').textContent = document.getElementById('h_vet').value || 'Not provided';
+          document.getElementById('r_lvisit').textContent = document.getElementById('h_lastvisit').value || 'Not provided';
+          const vaccs = ['Rabies', 'Distemper', 'Parvovirus', 'Hepatitis', 'Bordetella', 'Leptospirosis', 'Influenza', 'Feline FVRCP'];
+          const checked = vaccs.filter((_, i) => document.getElementById('v' + (i + 1)).checked);
+          document.getElementById('r_vacc').textContent = checked.length > 0 ? checked.join(', ') : 'None selected';
+        }
+      </script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
       <script src="https://www.gstatic.com/firebasejs/10.9.0/firebase-app-compat.js"></script>
       <script src="https://www.gstatic.com/firebasejs/10.9.0/firebase-auth-compat.js"></script>
       <script>
@@ -3835,7 +3873,7 @@ function populateReview() {
 
             // Move to slide 5 - Generating state
             showStep(5);
-            
+
 
             setTimeout(() => {
               // Populate the Smart Card from DOM inputs
@@ -3867,7 +3905,7 @@ function populateReview() {
             }
           }
         }
-
+        
         async function downloadPawidCard() {
           const btn = document.getElementById('downloadPawidBtn');
           const origText = btn.innerHTML;
@@ -4427,53 +4465,57 @@ function populateReview() {
           </a>
         </div>
       </div> -->
-<div id="verifyModal" class="vm-overlay">
-  <div class="vm-modal">
-    <h2>Before continuing</h2>
-    <p>
-      Please confirm that you have verified your email before going to your dashboard.
-    </p>
+      <div id="verifyModal" class="vm-overlay">
+        <div class="vm-modal">
+          <button class="vm-close" onclick="closeVerifyModal()">✕</button>
+          <h2>Before continuing</h2>
+          <p>
+            Please confirm that you have verified your email before going to your dashboard.
+          </p>
 
-    <button onclick="handleVerifiedClick()" class="vm-btn">
-      I have verified
-    </button>
-  </div>
-</div>
-     <script>
+          <button onclick="handleVerifiedClick()" class="vm-btn">
+            I have verified
+          </button>
+        </div>
+      </div>
+      <script>
         function showVerifyPopup() {
           const email = document.getElementById('pw_email').value || 'your email';
           document.getElementById('verifyPopupEmail').innerText = email;
           document.getElementById('verifyEmailPopup').style.display = 'flex';
         }
         function openVerifyModal() {
-            document.getElementById("verifyModal").style.display = "flex";
+          document.getElementById("verifyModal").style.display = "flex";
+        }
+        function closeVerifyModal() {
+          document.getElementById("verifyModal").style.display = "none";
+        }
+          async function handleVerifiedClick() {
+            try {
+              const user = firebase.auth().currentUser;
+
+              if (!user) {
+                alert("Session expired. Please login again.");
+                return;
+              }
+
+              await user.reload();
+
+              if (!user.emailVerified) {
+                alert("Your email is still not verified. Please check your inbox.");
+                return;
+              }
+
+              const idToken = await user.getIdToken(true);
+
+              window.location.href = `https://pawspalconnect.com/login?idToken=${idToken}&verified=true`;
+
+            } catch (err) {
+              console.error(err);
+              alert("Something went wrong. Please try again.");
+            }
           }
-  async function handleVerifiedClick() {
-    try {
-      const user = firebase.auth().currentUser;
-
-      if (!user) {
-        alert("Session expired. Please login again.");
-        return;
-      }
-
-      await user.reload();
-
-      if (!user.emailVerified) {
-        alert("Your email is still not verified. Please check your inbox.");
-        return;
-      }
-
-      const idToken = await user.getIdToken(true);
-
-      window.location.href = `https://pawspalconnect.com/login?idToken=${idToken}&verified=true`;
-
-    } catch (err) {
-      console.error(err);
-      alert("Something went wrong. Please try again.");
-    }
-  }
-      </script>
+</script>
 
       <script>
         document.getElementById('pw-slider-track').addEventListener('submit', async function (e) {
@@ -4507,7 +4549,7 @@ function populateReview() {
           };
 
           try {
-            const response = await fetch('http://localhost:8001/api/register-pawid', {
+            const response = await fetch('http://localhost:8000/api/register-pawid', {
               method: 'POST',
               headers: { 'Content-Type': 'application/json' },
               body: JSON.stringify(payload)
@@ -4681,11 +4723,27 @@ function populateReview() {
   <script src='/script/script.js'></script>
 
   <script>
+    function handleColorChange() {
+      const select = document.getElementById("p_color");
+      const otherInput = document.getElementById("p_color_other");
+
+      if (select.value === "other") {
+        otherInput.style.display = "block";
+        otherInput.required = true;
+      } else {
+        otherInput.style.display = "none";
+        otherInput.required = false;
+        otherInput.value = "";
+      }
+    }
+
     // Date of birth error handling
+  document.addEventListener("DOMContentLoaded", () => {
     const today = new Date().toISOString().split("T")[0];
-    const input = document.getElementById("pw_petDOB");
+    const input = document.getElementById("p_dob");
+    input.setAttribute("max", today);
+  });
     const dobError = document.getElementById("dob_error");
-    input.max = today;
     input.addEventListener("change", () => {
       if (input.value > today) {
         dobError.textContent = "Birth date cannot be in the future";
