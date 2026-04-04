@@ -4479,6 +4479,16 @@ footer{background:var(--bg2);border-top:1px solid var(--border2);padding:48px 80
         </div>
       </div>
       <script>
+        // image src handling
+        const photoInput = document.getElementById("p_photo").value;
+
+          const img = document.getElementById("petPhoto");
+
+          // default fallback
+          img.src = photoInput && photoInput.trim() !== ""
+            ? photoInput
+            : "/assets/logo-transparent.png";
+
         function showVerifyPopup() {
           const email = document.getElementById('pw_email').value || 'your email';
           document.getElementById('verifyPopupEmail').innerText = email;
