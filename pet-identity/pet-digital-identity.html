@@ -3224,508 +3224,456 @@
 
       <!-- The Form -->
 
-      <!-- Multi-step Sliding Form -->
-      <style>
-        .pawid-wizard-container {
-          display: flex;
-          gap: 24px;
-          background: #fff;
-          border-radius: 16px;
-          box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05);
-          overflow: hidden;
-          max-width: 900px;
-          margin: 0 auto 40px;
-          border: 1px solid var(--border);
-          text-align: left;
-        }
+      <!-- Multi-step Sliding Form (Replaced with Custom Modal UI) -->
+<style>
+#modal, #pawid-success {
+  --bg: #fdfaf6;
+  --bg2: #ffffff;
+  --bg3: #f5f3ef;
+  --bg4: #eae7e0;
+  --accent: #2c5f4b;
+  --accent2: #1e4536;
+  --accent3: #427c65;
+  --teal: #0d9488;
+  --amber: #d97706;
+  --rose: #e11d48;
+  --green: #16a34a;
+  --text: #1a1a1a;
+  --text2: #4a4a4a;
+  --text3: #737373;
+  --border: rgba(0,0,0,0.12);
+  --border2: rgba(0,0,0,0.08);
+  --r: 16px;
+  --rs: 8px;
+  color: var(--text);
+}
 
-        .pw-sidebar {
-          background: #f8fafc;
-          padding: 32px 24px;
-          width: 240px;
-          border-right: 1px solid var(--border);
-          flex-shrink: 0;
-        }
+/* === MODAL === */
+.rr{display:flex;justify-content:space-between;padding:7px 0;border-bottom:1px solid var(--border2);font-size:13px}.rr:last-child{border-bottom:none}.rk{color:var(--text3)}.rv{font-weight:500;text-align:right;}
+/* .overlay removed */;backdrop-filter:blur(14px);z-index:1000;display:none;align-items:center;justify-content:center;padding:20px}
+.overlay.open{display:flex}
+.modal{background:var(--bg2);border:1px solid var(--border);border-radius:20px;width:100%;max-width:900px;margin:30px auto;position:relative}
+.mcl{position:absolute;top:18px;right:18px;background:var(--bg3);border:1px solid var(--border2);color:var(--text2);width:32px;height:32px;border-radius:50%;cursor:pointer;font-size:18px;display:flex;align-items:center;justify-content:center;z-index:10;transition:.2s}.mcl:hover{color:var(--text);border-color:var(--accent)}
+.mhead{padding:36px 40px 0;text-align:center;}.mhead h2{font-size:26px;font-weight:800;letter-spacing:-0.8px;margin-bottom:6px}.mhead p{font-size:14px;color:var(--text2)}
+.prog{padding:20px 40px 0}
+.prog-bars{display:flex;gap:4px;margin-bottom:8px}
+.pb-bar{flex:1;height:3px;background:var(--bg3);border-radius:2px;transition:.4s}.pb-bar.done{background:var(--accent)}.pb-bar.active{background:linear-gradient(90deg,var(--accent),var(--accent2))}
+.prog-labels{display:flex;margin-top:4px}
+.plab{flex:1;text-align:center;font-size:10px;color:var(--text3);font-weight:500}.plab.active{color:var(--accent3)}
+.fbody{padding:24px 40px 36px}
+.fstep{display:none}.fstep.active{display:block}
+.fg{display:grid;gap:14px;margin-bottom:14px}.fg.c2{grid-template-columns:1fr 1fr}.fg.c3{grid-template-columns:1fr 1fr 1fr}
+label{display:block;font-size:11px;font-weight:700;color:var(--text2);margin-bottom:5px;letter-spacing:0.04em;text-transform:uppercase}
+.req{color:var(--rose)}
+input,select,textarea{width:100%;background:var(--bg3);border:1px solid var(--border2);border-radius:var(--rs);padding:11px 14px;color:var(--text);font-size:14px;font-family:inherit;transition:.2s;outline:none;-webkit-appearance:none}
+input:focus,select:focus,textarea:focus{border-color:var(--accent);box-shadow:0 0 0 3px rgba(99,102,241,0.12)}
+input::placeholder{color:var(--text3)}select option{background:var(--bg3)}textarea{resize:vertical;min-height:80px}
+.radio-g{display:grid;grid-template-columns:repeat(3,1fr);gap:9px;margin-top:4px}
+.rc{background:var(--bg3);border:1.5px solid var(--border2);border-radius:var(--rs);padding:13px;cursor:pointer;text-align:center;transition:.2s;user-select:none}
+.rc:hover{border-color:var(--accent);background:rgba(99,102,241,0.05)}.rc.sel{border-color:var(--accent);background:rgba(99,102,241,0.1)}
+.rc .ri{font-size:20px;margin-bottom:5px}.rc .rl{font-size:12px;font-weight:600}
+.sdiv{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:var(--accent);margin:22px 0 14px;display:flex;align-items:center;gap:10px}
+.sdiv::after{content:'';flex:1;height:1px;background:var(--border2)}
+.vg{display:grid;grid-template-columns:1fr 1fr;gap:9px}
+.vi{display:flex;align-items:center;gap:10px;background:var(--bg3);border:1px solid var(--border2);border-radius:var(--rs);padding:11px;cursor:pointer;transition:.2s}
+.vi:hover{border-color:var(--accent)}.vi input[type=checkbox]{width:16px;height:16px;flex-shrink:0;accent-color:var(--accent);cursor:pointer}
+.vi label{font-size:13px;font-weight:500;margin:0;text-transform:none;letter-spacing:0;cursor:pointer;color:var(--text)}
+.faction{display:flex;justify-content:space-between;align-items:center;margin-top:24px;padding-top:18px;border-top:1px solid var(--border2)}
+.bbk{background:transparent;border:1px solid var(--border2);color:var(--text2);padding:11px 22px;border-radius:var(--rs);font-size:14px;font-weight:600;cursor:pointer;transition:.2s}.bbk:hover{border-color:var(--accent);color:var(--text)}
+.bnx{background:linear-gradient(135deg,var(--accent),var(--accent2));color:white;border:none;padding:11px 30px;border-radius:var(--rs);font-size:14px;font-weight:700;cursor:pointer;transition:.3s}.bnx:hover{transform:translateY(-1px);box-shadow:0 5px 18px rgba(99,102,241,0.35)}
+.sc{font-size:12px;color:var(--text3)}
+.rcard{background:var(--bg3);border:1px solid var(--border2);border-radius:var(--rs);padding:18px;margin-bottom:12px}
+.rcard h4{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:var(--accent3);margin-bottom:11px}
+.cbox{background:rgba(99,102,241,0.06);border:1px solid var(--border);border-radius:var(--rs);padding:14px;margin-top:14px}
+.crow{display:flex;align-items:flex-start;gap:10px;margin-bottom:8px}.crow:last-child{margin-bottom:0}
+.crow input{width:16px;height:16px;flex-shrink:0;margin-top:2px;accent-color:var(--accent)}
+.crow label{font-size:12px;color:var(--text2);line-height:1.5;text-transform:none;letter-spacing:0;font-weight:400}
+.success-w{text-align:center;padding:20px 0}
+.sico{width:76px;height:76px;background:linear-gradient(135deg,rgba(34,197,94,0.15),rgba(20,184,166,0.15));border:2px solid rgba(34,197,94,0.3);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:34px;margin:0 auto 22px}
+.petid-gen{background:linear-gradient(135deg,var(--bg3),var(--bg4));border:2px solid var(--accent);border-radius:var(--r);padding:22px;margin:20px 0}
+.petid-lbl{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.12em;color:var(--text3);margin-bottom:8px}
+.petid-val{font-family:'Space Grotesk',monospace;font-size:26px;font-weight:700;background:linear-gradient(135deg,var(--accent),var(--teal));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;letter-spacing:1px}
+.sch{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin:18px 0}
+.ns{background:var(--bg3);border:1px solid var(--border2);border-radius:var(--r);padding:18px;text-align:left;margin-top:18px}
+.ns h4{font-size:12px;font-weight:700;margin-bottom:10px;color:var(--text2)}
+.nsi{display:flex;align-items:center;gap:10px;padding:7px 0;border-bottom:1px solid var(--border2);font-size:13px}.nsi:last-child{border-bottom:none}
+.nsn{width:20px;height:20px;background:var(--accent);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;flex-shrink:0}
 
-        .pw-step-item {
-          display: flex;
-          align-items: flex-start;
-          gap: 12px;
-          position: relative;
-          margin-bottom: 24px;
-        }
+footer{background:var(--bg2);border-top:1px solid var(--border2);padding:48px 80px 32px}
+.fg-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:48px;margin-bottom:40px}
+.fbrand p{font-size:13px;color:var(--text3);line-height:1.7;margin-top:10px;max-width:250px}
+.fcol h4{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:var(--text2);margin-bottom:14px}
+.fcol a{display:block;font-size:13px;color:var(--text3);text-decoration:none;padding:3px 0;transition:.2s}.fcol a:hover{color:var(--text)}
+.fbot{display:flex;justify-content:space-between;align-items:center;padding-top:22px;border-top:1px solid var(--border2);font-size:12px;color:var(--text3)}
+/* Password Eye */
+.pw-eye{position:absolute; right:12px; top:38px; cursor:pointer; font-size:1.1rem; opacity:0.6;}
+</style>
+<!-- CREATE PETID MODAL -->
 
-        .pw-step-item:last-child {
-          margin-bottom: 0;
-        }
+  <div class="modal" id="modal">
+    
 
-        .pw-step-item:not(:last-child)::after {
-          content: '';
-          position: absolute;
-          left: 14px;
-          top: 32px;
-          bottom: -20px;
-          width: 2px;
-          background: var(--border);
-          z-index: 1;
-        }
+    <div class="mhead">
+      <h2>🐾 Create Your PetID</h2>
+      <p>A permanent, verified digital identity for your pet. Free forever.</p>
+    </div>
 
-        .pw-step-item.completed:not(:last-child)::after {
-          background: var(--success, #10b981);
-        }
+    <div class="prog">
+      <div class="prog-bars">
+        <div class="pb-bar active" id="bar1"></div><div style="width:4px"></div>
+        <div class="pb-bar" id="bar2"></div><div style="width:4px"></div>
+        <div class="pb-bar" id="bar3"></div><div style="width:4px"></div>
+        <div class="pb-bar" id="bar4"></div><div style="width:4px"></div>
+        <div class="pb-bar" id="bar5"></div>
+      </div>
+      <div class="prog-labels">
+        <span class="plab active" id="lab1">Owner</span>
+        <span class="plab" id="lab2">Pet Info</span>
+        <span class="plab" id="lab3">Health</span>
+        <span class="plab" id="lab4">Review</span>
+        <span class="plab" id="lab5">Done!</span>
+      </div>
+    </div>
 
-        .pw-step-circle {
-          width: 30px;
-          height: 30px;
-          border-radius: 50%;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          background: #e2e8f0;
-          color: #64748b;
-          font-weight: 600;
-          font-size: 0.85rem;
-          z-index: 2;
-          position: relative;
-        }
+    <div class="fbody">
 
-        .pw-step-item.active .pw-step-circle {
-          background: var(--forest, #144b36);
-          color: white;
-        }
-
-        .pw-step-item.completed .pw-step-circle {
-          background: var(--success, #10b981);
-          color: white;
-        }
-
-        .pw-step-text {
-          font-weight: 500;
-          color: #64748b;
-          padding-top: 5px;
-          font-size: 0.95rem;
-        }
-
-        .pw-step-item.active .pw-step-text {
-          color: var(--forest, #144b36);
-          font-weight: 700;
-        }
-
-        .pw-step-item.completed .pw-step-text {
-          color: var(--text);
-        }
-
-        .pw-content {
-          flex: 1;
-          position: relative;
-          overflow: hidden;
-          /* For slider effect */
-          /* padding moved to pw-slide to prevent track width leakage */
-        }
-
-        .pw-slider-track {
-          display: flex;
-          width: 500%;
-          /* 5 steps (4 form + 1 loading) */
-          transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1);
-        }
-
-        .pw-slide {
-          width: 20%;
-          /* 1/5th of 500% = 100% of parent */
-          flex-shrink: 0;
-          padding: 32px;
-          box-sizing: border-box;
-        }
-
-        .pw-header {
-          margin-bottom: 24px;
-        }
-
-        .pw-header h3 {
-          font-size: 1.35rem;
-          margin-bottom: 8px;
-          color: var(--text);
-        }
-
-        .pw-header p {
-          color: #64748b;
-          font-size: 0.9rem;
-          margin: 0;
-        }
-
-        .pw-group {
-          margin-bottom: 20px;
-        }
-
-        .pw-row {
-          display: flex;
-          gap: 16px;
-          margin-bottom: 20px;
-        }
-
-        .pw-row .pw-group {
-          margin-bottom: 0;
-          flex: 1;
-        }
-
-        .pw-group label {
-          display: block;
-          margin-bottom: 6px;
-          font-weight: 600;
-          font-size: 0.85rem;
-          color: var(--text);
-        }
-
-        .pw-input,
-        .pw-select {
-          width: 100%;
-          padding: 10px 14px;
-          border-radius: 8px;
-          border: 1px solid var(--border);
-          background: #f8fafc;
-          color: var(--text);
-          font-size: 0.95rem;
-          outline: none;
-          transition: all 0.2s;
-        }
-
-        .pw-input:focus,
-        .pw-select:focus {
-          border-color: var(--primary);
-          background: #fff;
-          box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
-        }
-
-        .pw-actions {
-          display: flex;
-          justify-content: space-between;
-          margin-top: 32px;
-          padding-top: 20px;
-          border-top: 1px solid var(--border);
-        }
-
-        .pw-actions.single {
-          justify-content: flex-end;
-        }
-
-        .pw-loader {
-          border: 4px solid #f8fafc;
-          border-top: 4px solid var(--primary);
-          border-radius: 50%;
-          width: 40px;
-          height: 40px;
-          animation: spin 1s linear infinite;
-          margin: 0 auto 20px;
-        }
-
-        @media (max-width: 768px) {
-
-          /* making layout vertically */
-          .pawid-wizard-container {
-            flex-direction: column;
-            gap: 0;
-          }
-
-          /* sidebar into top progress bar */
-          .pw-sidebar {
-            width: 100%;
-            display: flex;
-            justify-content: space-between;
-            padding: 16px;
-            border-right: none;
-            border-bottom: 1px solid var(--border);
-          }
-
-          /* Making steps horizontal */
-          .pw-step-item {
-            flex-direction: column;
-            align-items: center;
-            gap: 6px;
-            margin-bottom: 0;
-          }
-
-          /* Removing vertical line */
-          .pw-step-item::after {
-            display: none !important;
-          }
-
-          .pw-step-text {
-            font-size: 0.7rem;
-            text-align: center;
-          }
-
-          /* Reduced circle size */
-          .pw-step-circle {
-            width: 24px;
-            height: 24px;
-            font-size: 0.7rem;
-          }
-
-          .pw-slide {
-            padding: 20px 16px;
-          }
-
-          .pw-row {
-            flex-direction: column;
-            gap: 12px;
-          }
-
-          .pw-actions {
-            flex-direction: column;
-            gap: 10px;
-          }
-
-          .pw-actions button {
-            width: 100%;
-          }
-
-        }
-      </style>
-      <div class="pawid-wizard-container" id="pawid-wizard-container">
-        <!-- Sidebar -->
-        <div class="pw-sidebar" id="pw-sidebar">
-          <div class="pw-step-item active" id="pw-nav-1">
-            <div class="pw-step-circle">1</div>
-            <div class="pw-step-text">Pet Info</div>
-          </div>
-          <div class="pw-step-item" id="pw-nav-2">
-            <div class="pw-step-circle">2</div>
-            <div class="pw-step-text">Owner Info</div>
-          </div>
-          <div class="pw-step-item" id="pw-nav-3">
-            <div class="pw-step-circle">3</div>
-            <div class="pw-step-text">Lifestyle</div>
-          </div>
-          <div class="pw-step-item" id="pw-nav-4">
-            <div class="pw-step-circle">4</div>
-            <div class="pw-step-text">Medical</div>
-          </div>
-          <div class="pw-step-item" id="pw-nav-5">
-            <div class="pw-step-circle">5</div>
-            <div class="pw-step-text">Account</div>
+      <!-- STEP 1: OWNER INFO -->
+      <div class="fstep active" id="step1">
+        <div class="sdiv">Owner Information</div>
+        <div class="fg c2">
+          <div><label>Full Name <span class="req">*</span></label><input type="text" id="pw_ownerName" placeholder="Rahul Sharma"></div>
+          <div><label>Email Address <span class="req">*</span></label><input type="email" id="pw_email" placeholder="rahul@email.com"></div>
+        </div>
+        <div class="fg c2">
+          <div><label>Phone Number <span class="req">*</span></label><input type="tel" id="pw_phone" placeholder="+91 98765 43210"></div>
+          <div><label>Country <span class="req">*</span></label>
+            <select id="o_country">
+              <option value="">Select country</option>
+              <option>India</option><option>United States</option><option>United Kingdom</option><option>UAE</option><option>Singapore</option><option>Australia</option><option>Canada</option><option>Germany</option><option>France</option><option>Japan</option><option>Other</option>
+            </select>
           </div>
         </div>
+        <div class="fg c2">
+          <div><label>City</label><input type="text" id="pw_ownerCity" placeholder="Bangalore"></div>
+          <div><label>ID Type</label>
+            <select id="o_idtype">
+              <option value="">Select ID type</option>
+              <option>Aadhaar (India)</option><option>PAN Card</option><option>Passport</option><option>Driver's License</option><option>National ID</option>
+            </select>
+          </div>
+        </div>
+        <div class="fg"><div><label>Government ID Number</label><input type="text" id="o_idnum" placeholder="For ownership verification (encrypted & secure)"></div></div>
+        <p style="font-size:12px;color:var(--text3);margin-top:8px;line-height:1.5">🔒 Your personal data is encrypted and used only for ownership verification. PAWID never shares your data.</p>
+        <div class="faction"><span class="sc">Step 1 of 4</span><button class="bnx" onclick="nextStep(1)">Next: Pet Info →</button></div>
+      </div>
 
-        <!-- Slider Content -->
-        <div class="pw-content">
-          <div id="pw-error-msg"
-            style="display:none; background:#fee2e2; color:#ef4444; padding:12px; border-radius:8px; margin-bottom:16px; font-weight:600; font-size:0.9rem;">
-            Please fill all required fields.</div>
-          <form class="pw-slider-track" id="pw-slider-track">
-
-            <!-- Slide 1: Pet Info -->
-            <div class="pw-slide" data-step="1">
-              <div class="pw-header">
-                <h3 style="color:var(--forest);">Tell us about your pet</h3>
-                <p>Let's start by getting to know your furry friend</p>
-              </div>
-              <div class="pw-group">
-                <label>Pet's Name *</label>
-                <input type="text" id="pw_petName" class="pw-input required">
-                <small id="pw_petNameError" style="color:red; font-size:12px;"></small>
-              </div>
-              <div class="pw-row">
-                <div class="pw-group">
-                  <label>Species *</label>
-                  <select id="pw_petSpecies" class="pw-select required" onchange="pwUpdateBreedDataList()">
-                    <option value="">Select Species</option>
-                    <option value="Dog">Dog</option>
-                    <option value="Cat">Cat</option>
-                  </select>
-                </div>
-                <div class="pw-group">
-                  <label>Gender *</label>
-                  <select id="pw_petGender" class="pw-select required">
-                    <option value="">Select Gender</option>
-                    <option>Male</option>
-                    <option>Female</option>
-                  </select>
-                </div>
-              </div>
-              <div class="pw-group">
-                <label>Breed *</label>
-                <input type="text" id="pw_petBreed" class="pw-input required" list="breed_list"
-                  placeholder="Search or type breed name..." disabled>
-                <datalist id="breed_list">
-                  <!-- Populated via Javascript based on species -->
-                </datalist>
-                <small style="font-size: 0.75rem; color: #64748b; margin-top: 4px; display: inline-block;">Please select
-                  a species first.</small>
-              </div>
-              <div class="pw-group">
-                <label>Date of Birth *</label>
-                <input type="date" id="pw_petDOB" class="pw-input required">
-                <small id="dob_error" style="color: red; display: none;"></small>
-              </div>
-              <div class="pw-actions single">
-                <button type="button" class="btn btn-primary" onclick="pwSlideTo(2, true)">Next &rarr;</button>
-              </div>
-            </div>
-
-            <!-- Slide 2: Owner Info -->
-            <div class="pw-slide" data-step="2">
-              <div class="pw-header">
-                <h3 style="color:var(--forest);">Your Information</h3>
-                <p>We need some basic details for your pet's emergency contact</p>
-              </div>
-              <div class="pw-group">
-                <label>Full Name *</label>
-
-                <input type="text" id="pw_ownerName" class="pw-input required">
-
-                <!-- ✅ DIFFERENT ID -->
-                <small id="pw_ownerNameError" style="color:red; font-size:12px;"></small>
-              </div>
-              <div class="pw-group">
-                <label>City & ZIP Code *</label>
-                <input type="text" id="pw_ownerCity" class="pw-input required">
-              </div>
-              <div class="pw-group">
-                <label>Phone Number *</label>
-                <input type="number" id="pw_phone" class="pw-input required">
-              </div>
-              <div class="pw-actions">
-                <button type="button" class="btn" style="background:#e2e8f0; color:#0f172a;"
-                  onclick="pwSlideTo(1, false)">&larr; Back</button>
-                <button type="button" class="btn btn-primary" onclick="pwSlideTo(3, true)">Next &rarr;</button>
-              </div>
-            </div>
-
-            <!-- Slide 3: Lifestyle -->
-            <div class="pw-slide" data-step="3">
-              <div class="pw-header">
-                <h3 style="color:var(--forest);">Lifestyle & Health</h3>
-                <p>Help us understand your pet's specific needs</p>
-              </div>
-              <div class="pw-group">
-                <label>Diet Type *</label>
-                <select class="pw-select required">
-                  <option value="">Select Diet</option>
-                  <option>Commercial Kibble</option>
-                  <option>Raw Diet</option>
-                  <option>Home Cooked</option>
-                </select>
-              </div>
-              <div class="pw-group">
-                <label>Known Allergies (Optional)</label>
-                <select class="pw-select" id="pw_allergies">
-                  <option value="">Select Allergy (None)</option>
-                  <option>Chicken</option>
-                  <option>Beef</option>
-                  <option>Dairy</option>
-                  <option>Dust Mites</option>
-                  <option>Flea Saliva</option>
-                  <option>Pollen</option>
-                  <option>Multiple</option>
-                </select>
-              </div>
-              <div class="pw-group">
-                <label>Microchip Number (Optional)</label>
-                <input type="number" class="pw-input">
-              </div>
-              <div class="pw-actions">
-                <button type="button" class="btn" style="background:#e2e8f0; color:#0f172a;"
-                  onclick="pwSlideTo(2, false)">&larr; Back</button>
-                <button type="button" class="btn btn-primary" onclick="pwSlideTo(4, true)">Next &rarr;</button>
-              </div>
-            </div>
-
-            <div class="pw-slide">
-
-              <h3>Medical & Lineage</h3>
-              <p>Add parent info and health records</p>
-
-              <!-- Lineage -->
-              <div class="pw-group">
-                <label>Mother Pet ID</label>
-                <input type="text" class="pw-input">
-              </div>
-
-              <div class="pw-group">
-                <label>Father Pet ID</label>
-                <input type="text" class="pw-input">
-              </div>
-
-              <!-- Vaccination -->
-              <div class="pw-group">
-                <label>Vaccination Details</label>
-                <textarea class="pw-input"></textarea>
-              </div>
-
-              <div class="pw-group">
-                <label>Upload Vaccination Record</label>
-                <input type="file" accept=".pdf,.jpg,.png">
-              </div>
-
-              <!-- EMR -->
-              <div class="pw-group">
-                <label>EMR Notes</label>
-                <textarea class="pw-input"></textarea>
-              </div>
-
-              <div class="pw-group">
-                <label>Upload EMR File</label>
-                <input type="file" accept=".pdf,.jpg,.png">
-              </div>
-
-              <div class="pw-actions">
-                <button type="button" class="btn" style="background:#e2e8f0; color:#0f172a;"
-                  onclick="pwSlideTo(3, false)">&larr; Back</button>
-                <button type="button" class="btn btn-primary" onclick="pwSlideTo(5, true)">Next &rarr;</button>
-              </div>
-
-            </div>
-
-            <!-- Slide 4: Account -->
-            <div class="pw-slide" data-step="4">
-              <div class="pw-header">
-                <h3 style="color:var(--forest);">Create Account</h3>
-                <p>Final step! Set up your login credentials to manage the PAWID</p>
-              </div>
-              <div class="pw-group">
-                <label>Email Address *</label>
-                <input type="email" id="pw_email" class="pw-input required" required
-                  pattern="^[^\s@]+@[^\s@]+\.[^\s@]{2,}$">
-                <small id="email_error" style="color:red; display:none;"></small>
-              </div>
-              <div class="pw-group" style="position: relative;">
-                <label>Password *</label>
-                <input type="password" id="pw_pass" class="pw-input required">
-                <span onclick="pwToggleVis('pw_pass')"
-                  style="position:absolute; right:12px; top:32px; cursor:pointer; font-size:1.1rem; opacity:0.6;">👁️</span>
-              </div>
-              <div class="pw-group" style="position: relative;">
-                <label>Confirm Password *</label>
-                <input type="password" id="pw_pass_confirm" class="pw-input required">
-                <span onclick="pwToggleVis('pw_pass_confirm')"
-                  style="position:absolute; right:12px; top:32px; cursor:pointer; font-size:1.1rem; opacity:0.6;">👁️</span>
-              </div>
-              <div class="pw-group" style="display:flex; align-items:center; gap:8px;">
-                <input type="checkbox" id="pw_terms" class="required" checked style="width:auto;">
-                <label for="pw_terms" style="margin:0; font-weight:normal; font-size:0.85rem;">I agree to the PAWID
-                  Terms of Registry</label>
-              </div>
-              <div class="pw-actions">
-                <button type="button" class="btn" style="background:#e2e8f0; color:#0f172a;"
-                  onclick="pwSlideTo(4, false)">&larr; Back</button>
-                <button type="button" class="btn btn-primary" onclick="pwSubmitGenerator()">Generate PAWID →</button>
-              </div>
-            </div>
-
-            <!-- Slide 5: Generating State -->
-            <div class="pw-slide"
-              style="display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; padding: 40px 0;">
-              <div class="pw-loader"></div>
-              <h3 style="color:var(--forest);">Minting Digital PetID...</h3>
-              <p style="color:#64748b;">Registering pet on the global network and generating cryptography elements.</p>
-            </div>
-
-          </form>
+      <!-- STEP 2: PET INFO -->
+      <div class="fstep" id="step2">
+        <div class="sdiv">Pet Basic Information</div>
+        <div class="fg c2">
+          <div><label>Pet Name <span class="req">*</span></label><input type="text" id="pw_petName" placeholder="Bruno"></div>
+          <div><label>Date of Birth <span class="req">*</span></label><input type="date" id="p_dob"></div>
+        </div>
+        <div style="margin-bottom:14px">
+          <label>Species <span class="req">*</span></label>
+          <div class="radio-g" id="species_grid">
+            <div class="rc" onclick="selectRadio('species','dog',this)"><div class="ri">🐕</div><div class="rl">Dog</div></div>
+            <div class="rc" onclick="selectRadio('species','cat',this)"><div class="ri">🐈</div><div class="rl">Cat</div></div>
+            <div class="rc" onclick="selectRadio('species','bird',this)"><div class="ri">🦜</div><div class="rl">Bird</div></div>
+            <div class="rc" onclick="selectRadio('species','rabbit',this)"><div class="ri">🐇</div><div class="rl">Rabbit</div></div>
+            <div class="rc" onclick="selectRadio('species','fish',this)"><div class="ri">🐠</div><div class="rl">Fish</div></div>
+            <div class="rc" onclick="selectRadio('species','other',this)"><div class="ri">🐾</div><div class="rl">Other</div></div>
+          </div>
+          <input type="hidden" id="pw_petSpecies" value="">
+        </div>
+        <div class="fg c2">
+          <div><label>Breed</label><input type="text" id="pw_petBreed" placeholder="Golden Retriever, Persian, etc."></div>
+          <div><label>Gender <span class="req">*</span></label>
+            <select id="p_gender">
+              <option value="">Select gender</option>
+              <option>Male</option><option>Female</option><option>Male (neutered)</option><option>Female (spayed)</option>
+            </select>
+          </div>
+        </div>
+        <div class="fg c3">
+          <div><label>Coat Color</label><input type="text" id="p_color" placeholder="Golden, Black, etc."></div>
+          <div><label>Weight (kg)</label><input type="number" id="p_weight" placeholder="25" min="0" step="0.1"></div>
+          <div><label>Distinctive Marks</label><input type="text" id="p_marks" placeholder="White patch on chest"></div>
+        </div>
+        <div class="fg c2">
+          <div>
+            <label>Blood Group</label>
+            <select id="p_blood">
+              <option value="">Select blood group</option>
+              <option>DEA 1.1 Positive</option><option>DEA 1.1 Negative</option>
+              <option>DEA 1.2 Positive</option><option>DEA 1.2 Negative</option>
+              <option>DEA 3</option><option>DEA 4</option><option>DEA 5</option>
+              <option>Type A (Cat)</option><option>Type B (Cat)</option><option>Type AB (Cat)</option>
+              <option>Unknown</option>
+            </select>
+          </div>
+          <div>
+            <label>Pet Photo URL <span style="font-size:11px;color:var(--text3)">(or leave blank for default)</span></label>
+            <input type="text" id="p_photo" placeholder="https://... or leave blank">
+          </div>
+        </div>
+        <div class="sdiv">Identification</div>
+        <div class="fg c2">
+          <div><label>Microchip Number</label><input type="text" id="p_chip" placeholder="900182001234567 (15 digits)"></div>
+          <div><label>Existing Tag/License No.</label><input type="text" id="p_tag" placeholder="If any"></div>
+        </div>
+        <div class="faction">
+          <button class="bbk" onclick="prevStep(2)">← Back</button>
+          <span class="sc">Step 2 of 4</span>
+          <button class="bnx" onclick="nextStep(2)">Next: Health Records →</button>
         </div>
       </div>
 
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+      <!-- STEP 3: HEALTH -->
+      <div class="fstep" id="step3">
+        <div class="sdiv">Veterinary Information</div>
+        <div class="fg c2">
+          <div><label>Primary Vet Clinic</label><input type="text" id="h_vet" placeholder="Caring Paws Veterinary, Bangalore"></div>
+          <div><label>Vet Doctor Name</label><input type="text" id="h_vetdr" placeholder="Dr. Priya Menon"></div>
+        </div>
+        <div class="fg c2">
+          <div><label>Last Vet Visit</label><input type="date" id="h_lastvisit"></div>
+          <div><label>Next Appointment</label><input type="date" id="h_nextvisit"></div>
+        </div>
+        <div class="sdiv">Vaccination History</div>
+        <div class="vg">
+          <div class="vi"><input type="checkbox" id="v1"><label for="v1">Rabies</label></div>
+          <div class="vi"><input type="checkbox" id="v2"><label for="v2">Distemper (DHPP)</label></div>
+          <div class="vi"><input type="checkbox" id="v3"><label for="v3">Parvovirus</label></div>
+          <div class="vi"><input type="checkbox" id="v4"><label for="v4">Hepatitis</label></div>
+          <div class="vi"><input type="checkbox" id="v5"><label for="v5">Bordetella</label></div>
+          <div class="vi"><input type="checkbox" id="v6"><label for="v6">Leptospirosis</label></div>
+          <div class="vi"><input type="checkbox" id="v7"><label for="v7">Influenza</label></div>
+          <div class="vi"><input type="checkbox" id="v8"><label for="v8">Feline FVRCP</label></div>
+        </div>
+        <div class="sdiv">Medical History</div>
+        <div class="fg">
+          <div><label>Known Medical Conditions</label><textarea id="h_conditions" placeholder="Diabetes, allergies, arthritis... or leave blank if none"></textarea></div>
+        </div>
+        <div class="fg c2">
+          <div><label>Current Medications</label><input type="text" id="h_meds" placeholder="None / list medications"></div>
+          <div><label>Spayed / Neutered?</label>
+            <select id="h_spayed">
+              <option value="">Select</option>
+              <option>Yes</option><option>No</option><option>Planned</option>
+            </select>
+          </div>
+        </div>
+        <div class="fg"><div><label>Allergies</label><input type="text" id="h_allergy" placeholder="Food allergies, environmental allergies, or none"></textarea></div></div>
+        <div class="faction">
+          <button class="bbk" onclick="prevStep(3)">← Back</button>
+          <span class="sc">Step 3 of 4</span>
+          <button class="bnx" onclick="nextStep(3)">Review & Submit →</button>
+        </div>
+      </div>
+
+      <!-- STEP 4: REVIEW -->
+      <div class="fstep" id="step4">
+        <div class="sdiv">Review Your Information</div>
+        <div class="rcard">
+          <h4>Owner</h4>
+          <div class="rr"><span class="rk">Name</span><span class="rv" id="r_name">—</span></div>
+          <div class="rr"><span class="rk">Email</span><span class="rv" id="r_email">—</span></div>
+          <div class="rr"><span class="rk">Phone</span><span class="rv" id="r_phone">—</span></div>
+          <div class="rr" style="border:none"><span class="rk">Location</span><span class="rv" id="r_loc">—</span></div>
+        </div>
+        <div class="rcard">
+          <h4>Pet</h4>
+          <div class="rr"><span class="rk">Name</span><span class="rv" id="r_pname">—</span></div>
+          <div class="rr"><span class="rk">Species / Breed</span><span class="rv" id="r_species">—</span></div>
+          <div class="rr"><span class="rk">Date of Birth</span><span class="rv" id="r_dob">—</span></div>
+          <div class="rr"><span class="rk">Microchip</span><span class="rv" id="r_chip">—</span></div>
+          <div class="rr" style="border:none"><span class="rk">Gender</span><span class="rv" id="r_gender">—</span></div>
+        </div>
+        <div class="rcard">
+          <h4>Health</h4>
+          <div class="rr"><span class="rk">Primary Vet</span><span class="rv" id="r_vet">—</span></div>
+          <div class="rr"><span class="rk">Last Visit</span><span class="rv" id="r_lvisit">—</span></div>
+          <div class="rr" style="border:none"><span class="rk">Vaccinations</span><span class="rv" id="r_vacc">—</span></div>
+        </div>
+        
+        <div class="sdiv">Create Account to Manage PAWID</div>
+        <div class="fg c2" style="position:relative;">
+          <div><label>Password <span class="req">*</span></label><input type="password" id="pw_pass"></div>
+          <div><label>Confirm Password <span class="req">*</span></label><input type="password" id="pw_pass_confirm"></div>
+        </div>
+        <div class="cbox">
+
+          <div class="crow"><input type="checkbox" id="c1"><label for="c1">I confirm all information provided is accurate. I am the legal owner or authorized caretaker of this pet.</label></div>
+          <div class="crow"><input type="checkbox" id="c2"><label for="c2">I agree to the PAWID Terms of Service and Privacy Policy. My pet's health data will be securely stored and used only for identity verification and care services.</label></div>
+          <div class="crow"><input type="checkbox" id="c3"><label for="c3">I consent to receive important notifications about my pet's health, vaccination reminders, and emergency alerts from Paws Pal Connect.</label></div>
+        </div>
+        <div class="faction">
+          <button class="bbk" onclick="prevStep(4)">← Back</button>
+          <span class="sc">Step 4 of 4</span>
+          <button class="bnx" onclick="pwSubmitGenerator()" id="submit-btn">🐾 Generate PetID →</button>
+        </div>
+      </div>
+
+      <!-- STEP 5: SUCCESS -->
+      <div class="fstep" id="step5">
+        <div class="success-w">
+          <div class="sico">🎉</div>
+          <h2 style="font-size:24px;font-weight:800;letter-spacing:-0.8px;margin-bottom:8px">PetID Created!</h2>
+          <p style="font-size:15px;color:var(--text2);line-height:1.6">Your pet now has a permanent, verified digital identity on the PAWID Global Network.</p>
+          <div class="petid-gen">
+            <div class="petid-lbl">Your Pet's Unique ID</div>
+            <div class="petid-val" id="generated-id">PAW-IND-GR-845739</div>
+            <div style="font-size:12px;color:var(--text3);margin-top:10px">Keep this safe · This ID is permanent and globally unique</div>
+          </div>
+          <div class="sch">
+            <span class="chip">✓ Identity verified</span>
+            <span class="chip">✓ Profile created</span>
+            <span class="chip">✓ Health records stored</span>
+            <span class="chip">✓ Passport eligible</span>
+          </div>
+          <div class="ns">
+            <h4>Your next steps</h4>
+            <div class="nsi"><div class="nsn">1</div><span>Download the Paws Pal Connect app — access your PetID anytime</span></div>
+            <div class="nsi"><div class="nsn">2</div><span>Visit your vet for digital signature to activate Pet Passport</span></div>
+            <div class="nsi"><div class="nsn">3</div><span>Connect PetGPT — your AI vet is ready for health queries 24/7</span></div>
+            <div class="nsi"><div class="nsn">4</div><span>Share your PetID with vets, groomers, and pet sitters for seamless care</span></div>
+          </div>
+          <!-- PetID Actions -->
+          <div style="display:flex;gap:10px;justify-content:center;margin-top:20px;flex-wrap:wrap">
+            <button class="btn-s" style="font-size:13px;padding:10px 18px" onclick="copyID()">📋 Copy PetID</button>
+            <button class="btn-p" style="font-size:13px;padding:10px 18px" onclick="closeModal()">Go to Dashboard →</button>
+          </div>
+
+          <!-- DOWNLOAD OPTIONS -->
+          <div style="margin-top:28px;border-top:1px solid var(--border2);padding-top:24px">
+            <div style="font-size:13px;font-weight:700;color:var(--text3);text-transform:uppercase;letter-spacing:.08em;margin-bottom:16px;text-align:center">Download & Physical Card</div>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px">
+
+              <!-- PDF DOWNLOAD CARD -->
+              <div style="background:var(--bg3);border:1.5px solid var(--border2);border-radius:14px;padding:20px;cursor:pointer;transition:.25s;text-align:center" onmouseenter="this.style.borderColor='var(--accent)'" onmouseleave="this.style.borderColor='var(--border2)'">
+                <div style="font-size:32px;margin-bottom:10px">📄</div>
+                <div style="font-size:14px;font-weight:700;color:var(--text);margin-bottom:6px">PAWID Certificate</div>
+                <div style="font-size:12px;color:var(--text3);line-height:1.5;margin-bottom:14px">Aadhaar-style PDF with QR code, full details, health records & official PAWID seal</div>
+                <div style="display:flex;gap:6px;justify-content:center;flex-wrap:wrap;margin-bottom:14px">
+                  <span style="font-size:10px;background:rgba(99,102,241,0.12);color:var(--accent3);padding:3px 8px;border-radius:50px;font-weight:600">QR Code</span>
+                  <span style="font-size:10px;background:rgba(34,197,94,0.1);color:#4ade80;padding:3px 8px;border-radius:50px;font-weight:600">Aadhaar-style</span>
+                  <span style="font-size:10px;background:rgba(245,158,11,0.1);color:#fcd34d;padding:3px 8px;border-radius:50px;font-weight:600">Free</span>
+                </div>
+                <button onclick="downloadPetIDPDF()" style="width:100%;background:linear-gradient(135deg,var(--accent),var(--accent2));color:white;border:none;padding:10px;border-radius:8px;font-size:13px;font-weight:700;cursor:pointer">⬇ Download PDF</button>
+              </div>
+
+              <!-- PHYSICAL SMART CARD -->
+              <div style="background:var(--bg3);border:1.5px solid var(--border2);border-radius:14px;padding:20px;cursor:pointer;transition:.25s;text-align:center" onmouseenter="this.style.borderColor='#f59e0b'" onmouseleave="this.style.borderColor='var(--border2)'">
+                <div style="font-size:32px;margin-bottom:10px">💳</div>
+                <div style="font-size:14px;font-weight:700;color:var(--text);margin-bottom:6px">Physical Smart Card</div>
+                <div style="font-size:12px;color:var(--text3);line-height:1.5;margin-bottom:14px">ATM-sized PVC card with QR code. NFC chip coming soon. Delivered to your door.</div>
+                <div style="display:flex;gap:6px;justify-content:center;flex-wrap:wrap;margin-bottom:14px">
+                  <span style="font-size:10px;background:rgba(245,158,11,0.1);color:#fcd34d;padding:3px 8px;border-radius:50px;font-weight:600">ATM Size</span>
+                  <span style="font-size:10px;background:rgba(99,102,241,0.12);color:var(--accent3);padding:3px 8px;border-radius:50px;font-weight:600">QR Code</span>
+                  <span style="font-size:10px;background:rgba(244,63,94,0.1);color:#fb7185;padding:3px 8px;border-radius:50px;font-weight:600">NFC Soon</span>
+                </div>
+                <button onclick="showSmartCardOrder()" style="width:100%;background:linear-gradient(135deg,#f59e0b,#f97316);color:#0a0f1e;border:none;padding:10px;border-radius:8px;font-size:13px;font-weight:700;cursor:pointer">🪪 Preview &amp; Order</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+</div>
+
+<script>
+let currentStep = 1;
+const totalSteps = 5;
+let selectedSpecies = '';
+
+function showStep(n) {
+  for (let i = 1; i <= totalSteps; i++) {
+    const s = document.getElementById('step' + i);
+    const b = document.getElementById('bar' + i);
+    const l = document.getElementById('lab' + i);
+    if (s) { s.classList.toggle('active', i === n); }
+    if (b) {
+      b.classList.remove('done','active');
+      if (i < n) b.classList.add('done');
+      else if (i === n) b.classList.add('active');
+    }
+    if (l) { l.classList.toggle('active', i === n); }
+  }
+  currentStep = n;
+  const modal = document.getElementById('modal');
+  if(modal) modal.scrollTop = 0;
+}
+
+function selectRadio(group, val, el) {
+  document.querySelectorAll('#species_grid .rc').forEach(r => r.classList.remove('sel'));
+  el.classList.add('sel');
+  document.getElementById('pw_petSpecies').value = val;
+  selectedSpecies = val;
+  // trigger breed update
+  pwUpdateBreedDataList();
+}
+
+function nextStep(from) {
+  if (from === 1) {
+    const name = document.getElementById('pw_ownerName').value.trim();
+    const email = document.getElementById('pw_email').value.trim();
+    const phone = document.getElementById('pw_phone').value.trim();
+    const country = document.getElementById('o_country').value;
+    if (!name || !email || !phone || !country) { alert('Please fill in all required fields (Name, Email, Phone, Country).'); return; }
+  }
+  if (from === 2) {
+    const pname = document.getElementById('pw_petName').value.trim();
+    const pdob = document.getElementById('p_dob').value;
+    const pgender = document.getElementById('p_gender').value;
+    const pspecies = document.getElementById('pw_petSpecies').value;
+    if (!pname || !pdob || !pgender || !pspecies) { alert('Please fill in pet name, date of birth, gender, and select a species.'); return; }
+  }
+  if (from === 3) { populateReview(); }
+  if (from === 4) { 
+    const pass = document.getElementById('pw_pass').value;
+    const pass2 = document.getElementById('pw_pass_confirm').value;
+    if(!pass || !pass2 || pass !== pass2) {
+      alert('Passwords do not match or are empty!');
+      return;
+    }
+    if (!document.getElementById('c1').checked || !document.getElementById('c2').checked || !document.getElementById('c3').checked) {
+      alert('Please accept all terms and conditions to proceed.');
+      return;
+    }
+    pwSubmitGenerator(); 
+    return; 
+  }
+  showStep(from + 1);
+}
+
+function prevStep(from) {
+  showStep(from - 1);
+}
+
+function populateReview() {
+  const city = document.getElementById('pw_ownerCity').value;
+  const country = document.getElementById('o_country').value;
+  document.getElementById('r_name').textContent = document.getElementById('pw_ownerName').value || '—';
+  document.getElementById('r_email').textContent = document.getElementById('pw_email').value || '—';
+  document.getElementById('r_phone').textContent = document.getElementById('pw_phone').value || '—';
+  document.getElementById('r_loc').textContent = [city, country].filter(Boolean).join(', ') || '—';
+  document.getElementById('r_pname').textContent = document.getElementById('pw_petName').value || '—';
+  const sp = document.getElementById('pw_petSpecies').value;
+  const br = document.getElementById('pw_petBreed').value;
+  document.getElementById('r_species').textContent = [sp, br].filter(Boolean).join(' · ') || '—';
+  document.getElementById('r_dob').textContent = document.getElementById('p_dob').value || '—';
+  document.getElementById('r_chip').textContent = document.getElementById('p_chip').value || 'Not provided';
+  document.getElementById('r_gender').textContent = document.getElementById('p_gender').value || '—';
+  document.getElementById('r_vet').textContent = document.getElementById('h_vet').value || 'Not provided';
+  document.getElementById('r_lvisit').textContent = document.getElementById('h_lastvisit').value || 'Not provided';
+  const vaccs = ['Rabies','Distemper','Parvovirus','Hepatitis','Bordetella','Leptospirosis','Influenza','Feline FVRCP'];
+  const checked = vaccs.filter((_, i) => document.getElementById('v' + (i+1)).checked);
+  document.getElementById('r_vacc').textContent = checked.length > 0 ? checked.join(', ') : 'None selected';
+}
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
       <script src="https://www.gstatic.com/firebasejs/10.9.0/firebase-app-compat.js"></script>
       <script src="https://www.gstatic.com/firebasejs/10.9.0/firebase-auth-compat.js"></script>
       <script>
@@ -3844,21 +3792,7 @@
         }
 
         async function pwSubmitGenerator() {
-          const form = document.getElementById('pw-slider-track');
-          if (!form.checkValidity()) {
-            form.reportValidity();
-            return;
-          }
-          if (!validateSlide(4)) {
-            document.getElementById('pw-error-msg').style.display = 'block';
-            document.getElementById('pw-error-msg').innerText = "Please ensure passwords match and terms are checked.";
-            return;
-          }
-
-          const errMsg = document.getElementById('pw-error-msg');
-          errMsg.style.display = 'none';
-
-          const btn = form.querySelector('.pw-slide[data-step="4"] .btn-primary');
+          const btn = document.getElementById('submit-btn');
           const originalBtnText = btn ? btn.innerText : 'Generate PAWID →';
           if (btn) {
             btn.innerText = "Registering...";
@@ -3899,8 +3833,8 @@
             }
 
             // Move to slide 5 - Generating state
-            pwSlideTo(6, false);
-            document.getElementById('pw-sidebar').style.display = 'none'; // hide sidebar on finish
+            showStep(5);
+            
 
             setTimeout(() => {
               // Populate the Smart Card from DOM inputs
@@ -3920,13 +3854,12 @@
               document.getElementById('sc_pawid_full').innerText = `PAW-IND-${species.substring(0, 2).toUpperCase()}-${idNum}`;
 
               // Hide forming UI completely and show success UI
-              document.getElementById('pawid-wizard-container').style.display = 'none';
+              document.getElementById('modal').style.display = 'none';
               document.getElementById('pawid-success').style.display = 'block';
             }, 1800);
           } catch (error) {
             console.error("Account creation error:", error);
-            errMsg.style.display = 'block';
-            errMsg.innerText = error.message.replace("Firebase: ", "");
+            alert("Error: " + error.message.replace("Firebase: ", ""));
             if (btn) {
               btn.innerText = originalBtnText;
               btn.disabled = false;
