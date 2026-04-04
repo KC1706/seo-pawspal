@@ -3276,7 +3276,7 @@ input::placeholder{color:var(--text3)}select option{background:var(--bg3)}textar
 .sdiv::after{content:'';flex:1;height:1px;background:var(--border2)}
 .vg{display:grid;grid-template-columns:1fr 1fr;gap:9px}
 .vi{display:flex;align-items:center;gap:10px;background:var(--bg3);border:1px solid var(--border2);border-radius:var(--rs);padding:11px;cursor:pointer;transition:.2s}
-.vi:hover{border-color:var(--accent)}.vi input[type=checkbox]{width:16px;height:16px;flex-shrink:0;accent-color:var(--accent);cursor:pointer}
+.vi:hover{border-color:var(--accent)}.vi input[type=checkbox]{appearance:auto;-webkit-appearance:auto;width:16px;height:16px;flex-shrink:0;accent-color:var(--accent);cursor:pointer}
 .vi label{font-size:13px;font-weight:500;margin:0;text-transform:none;letter-spacing:0;cursor:pointer;color:var(--text)}
 .faction{display:flex;justify-content:space-between;align-items:center;margin-top:24px;padding-top:18px;border-top:1px solid var(--border2)}
 .bbk{background:transparent;border:1px solid var(--border2);color:var(--text2);padding:11px 22px;border-radius:var(--rs);font-size:14px;font-weight:600;cursor:pointer;transition:.2s}.bbk:hover{border-color:var(--accent);color:var(--text)}
@@ -3286,7 +3286,7 @@ input::placeholder{color:var(--text3)}select option{background:var(--bg3)}textar
 .rcard h4{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:var(--accent3);margin-bottom:11px}
 .cbox{background:rgba(99,102,241,0.06);border:1px solid var(--border);border-radius:var(--rs);padding:14px;margin-top:14px}
 .crow{display:flex;align-items:flex-start;gap:10px;margin-bottom:8px}.crow:last-child{margin-bottom:0}
-.crow input{width:16px;height:16px;flex-shrink:0;margin-top:2px;accent-color:var(--accent)}
+.crow input{appearance:auto;-webkit-appearance:auto;width:16px;height:16px;flex-shrink:0;margin-top:2px;accent-color:var(--accent)}
 .crow label{font-size:12px;color:var(--text2);line-height:1.5;text-transform:none;letter-spacing:0;font-weight:400}
 .success-w{text-align:center;padding:20px 0}
 .sico{width:76px;height:76px;background:linear-gradient(135deg,rgba(34,197,94,0.15),rgba(20,184,166,0.15));border:2px solid rgba(34,197,94,0.3);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:34px;margin:0 auto 22px}
@@ -3376,18 +3376,19 @@ footer{background:var(--bg2);border-top:1px solid var(--border2);padding:48px 80
         </div>
         <div style="margin-bottom:14px">
           <label>Species <span class="req">*</span></label>
-          <div class="radio-g" id="species_grid">
-            <div class="rc" onclick="selectRadio('species','dog',this)"><div class="ri">🐕</div><div class="rl">Dog</div></div>
-            <div class="rc" onclick="selectRadio('species','cat',this)"><div class="ri">🐈</div><div class="rl">Cat</div></div>
-            <div class="rc" onclick="selectRadio('species','bird',this)"><div class="ri">🦜</div><div class="rl">Bird</div></div>
-            <div class="rc" onclick="selectRadio('species','rabbit',this)"><div class="ri">🐇</div><div class="rl">Rabbit</div></div>
-            <div class="rc" onclick="selectRadio('species','fish',this)"><div class="ri">🐠</div><div class="rl">Fish</div></div>
-            <div class="rc" onclick="selectRadio('species','other',this)"><div class="ri">🐾</div><div class="rl">Other</div></div>
+          <div class="radio-g" id="species_grid" style="grid-template-columns: repeat(2, 1fr);">
+            <div class="rc" onclick="selectRadio('species','Dog',this)"><div class="ri">🐕</div><div class="rl">Dog</div></div>
+            <div class="rc" onclick="selectRadio('species','Cat',this)"><div class="ri">🐈</div><div class="rl">Cat</div></div>
           </div>
           <input type="hidden" id="pw_petSpecies" value="">
         </div>
         <div class="fg c2">
-          <div><label>Breed</label><input type="text" id="pw_petBreed" placeholder="Golden Retriever, Persian, etc."></div>
+          <div>
+            <label>Breed</label>
+            <input type="text" id="pw_petBreed" list="breed_list" placeholder="Select species first" disabled>
+            <datalist id="breed_list"></datalist>
+            <div style="font-size:11px;color:var(--text3);margin-top:4px;">Select species to load breeds</div>
+          </div>
           <div><label>Gender <span class="req">*</span></label>
             <select id="p_gender">
               <option value="">Select gender</option>
@@ -3812,7 +3813,7 @@ function populateReview() {
             const idToken = await cred.user.getIdToken();
 
             // 2. Register Owner Account via Backend
-            const backendRes = await fetch("https://api.pawspalconnect.com/uthentication/register", {
+            const backendRes = await fetch("https://api.pawspalconnect.com/authentication/register", {
               method: "POST",
               headers: {
                 "Content-Type": "application/json",
